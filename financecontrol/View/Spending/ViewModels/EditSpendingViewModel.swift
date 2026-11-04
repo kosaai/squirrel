@@ -71,9 +71,9 @@ final class EditSpendingViewModel: ViewModel {
             guard let number = formatter.number(from: amount) else {
                 await MainActor.run {
                     ErrorType(
-                        errorDescription: "Failed to edit expense",
-                        failureReason: "Cannot convert amount to number",
-                        recoverySuggestion: "Try again"
+                        errorDescription: NSLocalizedString("Failed to edit expense", comment: ""),
+                        failureReason: NSLocalizedString("Cannot convert amount to number", comment: ""),
+                        recoverySuggestion: NSLocalizedString("Try again", comment: "")
                     )
                     .publish()
                 }

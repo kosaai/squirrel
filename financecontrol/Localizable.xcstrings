@@ -859,6 +859,38 @@
         }
       }
     },
+    "Can't reach requested URL" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Can't reach requested URL"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذر الوصول إلى عنوان URL المطلوب"
+          }
+        }
+      }
+    },
+    "Cannot convert amount to number" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cannot convert amount to number"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذر تحويل المبلغ إلى رقم"
+          }
+        }
+      }
+    },
     "Cancel" : {
       "localizations" : {
         "ar" : {
@@ -913,6 +945,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "تحقق من الإملاء أو جرّب بحثًا آخر."
+          }
+        }
+      }
+    },
+    "Check your internet connection" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check your internet connection"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تحقق من اتصالك بالإنترنت"
           }
         }
       }
@@ -1597,12 +1645,60 @@
         }
       }
     },
+    "Failed to add expense" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to add expense"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذر إضافة المصروف"
+          }
+        }
+      }
+    },
+    "Failed to add return" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to add return"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذر إضافة استرداد"
+          }
+        }
+      }
+    },
     "Failed to create URL from given components" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "تعذر إنشاء عنوان URL من المكونات المحددة"
+          }
+        }
+      }
+    },
+    "Failed to edit expense" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to edit expense"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذر تعديل المصروف"
           }
         }
       }
@@ -2800,6 +2896,22 @@
         }
       }
     },
+    "Select Category" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Category"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر فئة"
+          }
+        }
+      }
+    },
     "Select a tab from sidebar" : {
       "localizations" : {
         "ar" : {
@@ -3062,6 +3174,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "لا يرسل Squirrel أي بيانات أو معرّفات من جهازك."
+          }
+        }
+      }
+    },
+    "Squirrel servers did not response correctly" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Squirrel servers did not response correctly"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم تستجب خوادم Squirrel بشكل صحيح"
           }
         }
       }
@@ -3348,6 +3476,38 @@
         }
       }
     },
+    "Try again" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حاول مرة أخرى"
+          }
+        }
+      }
+    },
+    "Try to restart the app" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try to restart the app"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حاول إعادة تشغيل التطبيق"
+          }
+        }
+      }
+    },
     "Trying again..." : {
       "localizations" : {
         "ar" : {
@@ -3364,6 +3524,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "إزالة من المفضلة"
+          }
+        }
+      }
+    },
+    "Unknown error: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown error: %@"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "خطأ غير معروف: %@"
           }
         }
       }

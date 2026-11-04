@@ -178,9 +178,9 @@ final class AddSpendingViewModel: ViewModel {
             guard let number = formatter.number(from: amount) else {
                 await MainActor.run {
                     ErrorType(
-                        errorDescription: "Failed to add expense",
-                        failureReason: "Cannot convert amount to number",
-                        recoverySuggestion: "Try again"
+                        errorDescription: NSLocalizedString("Failed to add expense", comment: ""),
+                        failureReason: NSLocalizedString("Cannot convert amount to number", comment: ""),
+                        recoverySuggestion: NSLocalizedString("Try again", comment: "")
                     )
                     .publish()
                 }

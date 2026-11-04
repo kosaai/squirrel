@@ -45,9 +45,9 @@ final class AddReturnViewModel: ViewModel {
             let returns = spending.returns?.allObjects as? [ReturnEntity]
         else {
             ErrorType(
-                errorDescription: "Failed to add return",
-                failureReason: "Cannot convert amount to number",
-                recoverySuggestion: "Try again"
+                errorDescription: NSLocalizedString("Failed to add return", comment: ""),
+                failureReason: NSLocalizedString("Cannot convert amount to number", comment: ""),
+                recoverySuggestion: NSLocalizedString("Try again", comment: "")
             )
             .publish()
             

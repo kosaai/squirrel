@@ -97,7 +97,7 @@ struct CategorySelector: View {
         } label: {
             Spacer()
             
-            Text(selectedCategory?.name ?? "Select Category")
+            Text(selectedCategory?.name ?? NSLocalizedString("Select Category", comment: ""))
                 .multilineTextAlignment(.trailing)
         }
         .background {

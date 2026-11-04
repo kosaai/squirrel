@@ -31,9 +31,12 @@ struct ErrorType: Identifiable, Equatable {
     var createIssue: Bool = true
     
     init(error: Error) {
-        self.errorDescription = "Unknown error: \(error.localizedDescription)"
+        self.errorDescription = String(
+            format: NSLocalizedString("Unknown error: %@", comment: "Unexpected error description"),
+            error.localizedDescription
+        )
         self.failureReason = error.localizedDescription
-        self.recoverySuggestion = "Please submit a bug report and try to restart the app"
+        self.recoverySuggestion = NSLocalizedString("Please submit a bug report and try to restart the app", comment: "")
         self.helpAnchor = ""
     }
     
@@ -47,28 +50,28 @@ struct ErrorType: Identifiable, Equatable {
     init(_ urlError: URLError) {
         switch urlError {
         case URLError(.badURL):
-            self.errorDescription = "Can't reach requested URL"
+            self.errorDescription = NSLocalizedString("Can't reach requested URL", comment: "")
             self.failureReason = urlError.localizedDescription
-            self.recoverySuggestion = "Try to restart the app"
+            self.recoverySuggestion = NSLocalizedString("Try to restart the app", comment: "")
             self.helpAnchor = ""
             
         case URLError(.badServerResponse):
-            self.errorDescription = "Squirrel servers did not response correctly"
+            self.errorDescription = NSLocalizedString("Squirrel servers did not response correctly", comment: "")
             self.failureReason = urlError.localizedDescription
-            self.recoverySuggestion = "Try to restart the app"
+            self.recoverySuggestion = NSLocalizedString("Try to restart the app", comment: "")
             self.helpAnchor = ""
             
         case URLError(.notConnectedToInternet):
             self.errorDescription = urlError.localizedDescription
             self.failureReason = urlError.localizedDescription
-            self.recoverySuggestion = "Check your internet connection"
+            self.recoverySuggestion = NSLocalizedString("Check your internet connection", comment: "")
             self.helpAnchor = ""
             self.createIssue = false
             
         default:
             self.errorDescription = urlError.localizedDescription
             self.failureReason = urlError.localizedDescription
-            self.recoverySuggestion = "Try to restart the app"
+            self.recoverySuggestion = NSLocalizedString("Try to restart the app", comment: "")
             self.helpAnchor = ""
         }
     }
