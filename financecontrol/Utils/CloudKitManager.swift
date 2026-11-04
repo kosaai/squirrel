@@ -6,17 +6,18 @@
 //
 
 import CloudKit
+import Security
 #if DEBUG
 import OSLog
 #endif
 
 final class CloudKitManager: ObservableObject {
     enum CloudKitError: String, LocalizedError {
-        case failedToDecodeResult, failedToGetResult, noValueFound, noEditDateFound, noRecordFound, networkUnavailable
+        case failedToDecodeResult, failedToGetResult, noValueFound, noEditDateFound, noRecordFound, networkUnavailable, unavailable
         
         var errorDescription: String? {
             switch self {
-            case .networkUnavailable:
+            case .networkUnavailable, .unavailable:
                 NSLocalizedString("Network Unavailable", comment: "CloudKit network error")
             default:
                 String(
@@ -38,7 +39,7 @@ final class CloudKitManager: ObservableObject {
     @Published
     private(set) var accountStatus: CKAccountStatus?
     
-    private let container = CKContainer(identifier: Vars.iCloudContainerIdentifier)
+    private let container: CKContainer?
     private let cloudKitCoreDataZoneID = CKRecordZone.ID(zoneName: "com.apple.coredata.cloudkit.zone")
     private let ckOperationConfig: CKOperation.Configuration
     
@@ -56,6 +57,16 @@ final class CloudKitManager: ObservableObject {
         config.timeoutIntervalForResource = 10
         config.isLongLived = false
         self.ckOperationConfig = config
+
+        guard Self.isCloudKitContainerEntitled else {
+            self.container = nil
+            self.accountStatus = .restricted
+            NSUbiquitousKeyValueStore.default.set(false, forKey: UDKey.iCloudSync.rawValue)
+            return
+        }
+
+        let container = CKContainer(identifier: Vars.iCloudContainerIdentifier)
+        self.container = container
         
         Task { [weak self, container] in
             do {
@@ -91,6 +102,10 @@ final class CloudKitManager: ObservableObject {
     }
     
     func fetchRates(timestamp recordName: String) async throws -> (editDate: Date, rates: Rates) {
+        guard let container else {
+            throw CloudKitError.unavailable
+        }
+
         func getRatesRecord(recordName: CKRecord.ID) async throws -> CKRecord {
             do {
                 return try await container.publicCloudDatabase.configuredWith(configuration: ckOperationConfig) { configuredDatabase in
@@ -143,6 +158,10 @@ final class CloudKitManager: ObservableObject {
     }
     
     func updateCloudKitContent(forceUpdate: Bool = false) async {
+        guard let container else {
+            return
+        }
+
         let publicDB = container.publicCloudDatabase
         
         let urlVersion = try? await publicDB.record(for: CKRecord.ID(recordName: "AllURLUpdateVersion"))
@@ -162,6 +181,10 @@ final class CloudKitManager: ObservableObject {
     }
     
     private func updateAppURLS(urlVersion: Int) async {
+        guard let container else {
+            return
+        }
+
         let publicDB = container.publicCloudDatabase
         var count = 0
         let udKeys = UDKey.urlKeys
@@ -216,6 +239,10 @@ final class CloudKitManager: ObservableObject {
     }
     
     private func updateSocialNetworks(socialVersion: Int) async {
+        guard let container else {
+            return
+        }
+
         let publicDB = container.publicCloudDatabase
         
         do {
@@ -228,7 +255,7 @@ final class CloudKitManager: ObservableObject {
     }
     
     func dropUserDataFromPublicDatabase() async throws {
-        guard accountStatus == .available else {
+        guard let container, accountStatus == .available else {
             return
         }
         
@@ -241,7 +268,7 @@ final class CloudKitManager: ObservableObject {
     }
     
     func hasDataInCloudKit() async -> Bool {
-        guard accountStatus == .available else {
+        guard let container, accountStatus == .available else {
             return false
         }
         
@@ -250,6 +277,23 @@ final class CloudKitManager: ObservableObject {
         guard let zoneIDs else { return true }
         
         return zoneIDs.contains(where: { $0.zoneID == cloudKitCoreDataZoneID })
+    }
+}
+
+private extension CloudKitManager {
+    static var isCloudKitContainerEntitled: Bool {
+        guard
+            let task = SecTaskCreateFromSelf(nil),
+            let identifiers = SecTaskCopyValueForEntitlement(
+                task,
+                "com.apple.developer.icloud-container-identifiers" as CFString,
+                nil
+            ) as? [String]
+        else {
+            return false
+        }
+
+        return identifiers.contains(Vars.iCloudContainerIdentifier)
     }
 }
 
