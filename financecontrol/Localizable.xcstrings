@@ -2,16 +2,37 @@
   "sourceLanguage" : "en",
   "strings" : {
     "" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
     },
     "%@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@"
+          }
+        }
+      }
     },
     "%@\n%@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "%1$@\n%2$@"
+          }
+        }
+      ,
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "%1$@\n%2$@"
           }
         }
@@ -25,6 +46,13 @@
             "value" : "%1$@ = %2$@"
           }
         }
+      ,
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@ = %2$@"
+          }
+        }
       }
     },
     "%@, version %@" : {
@@ -33,6 +61,13 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@, version %2$@"
+          }
+        }
+      ,
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$@، الإصدار %2$@"
           }
         }
       }
@@ -52,6 +87,49 @@
                 "stringUnit" : {
                   "state" : "new",
                   "value" : "%lld Categories"
+                }
+              }
+            }
+          }
+        }
+      ,
+        "ar" : {
+          "variations" : {
+            "plural" : {
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld فئة"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld فئة"
+                }
+              },
+              "two" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld فئتان"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld فئات"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld فئة"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld فئة"
                 }
               }
             }
@@ -79,6 +157,49 @@
             }
           }
         }
+      ,
+        "ar" : {
+          "variations" : {
+            "plural" : {
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld حرف متبقٍ"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld حرف متبقٍ"
+                }
+              },
+              "two" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld حرفان متبقيان"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld أحرف متبقية"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld حرفًا متبقيًا"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld حرف متبقٍ"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "%lld Currencies" : {
@@ -96,6 +217,49 @@
                 "stringUnit" : {
                   "state" : "new",
                   "value" : "%lld Currencies"
+                }
+              }
+            }
+          }
+        }
+      ,
+        "ar" : {
+          "variations" : {
+            "plural" : {
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld عملة"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld عملة"
+                }
+              },
+              "two" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld عملتان"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld عملات"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld عملة"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld عملة"
                 }
               }
             }
@@ -123,10 +287,60 @@
             }
           }
         }
+      ,
+        "ar" : {
+          "variations" : {
+            "plural" : {
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld مصروف"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld مصروف"
+                }
+              },
+              "two" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld مصروفان"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld مصروفات"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld مصروفًا"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld مصروف"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "%lld Filters Applied" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم تطبيق %lld عامل تصفية"
+          }
+        }
+      }
     },
     "%lld returns" : {
       "localizations" : {
@@ -148,17 +362,81 @@
             }
           }
         }
+      ,
+        "ar" : {
+          "variations" : {
+            "plural" : {
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld استرداد"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld استرداد"
+                }
+              },
+              "two" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld استردادان"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld استردادات"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld استردادًا"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld استرداد"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "%lld selected" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم تحديد %lld"
+          }
+        }
+      }
     },
     "%lld Time Zones" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld منطقة زمنية"
+          }
+        }
+      }
     },
     "1 USD" : {
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 USD"
+          }
+        }
+      ,
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "1 USD"
@@ -426,6 +704,13 @@
             "value" : "App of the rising sun"
           }
         }
+      ,
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تطبيق الشمس المشرقة"
+          }
+        }
       }
     },
     "Appearance" : {
@@ -565,7 +850,14 @@
       }
     },
     "Build: %@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "البنية: %@"
+          }
+        }
+      }
     },
     "Cancel" : {
       "localizations" : {
@@ -604,6 +896,13 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Other"
+          }
+        }
+      ,
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أخرى"
           }
         }
       }
@@ -939,7 +1238,14 @@
       }
     },
     "Dawn of Squipan" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فجر سكويبن"
+          }
+        }
+      }
     },
     "Decimal Separator" : {
       "localizations" : {
@@ -1152,10 +1458,24 @@
       }
     },
     "Even a squirrel needs a hat in winter" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حتى السنجاب يحتاج إلى قبعة في الشتاء"
+          }
+        }
+      }
     },
     "Everything that lives is designed to end. We are perpetually trapped in a never-ending spiral..." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كل ما يعيش مقدَّر له أن ينتهي. نحن عالقون إلى الأبد في دوامة لا تنتهي..."
+          }
+        }
+      }
     },
     "Exchange Rates" : {
       "localizations" : {
@@ -1368,10 +1688,24 @@
       }
     },
     "First Flight" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الرحلة الأولى"
+          }
+        }
+      }
     },
     "Format Example: %@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مثال للتنسيق: %@"
+          }
+        }
+      }
     },
     "format-without-timezones-description-key" : {
       "localizations" : {
@@ -1430,7 +1764,14 @@
       }
     },
     "Ghost" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الشبح"
+          }
+        }
+      }
     },
     "Grouping Separator" : {
       "localizations" : {
@@ -1612,6 +1953,49 @@
             }
           }
         }
+      ,
+        "ar" : {
+          "variations" : {
+            "plural" : {
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "تم استيراد %lld مصروف"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "تم استيراد %lld مصروف"
+                }
+              },
+              "two" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "تم استيراد %lld مصروفين"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "تم استيراد %lld مصروفات"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "تم استيراد %lld مصروفًا"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "تم استيراد %lld مصروف"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "Indigo" : {
@@ -1645,7 +2029,14 @@
       }
     },
     "It's probably all LED's nowadays" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "على الأرجح أن كل شيء بتقنية LED هذه الأيام"
+          }
+        }
+      }
     },
     "Minimize" : {
       "localizations" : {
@@ -1708,7 +2099,14 @@
       }
     },
     "N:A" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "N:A"
+          }
+        }
+      }
     },
     "Name" : {
       "localizations" : {
@@ -1721,7 +2119,14 @@
       }
     },
     "Neon Night" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ليلة نيون"
+          }
+        }
+      }
     },
     "New Category" : {
       "localizations" : {
@@ -1874,7 +2279,14 @@
       }
     },
     "No results for \"%@\"" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد نتائج لـ \"%@\""
+          }
+        }
+      }
     },
     "No Results for These Filters" : {
       "localizations" : {
@@ -1897,7 +2309,14 @@
       }
     },
     "No up to date exchange rate found for %@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يتم العثور على سعر صرف حديث لـ %@"
+          }
+        }
+      }
     },
     "No URL was found" : {
       "localizations" : {
@@ -2106,7 +2525,14 @@
       }
     },
     "Plays to the audience" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يعزف للجمهور"
+          }
+        }
+      }
     },
     "Please submit a bug report and try to reinstall the app" : {
       "localizations" : {
@@ -2365,7 +2791,14 @@
       }
     },
     "Searching For %@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "جارٍ البحث عن %@"
+          }
+        }
+      }
     },
     "Select a tab from sidebar" : {
       "localizations" : {
@@ -2448,7 +2881,14 @@
       }
     },
     "Selected category: %@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الفئة المحددة: %@"
+          }
+        }
+      }
     },
     "Semicolon ( ; )" : {
       "localizations" : {
@@ -2501,7 +2941,14 @@
       }
     },
     "Sign in your iCloud account on device or allow Squirrel to use iCloud in settings." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سجّل الدخول إلى حساب iCloud على جهازك أو اسمح لتطبيق Squirrel باستخدام iCloud من الإعدادات."
+          }
+        }
+      }
     },
     "sign-in-to-icloud-key" : {
       "localizations" : {
@@ -2590,10 +3037,24 @@
       }
     },
     "Squirrel" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Squirrel"
+          }
+        }
+      }
     },
     "Squirrel %@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Squirrel %@"
+          }
+        }
+      }
     },
     "Squirrel does not send any data or identifiers from your device." : {
       "localizations" : {
@@ -2606,7 +3067,14 @@
       }
     },
     "Sqwoorl" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sqwoorl"
+          }
+        }
+      }
     },
     "Stats" : {
       "localizations" : {
@@ -2737,6 +3205,13 @@
             "value" : "/"
           }
         }
+      ,
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "/"
+          }
+        }
       }
     },
     "Timezone" : {
@@ -2788,6 +3263,13 @@
             "value" : "Approximate location"
           }
         }
+      ,
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الموقع التقريبي"
+          }
+        }
       }
     },
     "timezone-name" : {
@@ -2797,6 +3279,13 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name"
+          }
+        }
+      ,
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الاسم"
           }
         }
       }
@@ -2810,13 +3299,34 @@
             "value" : "Offset from GMT"
           }
         }
+      ,
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإزاحة عن GMT"
+          }
+        }
       }
     },
     "To" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إلى"
+          }
+        }
+      }
     },
     "To the store!" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إلى المتجر!"
+          }
+        }
+      }
     },
     "Today" : {
       "localizations" : {
@@ -2839,10 +3349,24 @@
       }
     },
     "Trying again..." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "جارٍ إعادة المحاولة..."
+          }
+        }
+      }
     },
     "Unfavorite" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إزالة من المفضلة"
+          }
+        }
+      }
     },
     "unknown-place-localized" : {
       "comment" : "Unknown place",
@@ -2854,22 +3378,64 @@
             "value" : "Unknown"
           }
         }
+      ,
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "غير معروف"
+          }
+        }
       }
     },
     "Updating rates..." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "جارٍ تحديث أسعار الصرف..."
+          }
+        }
+      }
     },
     "Use Amounts with Returns" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "استخدام المبالغ مع الاستردادات"
+          }
+        }
+      }
     },
     "Used" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مستخدم"
+          }
+        }
+      }
     },
     "Ver. %@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإصدار %@"
+          }
+        }
+      }
     },
     "We respect your privacy and will not change our stance on tracking or storing data in your control. This clarification is here so that if we add any opt-in features this policy will be updated to reflect that." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نحترم خصوصيتك ولن نغيّر موقفنا بشأن تتبع البيانات أو تخزينها تحت سيطرتك. أُضيف هذا التوضيح لكي إذا أضفنا أي ميزات اختيارية، فسيتم تحديث هذه السياسة لتعكس ذلك."
+          }
+        }
+      }
     },
     "Welcome to" : {
       "localizations" : {
@@ -2882,97 +3448,314 @@
       }
     },
     "What's new in %@" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ما الجديد في %@"
+          }
+        }
+      }
     },
     "What's New?" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ما الجديد؟"
+          }
+        }
+      }
     },
     "Winterized" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مجهز للشتاء"
+          }
+        }
+      }
     },
     "With returns" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مع الاستردادات"
+          }
+        }
+      }
     },
     "With Returns" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مع الاستردادات"
+          }
+        }
+      }
     },
     "Without returns" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بدون استردادات"
+          }
+        }
+      }
     },
     "Without Returns" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بدون استردادات"
+          }
+        }
+      }
     },
     "Write" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اكتب"
+          }
+        }
+      }
     },
     "Year" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "السنة"
+          }
+        }
+      }
     },
     "Yes, that's his real name" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نعم، هذا اسمه الحقيقي"
+          }
+        }
+      }
     },
     "Yesterday" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أمس"
+          }
+        }
+      }
     },
     "You can add categories below." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك إضافة فئات أدناه."
+          }
+        }
+      }
     },
     "You can add categories in settings." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك إضافة فئات من الإعدادات."
+          }
+        }
+      }
     },
     "You can add categories later in settings" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك إضافة فئات لاحقًا من الإعدادات"
+          }
+        }
+      }
     },
     "You can add category to favorites from settings." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك إضافة فئة إلى المفضلة من الإعدادات."
+          }
+        }
+      }
     },
     "You can add expenses from home screen." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك إضافة مصروفات من الشاشة الرئيسية."
+          }
+        }
+      }
     },
     "You can archive categories in settings, they will be hidden from selection when you add new expenses, but all old expenses will be saved." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك أرشفة الفئات من الإعدادات، وستُخفى من القائمة عند إضافة مصروفات جديدة، لكن ستُحفظ جميع المصروفات القديمة."
+          }
+        }
+      }
     },
     "You can change the default currency or add more later in settings" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك تغيير العملة الافتراضية أو إضافة المزيد لاحقًا من الإعدادات"
+          }
+        }
+      }
     },
     "You can change this later in settings" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك تغيير هذا لاحقًا من الإعدادات"
+          }
+        }
+      }
     },
     "You can choose a currency to be selected by default, different from display currency" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك اختيار عملة تُحدد افتراضيًا تختلف عن عملة العرض"
+          }
+        }
+      }
     },
     "You can now filter expenses by the timezone they were made in." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك الآن تصفية المصروفات حسب المنطقة الزمنية التي أُجريت فيها."
+          }
+        }
+      }
     },
     "You can now select custom colors for categories. Your existing categories were updated to match the new look" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك الآن اختيار ألوان مخصصة للفئات. حُدّثت فئاتك الحالية لتتوافق مع المظهر الجديد."
+          }
+        }
+      }
     },
     "You can perform quick actions like editing or deleting via swipe actions or by holding row" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يمكنك تنفيذ إجراءات سريعة، مثل التعديل أو الحذف، عبر السحب أو الضغط مطولًا على الصف."
+          }
+        }
+      }
     },
     "You can't undo this action." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا يمكنك التراجع عن هذا الإجراء."
+          }
+        }
+      }
     },
     "You can't undo this action.\nAll expenses from this category will be deleted" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا يمكنك التراجع عن هذا الإجراء.\nسيتم حذف جميع مصروفات هذه الفئة"
+          }
+        }
+      }
     },
     "You will be able to delete your data after restarting the app" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ستتمكن من حذف بياناتك بعد إعادة تشغيل التطبيق"
+          }
+        }
+      }
     },
     "Your Currencies" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عملاتك"
+          }
+        }
+      }
     },
     "Your data is stored in your iCloud storage. We don't have access to your data." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تُخزَّن بياناتك في مساحة تخزين iCloud الخاصة بك. ليس لدينا حق الوصول إليها."
+          }
+        }
+      }
     },
     "Your data will be stored in your iCloud storage. We don't have access to your data." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ستُخزَّن بياناتك في مساحة تخزين iCloud الخاصة بك. ليس لدينا حق الوصول إليها."
+          }
+        }
+      }
     },
     "Your Expenses are Syncing to iCloud" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تجري مزامنة مصروفاتك مع iCloud"
+          }
+        }
+      }
     },
     "Your favorite categories will be shown here" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ستظهر فئاتك المفضلة هنا"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
