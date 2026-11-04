@@ -223,6 +223,12 @@
             "state" : "translated",
             "value" : "Add Currency"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة عملة"
+          }
         }
       }
     },
@@ -232,6 +238,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add Expense"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة مصروف"
           }
         }
       }
@@ -243,6 +255,12 @@
             "state" : "translated",
             "value" : "Add new"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة"
+          }
         }
       }
     },
@@ -251,7 +269,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "إضافة عنصر جديد"
+            "value" : "إضافة"
           }
         }
       }
@@ -263,6 +281,12 @@
             "state" : "translated",
             "value" : "Add new category"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة فئة جديدة"
+          }
         }
       }
     },
@@ -272,6 +296,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add Return"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة استرداد"
           }
         }
       }
@@ -306,7 +336,14 @@
       }
     },
     "Amount in USD" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المبلغ بالدولار الأمريكي"
+          }
+        }
+      }
     },
     "An open source expense tracker." : {
 
@@ -372,7 +409,14 @@
       }
     },
     "Archived Categories" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الفئات المؤرشفة"
+          }
+        }
+      }
     },
     "Automatic Dark Mode" : {
 
@@ -458,10 +502,24 @@
       }
     },
     "Clear filters" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مسح عوامل التصفية"
+          }
+        }
+      }
     },
     "Clear Selection" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إلغاء التحديد"
+          }
+        }
+      }
     },
     "Close" : {
       "localizations" : {
@@ -503,7 +561,14 @@
       }
     },
     "Comment (Optional)" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ملاحظة (اختيارية)"
+          }
+        }
+      }
     },
     "Comment is too long" : {
 
@@ -543,10 +608,24 @@
 
     },
     "Create Local Backup" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إنشاء نسخة احتياطية محلية"
+          }
+        }
+      }
     },
     "CSV Options" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "خيارات CSV"
+          }
+        }
+      }
     },
     "Currencies" : {
 
@@ -568,10 +647,24 @@
 
     },
     "Currency convert" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تحويل العملات"
+          }
+        }
+      }
     },
     "Currency name or ISO Code" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اسم العملة أو رمز ISO"
+          }
+        }
+      }
     },
     "Custom" : {
 
@@ -580,7 +673,14 @@
 
     },
     "Dark Mode" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الوضع الداكن"
+          }
+        }
+      }
     },
     "Date" : {
       "localizations" : {
@@ -602,7 +702,14 @@
 
     },
     "Default currency" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "العملة الافتراضية"
+          }
+        }
+      }
     },
     "Delete" : {
       "localizations" : {
@@ -725,16 +832,37 @@
       }
     },
     "Export and Backup" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التصدير والنسخ الاحتياطي"
+          }
+        }
+      }
     },
     "Export and Backup Data" : {
 
     },
     "Export to CSV" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصدير إلى CSV"
+          }
+        }
+      }
     },
     "Export to JSON" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصدير إلى JSON"
+          }
+        }
+      }
     },
     "Export to Spreadsheet" : {
 
@@ -755,7 +883,14 @@
 
     },
     "Favorite" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة إلى المفضلة"
+          }
+        }
+      }
     },
     "Favorite categories" : {
 
@@ -764,7 +899,14 @@
 
     },
     "Filter" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصفية"
+          }
+        }
+      }
     },
     "Filters" : {
       "localizations" : {
@@ -793,7 +935,14 @@
       }
     },
     "Formatting" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التنسيق"
+          }
+        }
+      }
     },
     "From" : {
 
@@ -854,10 +1003,24 @@
 
     },
     "Import existing data" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "استيراد البيانات الموجودة"
+          }
+        }
+      }
     },
     "Import from JSON" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "استيراد من JSON"
+          }
+        }
+      }
     },
     "Import Local Backup" : {
 
@@ -903,7 +1066,14 @@
 
     },
     "Month" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الشهر"
+          }
+        }
+      }
     },
     "More about policy changes" : {
 
@@ -918,13 +1088,27 @@
 
     },
     "Name" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الاسم"
+          }
+        }
+      }
     },
     "Neon Night" : {
 
     },
     "New Category" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فئة جديدة"
+          }
+        }
+      }
     },
     "No API key was found" : {
 
@@ -933,7 +1117,14 @@
 
     },
     "No Categories" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد فئات"
+          }
+        }
+      }
     },
     "No comment provided" : {
 
@@ -948,7 +1139,14 @@
 
     },
     "No expenses" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد مصروفات"
+          }
+        }
+      }
     },
     "No Expenses" : {
 
@@ -990,7 +1188,14 @@
 
     },
     "Number Formatting" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تنسيق الأرقام"
+          }
+        }
+      }
     },
     "Off" : {
 
