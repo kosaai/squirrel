@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingCurrencyView: View {
+    @Environment(\.layoutDirection) private var layoutDirection
     @Binding var showOverlay: Bool
     @Binding var selectedCurrency: String
     @State private var search: String = ""
@@ -115,7 +116,7 @@ struct OnboardingCurrencyView: View {
                     .foregroundColor(.secondary.opacity(0.5))
             }
             .opacity(showButton ? 1 : 0)
-            .offset(x: showButton ? 0 : 20, y: 0)
+            .offset(x: showButton ? 0 : 20 * horizontalDirectionMultiplier, y: 0)
             .foregroundColor(.secondary)
             .disabled(!showButton)
             .animation(.default, value: showButton)
@@ -181,6 +182,10 @@ struct OnboardingCurrencyView: View {
             }
         }
         .animation(.default, value: showButton)
+    }
+
+    private var horizontalDirectionMultiplier: CGFloat {
+        layoutDirection == .leftToRight ? 1 : -1
     }
     
     private var recommendedSection: some View {

@@ -9,6 +9,8 @@ import SwiftUI
 import Beige
 
 struct CustomColorSelector: View {
+    @Environment(\.layoutDirection)
+    private var layoutDirection
     @Environment(\.colorScheme)
     private var colorScheme
     @Environment(\.colorSchemeContrast)
@@ -80,7 +82,7 @@ struct CustomColorSelector: View {
                     Text("Presets")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
-                        .offset(x: 9, y: -8)
+                        .offset(x: 9 * horizontalDirectionMultiplier, y: -8)
                 }
                 
                 HStack(spacing: 0) {
@@ -102,7 +104,7 @@ struct CustomColorSelector: View {
                         Text("Used")
                             .font(.footnote)
                             .foregroundStyle(.secondary)
-                            .offset(x: 9, y: -8)
+                            .offset(x: 9 * horizontalDirectionMultiplier, y: -8)
                     }
                 } else {
                     Text("Already used colors will appear here")
@@ -194,6 +196,10 @@ struct CustomColorSelector: View {
         }
         
         return result
+    }
+
+    private var horizontalDirectionMultiplier: CGFloat {
+        layoutDirection == .leftToRight ? 1 : -1
     }
 }
 

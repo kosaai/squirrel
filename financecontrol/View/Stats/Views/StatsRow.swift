@@ -12,6 +12,8 @@ import OSLog
 #endif
 
 struct StatsRow: View {
+    @Environment(\.layoutDirection)
+    private var layoutDirection
     @Environment(\.managedObjectContext)
     private var viewContext
     @EnvironmentObject
@@ -96,7 +98,7 @@ struct StatsRow: View {
             deleteButton
         }
         .cornerRadius(isDragging || vm.showTrailingButtons == data.id || vm.showLeadingButtons == data.id ? cornerRadius : 0)
-        .offset(x: offset)
+        .offset(x: offset * horizontalDirectionMultiplier)
         .confirmationDialog("Delete this expense?", isPresented: $presentConfirmationDialog, titleVisibility: .visible) {
             Button("Delete", role: .destructive) {
                 DataManager.shared.deleteSpending(with: data.entity.objectID)
@@ -369,7 +371,7 @@ struct StatsRow: View {
             }
         }
         
-        let translatedValue = value.translation.width + (vm.showLeadingButtons == self.data.id ? buttonWidth : 0) + (vm.showTrailingButtons == self.data.id ? -buttonWidth * 2 : 0)
+        let translatedValue = value.translation.width * horizontalDirectionMultiplier + (vm.showLeadingButtons == self.data.id ? buttonWidth : 0) + (vm.showTrailingButtons == self.data.id ? -buttonWidth * 2 : 0)
         
         self.vm.hOffset = translatedValue
         
@@ -407,7 +409,7 @@ struct StatsRow: View {
         
         vm.lastDragged = nil
         
-        let translatedValue = value.translation.width + (vm.showLeadingButtons == self.data.id ? buttonWidth : 0) + (vm.showTrailingButtons == self.data.id ? -buttonWidth * 2 : 0)
+        let translatedValue = value.translation.width * horizontalDirectionMultiplier + (vm.showLeadingButtons == self.data.id ? buttonWidth : 0) + (vm.showTrailingButtons == self.data.id ? -buttonWidth * 2 : 0)
         
         if translatedValue < trailingTreshhold {
             breakGesture()
@@ -479,6 +481,10 @@ struct StatsRow: View {
         }
         
         return result
+    }
+
+    private var horizontalDirectionMultiplier: CGFloat {
+        layoutDirection == .leftToRight ? 1 : -1
     }
     
     private struct SwipeButtonStyle: ButtonStyle {
