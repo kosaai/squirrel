@@ -357,16 +357,30 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "كل الوقت"
+            "value" : "كل الفترات"
           }
         }
       }
     },
     "Already used colors will appear here" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ستظهر الألوان المستخدمة مسبقًا هنا"
+          }
+        }
+      }
     },
     "Always Format Without Time Zones" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التنسيق دائمًا بدون مناطق زمنية"
+          }
+        }
+      }
     },
     "Amount" : {
       "localizations" : {
@@ -436,6 +450,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "App restart required"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يلزم إعادة تشغيل التطبيق"
           }
         }
       }
@@ -515,6 +535,12 @@
             "state" : "translated",
             "value" : "Average"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المتوسط"
+          }
         }
       }
     },
@@ -529,7 +555,14 @@
       }
     },
     "Blue" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أزرق"
+          }
+        }
+      }
     },
     "Build: %@" : {
 
@@ -656,7 +689,14 @@
       }
     },
     "Comma ( , )" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فاصلة ( , )"
+          }
+        }
+      }
     },
     "Comment" : {
       "localizations" : {
@@ -703,7 +743,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "سيتم تمويه المحتوى عند تصغير التطبيق"
+            "value" : "سيتم تمويه المحتوى عند الانتقال إلى تطبيق آخر"
           }
         }
       }
@@ -759,14 +799,21 @@
       }
     },
     "Copy username to clipboard" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نسخ اسم المستخدم إلى الحافظة"
+          }
+        }
+      }
     },
     "Create an issue on GitHub" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "إنشاء مشكلة على GitHub"
+            "value" : "الإبلاغ عن مشكلة على GitHub"
           }
         }
       }
@@ -812,10 +859,24 @@
       }
     },
     "Currency 1" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "العملة 1"
+          }
+        }
+      }
     },
     "Currency 2" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "العملة 2"
+          }
+        }
+      }
     },
     "Currency convert" : {
       "localizations" : {
@@ -1207,16 +1268,44 @@
       }
     },
     "Export with selected parameters" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصدير باستخدام المعلمات المحددة"
+          }
+        }
+      }
     },
     "Failed to create URL from given components" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذر إنشاء عنوان URL من المكونات المحددة"
+          }
+        }
+      }
     },
     "Failed to find category for this spending" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذر العثور على الفئة الخاصة بهذا المصروف"
+          }
+        }
+      }
     },
     "Failed to get CoreData entity description" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذر الحصول على وصف كيان CoreData"
+          }
+        }
+      }
     },
     "Failed to update rates" : {
       "localizations" : {
@@ -1290,6 +1379,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "If the time zone of the expense differs from the current one, the date will be formatted with the time zone of the expense. You can change this behavior by enabling this option."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إذا اختلفت المنطقة الزمنية للمصروف عن المنطقة الحالية، فسيُنسَّق التاريخ باستخدام المنطقة الزمنية للمصروف. يمكنك تغيير هذا السلوك بتفعيل هذا الخيار."
           }
         }
       }
@@ -1418,13 +1513,34 @@
       }
     },
     "iCloud sync" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مزامنة iCloud"
+          }
+        }
+      }
     },
     "iCloud Sync" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مزامنة iCloud"
+          }
+        }
+      }
     },
     "iCloud sync turned off" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم إيقاف مزامنة iCloud"
+          }
+        }
+      }
     },
     "Icon" : {
       "localizations" : {
@@ -1437,7 +1553,14 @@
       }
     },
     "If you believe this policy has been violated in any way, please create an issue on GitHub." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إذا كنت تعتقد أن هذه السياسة قد انتُهكت بأي شكل، فيُرجى إنشاء مشكلة على GitHub."
+          }
+        }
+      }
     },
     "Import existing data" : {
       "localizations" : {
@@ -1492,13 +1615,34 @@
       }
     },
     "Indigo" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نيلي"
+          }
+        }
+      }
     },
     "It seems some system files are corrupted" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يبدو أن بعض ملفات النظام تالفة"
+          }
+        }
+      }
     },
     "It seems some system files are missing or corrupted" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يبدو أن بعض ملفات النظام مفقودة أو تالفة"
+          }
+        }
+      }
     },
     "It's probably all LED's nowadays" : {
 
@@ -1514,7 +1658,14 @@
       }
     },
     "Mint" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نعناعي"
+          }
+        }
+      }
     },
     "Month" : {
       "localizations" : {
@@ -1527,7 +1678,14 @@
       }
     },
     "More about policy changes" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المزيد حول تغييرات السياسة"
+          }
+        }
+      }
     },
     "More Filters" : {
       "localizations" : {
@@ -1540,7 +1698,14 @@
       }
     },
     "More..." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المزيد..."
+          }
+        }
+      }
     },
     "N:A" : {
 
@@ -1569,7 +1734,14 @@
       }
     },
     "No API key was found" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يتم العثور على مفتاح API"
+          }
+        }
+      }
     },
     "No Archived Categories" : {
       "localizations" : {
@@ -1622,7 +1794,14 @@
       }
     },
     "No currencies found. Maybe you have added all of them?" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يتم العثور على عملات. ربما أضفتها كلها؟"
+          }
+        }
+      }
     },
     "No expenses" : {
       "localizations" : {
@@ -1635,16 +1814,44 @@
       }
     },
     "No Expenses" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد مصروفات"
+          }
+        }
+      }
     },
     "No Expenses in This Month" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد مصروفات هذا الشهر"
+          }
+        }
+      }
     },
     "No favorite categories. You can add them from settings." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد فئات مفضلة. يمكنك إضافتها من الإعدادات."
+          }
+        }
+      }
     },
     "No Info file was found" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يتم العثور على ملف المعلومات"
+          }
+        }
+      }
     },
     "No network" : {
       "localizations" : {
@@ -1670,19 +1877,47 @@
 
     },
     "No Results for These Filters" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد نتائج لعوامل التصفية هذه"
+          }
+        }
+      }
     },
     "No up to date exchange rate found" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يتم العثور على سعر صرف حديث"
+          }
+        }
+      }
     },
     "No up to date exchange rate found for %@" : {
 
     },
     "No URL was found" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يتم العثور على عنوان URL"
+          }
+        }
+      }
     },
     "None Applied" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم يُطبّق أي شيء"
+          }
+        }
+      }
     },
     "Nothing to import" : {
       "localizations" : {
@@ -1705,13 +1940,34 @@
       }
     },
     "Off" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إيقاف"
+          }
+        }
+      }
     },
     "OK" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "موافق"
+          }
+        }
+      }
     },
     "On" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تشغيل"
+          }
+        }
+      }
     },
     "Open in browser" : {
       "localizations" : {
@@ -1754,10 +2010,24 @@
       }
     },
     "Orange" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "برتقالي"
+          }
+        }
+      }
     },
     "Other" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أخرى"
+          }
+        }
+      }
     },
     "Other Currencies" : {
       "localizations" : {
@@ -1770,7 +2040,14 @@
       }
     },
     "Our Website" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "موقعنا الإلكتروني"
+          }
+        }
+      }
     },
     "past-7-days-home" : {
       "localizations" : {
@@ -1779,11 +2056,24 @@
             "state" : "translated",
             "value" : "Past 7 days"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "آخر 7 أيام"
+          }
         }
       }
     },
     "Pink" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "وردي"
+          }
+        }
+      }
     },
     "Place" : {
       "localizations" : {
@@ -1819,13 +2109,34 @@
 
     },
     "Please submit a bug report and try to reinstall the app" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يُرجى إرسال تقرير خطأ ومحاولة إعادة التثبيت"
+          }
+        }
+      }
     },
     "Please submit a bug report and try to restart or reinstall the app" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يُرجى إرسال تقرير خطأ ومحاولة إعادة التشغيل أو إعادة التثبيت"
+          }
+        }
+      }
     },
     "Please submit a bug report and try to restart the app" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يُرجى إرسال تقرير خطأ ومحاولة إعادة التشغيل"
+          }
+        }
+      }
     },
     "Presets" : {
       "localizations" : {
@@ -1838,7 +2149,14 @@
       }
     },
     "Privacy" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الخصوصية"
+          }
+        }
+      }
     },
     "Privacy Policy" : {
       "localizations" : {
@@ -1857,11 +2175,24 @@
             "state" : "translated",
             "value" : "All expenses are stored locally by default. You can enable cloud synchronisation in settings, this way your expenses and categories will be stored in your iCloud storage in accordance with Apple privacy policy (https://apple.com/legal/privacy) and iCloud terms (https://www.apple.com/legal/internet-services/icloud)."
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تُخزَّن جميع المصروفات محليًا افتراضيًا. يمكنك تفعيل المزامنة السحابية من الإعدادات، وعندها ستُخزَّن مصروفاتك وفئاتك في مساحة تخزين iCloud وفقًا لسياسة خصوصية Apple (https://apple.com/legal/privacy) وشروط iCloud (https://www.apple.com/legal/internet-services/icloud)."
+          }
         }
       }
     },
     "Purple" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أرجواني"
+          }
+        }
+      }
     },
     "Rates updated" : {
       "localizations" : {
@@ -1904,10 +2235,24 @@
       }
     },
     "Restore" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "استعادة"
+          }
+        }
+      }
     },
     "Return full amount" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "استرداد المبلغ كاملًا"
+          }
+        }
+      }
     },
     "Returned" : {
       "localizations" : {
@@ -1930,13 +2275,34 @@
       }
     },
     "Returns amount is greater then the expense amount" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مبلغ الاسترداد أكبر من مبلغ المصروف"
+          }
+        }
+      }
     },
     "Review on the App Store" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قيّم التطبيق على App Store"
+          }
+        }
+      }
     },
     "Review Squirrel on the App Store" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قيّم Squirrel على App Store"
+          }
+        }
+      }
     },
     "Save" : {
       "localizations" : {
@@ -1989,46 +2355,130 @@
       }
     },
     "Searching Filtered Results" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "البحث في النتائج المصفّاة"
+          }
+        }
+      }
     },
     "Searching For %@" : {
 
     },
     "Select a tab from sidebar" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر علامة تبويب من الشريط الجانبي"
+          }
+        }
+      }
     },
     "Select All" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تحديد الكل"
+          }
+        }
+      }
     },
     "Select at least one field" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حدد حقلًا واحدًا على الأقل"
+          }
+        }
+      }
     },
     "Select currency" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر العملة"
+          }
+        }
+      }
     },
     "Select month" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر الشهر"
+          }
+        }
+      }
     },
     "Select year" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختر السنة"
+          }
+        }
+      }
     },
     "Selected as default" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "محدد كافتراضي"
+          }
+        }
+      }
     },
     "Selected as display" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "محدد للعرض"
+          }
+        }
+      }
     },
     "Selected category: %@" : {
 
     },
     "Semicolon ( ; )" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فاصلة منقوطة ( ; )"
+          }
+        }
+      }
     },
     "Separate Default and Display Currencies" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فصل العملة الافتراضية عن عملة العرض"
+          }
+        }
+      }
     },
     "Set icon" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعيين الأيقونة"
+          }
+        }
+      }
     },
     "Settings" : {
       "localizations" : {
@@ -2041,7 +2491,14 @@
       }
     },
     "Show Onboarding" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إظهار المقدمة"
+          }
+        }
+      }
     },
     "Sign in your iCloud account on device or allow Squirrel to use iCloud in settings." : {
 
@@ -2053,11 +2510,24 @@
             "state" : "translated",
             "value" : "To use this feature, you need to sign in to iCloud on your device or allow Squirrel to use iCloud in settings."
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لاستخدام هذه الميزة، سجّل الدخول إلى iCloud على جهازك أو اسمح لتطبيق Squirrel باستخدام iCloud من الإعدادات."
+          }
         }
       }
     },
     "Single Date" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تاريخ واحد"
+          }
+        }
+      }
     },
     "Skip" : {
       "localizations" : {
@@ -2070,19 +2540,54 @@
       }
     },
     "Social Networks" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الشبكات الاجتماعية"
+          }
+        }
+      }
     },
     "Some category" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فئة ما"
+          }
+        }
+      }
     },
     "Some expense" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مصروف ما"
+          }
+        }
+      }
     },
     "Some place" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مكان ما"
+          }
+        }
+      }
     },
     "Something went wrong..." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حدث خطأ ما..."
+          }
+        }
+      }
     },
     "Squirrel" : {
 
@@ -2091,46 +2596,137 @@
 
     },
     "Squirrel does not send any data or identifiers from your device." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا يرسل Squirrel أي بيانات أو معرّفات من جهازك."
+          }
+        }
+      }
     },
     "Sqwoorl" : {
 
     },
     "Stats" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإحصاءات"
+          }
+        }
+      }
     },
     "Success" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم بنجاح"
+          }
+        }
+      }
     },
     "Suggestions" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اقتراحات"
+          }
+        }
+      }
     },
     "Swap" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تبديل"
+          }
+        }
+      }
     },
     "Swipe from left to restore, swipe from right to delete" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اسحب من اليسار للاستعادة ومن اليمين للحذف"
+          }
+        }
+      }
     },
     "Switch" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مفتاح تبديل"
+          }
+        }
+      }
     },
     "Sync Your Expenses to iCloud" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مزامنة مصروفاتك مع iCloud"
+          }
+        }
+      }
     },
     "Tap here to remove selection" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اضغط هنا لإزالة التحديد"
+          }
+        }
+      }
     },
     "Teal" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أزرق مخضر"
+          }
+        }
+      }
     },
     "This policy is also available on our website." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "هذه السياسة متاحة أيضًا على موقعنا الإلكتروني."
+          }
+        }
+      }
     },
     "This policy is valid for this version of the app." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "هذه السياسة صالحة لهذا الإصدار من التطبيق."
+          }
+        }
+      }
     },
     "Time Zones" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المناطق الزمنية"
+          }
+        }
+      }
     },
     "time-timezone-separator-key" : {
       "comment" : "Stats row with/without timezone time separator",
@@ -2144,16 +2740,44 @@
       }
     },
     "Timezone" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المنطقة الزمنية"
+          }
+        }
+      }
     },
     "Timezone Filters" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عوامل تصفية المنطقة الزمنية"
+          }
+        }
+      }
     },
     "Timezone format" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تنسيق المنطقة الزمنية"
+          }
+        }
+      }
     },
     "Timezone Format" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تنسيق المنطقة الزمنية"
+          }
+        }
+      }
     },
     "timezone-location" : {
       "comment" : "Timezone location",
