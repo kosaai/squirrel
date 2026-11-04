@@ -14,8 +14,6 @@ jobs:
 
     env:
       DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
-      DERIVED_DATA_PATH: ${{ runner.temp }}/DerivedData
-      LOG_DIRECTORY: ${{ runner.temp }}/build-logs
 
     steps:
       - name: Check out source
@@ -24,10 +22,10 @@ jobs:
       - name: Select Xcode 26.3
         run: |
           set -o pipefail
-          mkdir -p "$LOG_DIRECTORY"
+          mkdir -p "$RUNNER_TEMP/build-logs"
           test -d "$DEVELOPER_DIR"
           sudo xcode-select --switch "$DEVELOPER_DIR"
-          xcodebuild -version | tee "$LOG_DIRECTORY/xcode-version.log"
+          xcodebuild -version | tee "$RUNNER_TEMP/build-logs/xcode-version.log"
 
       - name: Resolve Swift Package Manager dependencies
         run: |
@@ -35,8 +33,8 @@ jobs:
           xcodebuild -resolvePackageDependencies \
             -project Squirrel.xcodeproj \
             -scheme Squirrel_Release \
-            -derivedDataPath "$DERIVED_DATA_PATH" \
-            | tee "$LOG_DIRECTORY/spm-resolve.log"
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            | tee "$RUNNER_TEMP/build-logs/spm-resolve.log"
 
       - name: Build unsigned app and WidgetKit extension
         run: |
@@ -46,17 +44,17 @@ jobs:
             -scheme Squirrel_Release \
             -configuration Release \
             -destination 'generic/platform=iOS' \
-            -derivedDataPath "$DERIVED_DATA_PATH" \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
-            | tee "$LOG_DIRECTORY/xcodebuild.log"
+            | tee "$RUNNER_TEMP/build-logs/xcodebuild.log"
 
       - name: Package unsigned IPA
         if: success()
         run: |
           set -euo pipefail
-          app_path="$DERIVED_DATA_PATH/Build/Products/Release-iphoneos/Squirrel.app"
+          app_path="$RUNNER_TEMP/DerivedData/Build/Products/Release-iphoneos/Squirrel.app"
           test -d "$app_path"
           package_path="$RUNNER_TEMP/unsigned-ipa"
           mkdir -p "$package_path/Payload"
@@ -76,9 +74,9 @@ jobs:
       - name: Collect diagnostics
         if: always()
         run: |
-          mkdir -p "$LOG_DIRECTORY/derived-data"
-          if [ -d "$DERIVED_DATA_PATH/Logs" ]; then
-            cp -R "$DERIVED_DATA_PATH/Logs" "$LOG_DIRECTORY/derived-data/"
+          mkdir -p "$RUNNER_TEMP/build-logs/derived-data"
+          if [ -d "$RUNNER_TEMP/DerivedData/Logs" ]; then
+            cp -R "$RUNNER_TEMP/DerivedData/Logs" "$RUNNER_TEMP/build-logs/derived-data/"
           fi
 
       - name: Upload build diagnostics
