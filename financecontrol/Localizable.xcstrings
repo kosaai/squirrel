@@ -173,6 +173,12 @@
             "state" : "translated",
             "value" : "About"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حول"
+          }
         }
       }
     },
@@ -182,6 +188,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accent Color"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لون التمييز"
           }
         }
       }
@@ -193,6 +205,12 @@
             "state" : "translated",
             "value" : "Add"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة"
+          }
         }
       }
     },
@@ -203,6 +221,12 @@
             "state" : "translated",
             "value" : "Add categories"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة فئات"
+          }
         }
       }
     },
@@ -212,6 +236,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add category"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة فئة"
           }
         }
       }
@@ -313,6 +343,12 @@
             "state" : "translated",
             "value" : "Add to favorites"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة إلى المفضلة"
+          }
         }
       }
     },
@@ -365,6 +401,12 @@
             "state" : "translated",
             "value" : "Appearance"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المظهر"
+          }
         }
       }
     },
@@ -385,6 +427,12 @@
             "state" : "translated",
             "value" : "Apply"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تطبيق"
+          }
         }
       }
     },
@@ -395,6 +443,12 @@
             "state" : "translated",
             "value" : "Archive"
           }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أرشفة"
+          }
         }
       }
     },
@@ -404,6 +458,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Archived categories"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الفئات المؤرشفة"
           }
         }
       }
@@ -419,7 +479,14 @@
       }
     },
     "Automatic Dark Mode" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الوضع الداكن التلقائي"
+          }
+        }
+      }
     },
     "average-home-barchart" : {
       "localizations" : {
@@ -542,10 +609,24 @@
       }
     },
     "Color and Icon" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اللون والأيقونة"
+          }
+        }
+      }
     },
     "Columns" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الأعمدة"
+          }
+        }
+      }
     },
     "Comma ( , )" : {
 
@@ -574,7 +655,14 @@
 
     },
     "Contact Us" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تواصل معنا"
+          }
+        }
+      }
     },
     "Content will be blurred when you minimize the app" : {
 
@@ -590,16 +678,44 @@
       }
     },
     "Continue with sample data" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المتابعة باستخدام بيانات تجريبية"
+          }
+        }
+      }
     },
     "Copy link to clipboard" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نسخ الرابط إلى الحافظة"
+          }
+        }
+      }
     },
     "Copy to clipboard" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نسخ إلى الحافظة"
+          }
+        }
+      }
     },
     "Copy to Clipboard" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نسخ إلى الحافظة"
+          }
+        }
+      }
     },
     "Copy username to clipboard" : {
 
@@ -628,7 +744,14 @@
       }
     },
     "Currencies" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "العملات"
+          }
+        }
+      }
     },
     "Currency" : {
       "localizations" : {
@@ -667,10 +790,24 @@
       }
     },
     "Custom" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مخصص"
+          }
+        }
+      }
     },
     "Custom Colors for Categories" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ألوان مخصصة للفئات"
+          }
+        }
+      }
     },
     "Dark Mode" : {
       "localizations" : {
@@ -696,10 +833,24 @@
 
     },
     "Decimal Separator" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الفاصل العشري"
+          }
+        }
+      }
     },
     "Default" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتراضي"
+          }
+        }
+      }
     },
     "Default currency" : {
       "localizations" : {
@@ -734,10 +885,24 @@
 
     },
     "Delimiter" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الفاصل"
+          }
+        }
+      }
     },
     "Disable" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعطيل"
+          }
+        }
+      }
     },
     "Disable iCloud sync" : {
 
@@ -746,7 +911,14 @@
 
     },
     "Disabled" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "معطّل"
+          }
+        }
+      }
     },
     "Done" : {
       "localizations" : {
@@ -775,13 +947,34 @@
 
     },
     "Enable iCloud sync" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تمكين مزامنة iCloud"
+          }
+        }
+      }
     },
     "Enable iCloud Sync" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تمكين مزامنة iCloud"
+          }
+        }
+      }
     },
     "Enter name" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أدخل الاسم"
+          }
+        }
+      }
     },
     "Error" : {
       "localizations" : {
@@ -800,7 +993,14 @@
 
     },
     "Exchange Rates" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أسعار الصرف"
+          }
+        }
+      }
     },
     "Exchange rates are provided for reference purposes only." : {
 
