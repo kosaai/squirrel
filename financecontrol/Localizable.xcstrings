@@ -247,7 +247,14 @@
       }
     },
     "Add New" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إضافة عنصر جديد"
+          }
+        }
+      }
     },
     "Add new category" : {
       "localizations" : {
@@ -381,7 +388,14 @@
       }
     },
     "Back" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رجوع"
+          }
+        }
+      }
     },
     "Blue" : {
 
@@ -390,13 +404,34 @@
 
     },
     "Cancel" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إلغاء"
+          }
+        }
+      }
     },
     "Categories" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الفئات"
+          }
+        }
+      }
     },
     "Category" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الفئة"
+          }
+        }
+      }
     },
     "category-name-other" : {
       "comment" : "\"Other\" category",
@@ -413,7 +448,14 @@
 
     },
     "Clear" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مسح"
+          }
+        }
+      }
     },
     "Clear filters" : {
 
@@ -422,10 +464,24 @@
 
     },
     "Close" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إغلاق"
+          }
+        }
+      }
     },
     "Color" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اللون"
+          }
+        }
+      }
     },
     "Color and Icon" : {
 
@@ -437,7 +493,14 @@
 
     },
     "Comment" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ملاحظة"
+          }
+        }
+      }
     },
     "Comment (Optional)" : {
 
@@ -452,7 +515,14 @@
 
     },
     "Continue" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "متابعة"
+          }
+        }
+      }
     },
     "Continue with sample data" : {
 
@@ -482,7 +552,14 @@
 
     },
     "Currency" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "العملة"
+          }
+        }
+      }
     },
     "Currency 1" : {
 
@@ -506,7 +583,14 @@
 
     },
     "Date" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التاريخ"
+          }
+        }
+      }
     },
     "Dawn of Squipan" : {
 
@@ -521,7 +605,14 @@
 
     },
     "Delete" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حذف"
+          }
+        }
+      }
     },
     "Delete Data from iCloud" : {
 
@@ -551,10 +642,24 @@
 
     },
     "Done" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم"
+          }
+        }
+      }
     },
     "Edit" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعديل"
+          }
+        }
+      }
     },
     "Email" : {
 
@@ -572,7 +677,14 @@
 
     },
     "Error" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "خطأ"
+          }
+        }
+      }
     },
     "Even a squirrel needs a hat in winter" : {
 
@@ -593,10 +705,24 @@
 
     },
     "Expenses" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المصروفات"
+          }
+        }
+      }
     },
     "Export" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصدير"
+          }
+        }
+      }
     },
     "Export and Backup" : {
 
@@ -641,7 +767,14 @@
 
     },
     "Filters" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عوامل التصفية"
+          }
+        }
+      }
     },
     "First Flight" : {
 
@@ -696,7 +829,14 @@
 
     },
     "Home" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الرئيسية"
+          }
+        }
+      }
     },
     "iCloud sync" : {
 
@@ -871,7 +1011,14 @@
 
     },
     "Optional" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اختياري"
+          }
+        }
+      }
     },
     "Orange" : {
 
@@ -899,7 +1046,14 @@
 
     },
     "Place" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المكان"
+          }
+        }
+      }
     },
     "Place (Optional)" : {
 
@@ -951,7 +1105,14 @@
 
     },
     "Required" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مطلوب"
+          }
+        }
+      }
     },
     "Restore" : {
 
@@ -975,10 +1136,24 @@
 
     },
     "Save" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حفظ"
+          }
+        }
+      }
     },
     "Search" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بحث"
+          }
+        }
+      }
     },
     "Search by name" : {
 
@@ -1032,7 +1207,14 @@
 
     },
     "Settings" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإعدادات"
+          }
+        }
+      }
     },
     "Show Onboarding" : {
 
@@ -1054,7 +1236,14 @@
 
     },
     "Skip" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تخطي"
+          }
+        }
+      }
     },
     "Social Networks" : {
 
@@ -1182,10 +1371,24 @@
 
     },
     "Today" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اليوم"
+          }
+        }
+      }
     },
     "Tomorrow" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "غدًا"
+          }
+        }
+      }
     },
     "Trying again..." : {
 
@@ -1221,7 +1424,14 @@
 
     },
     "Welcome to" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مرحبًا بك في"
+          }
+        }
+      }
     },
     "What's new in %@" : {
 
