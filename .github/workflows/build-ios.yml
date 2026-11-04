@@ -1,0 +1,90 @@
+name: Build unsigned iOS IPA
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build Squirrel for iOS
+    runs-on: macos-15
+    timeout-minutes: 60
+
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+      DERIVED_DATA_PATH: ${{ runner.temp }}/DerivedData
+      LOG_DIRECTORY: ${{ runner.temp }}/build-logs
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 26.3
+        run: |
+          set -o pipefail
+          mkdir -p "$LOG_DIRECTORY"
+          test -d "$DEVELOPER_DIR"
+          sudo xcode-select --switch "$DEVELOPER_DIR"
+          xcodebuild -version | tee "$LOG_DIRECTORY/xcode-version.log"
+
+      - name: Resolve Swift Package Manager dependencies
+        run: |
+          set -o pipefail
+          xcodebuild -resolvePackageDependencies \
+            -project Squirrel.xcodeproj \
+            -scheme Squirrel_Release \
+            -derivedDataPath "$DERIVED_DATA_PATH" \
+            | tee "$LOG_DIRECTORY/spm-resolve.log"
+
+      - name: Build unsigned app and WidgetKit extension
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project Squirrel.xcodeproj \
+            -scheme Squirrel_Release \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath "$DERIVED_DATA_PATH" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            | tee "$LOG_DIRECTORY/xcodebuild.log"
+
+      - name: Package unsigned IPA
+        if: success()
+        run: |
+          set -euo pipefail
+          app_path="$DERIVED_DATA_PATH/Build/Products/Release-iphoneos/Squirrel.app"
+          test -d "$app_path"
+          package_path="$RUNNER_TEMP/unsigned-ipa"
+          mkdir -p "$package_path/Payload"
+          cp -R "$app_path" "$package_path/Payload/Squirrel.app"
+          ditto -c -k --sequesterRsrc --keepParent \
+            "$package_path/Payload" \
+            "$RUNNER_TEMP/Squirrel-unsigned.ipa"
+
+      - name: Upload unsigned IPA
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Squirrel-unsigned-ipa
+          path: ${{ runner.temp }}/Squirrel-unsigned.ipa
+          if-no-files-found: error
+
+      - name: Collect diagnostics
+        if: always()
+        run: |
+          mkdir -p "$LOG_DIRECTORY/derived-data"
+          if [ -d "$DERIVED_DATA_PATH/Logs" ]; then
+            cp -R "$DERIVED_DATA_PATH/Logs" "$LOG_DIRECTORY/derived-data/"
+          fi
+
+      - name: Upload build diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Squirrel-build-diagnostics
+          path: ${{ runner.temp }}/build-logs
+          if-no-files-found: warn
