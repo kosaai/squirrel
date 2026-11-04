@@ -25,7 +25,9 @@ financecontrol/Assets.xcassets/Icons/Previews/AppIcon_NA_Image.imageset/*.png
 financecontrol/Assets.xcassets/Icons/AppIcon_Stealth.appiconset/*.png
 financecontrol/Assets.xcassets/Icons/Previews/AppIcon_Stealth_Image.imageset/*.png
 
-financecontrol/Assets.xcassets/
+financecontrol/Assets.xcassets/*
+!financecontrol/Assets.xcassets/AppIcon.appiconset/
+!financecontrol/Assets.xcassets/AppIcon.appiconset/**
 
 financecontrolWidget/Assets.xcassets/SquirrelLogoImage.imageset/*.png
 

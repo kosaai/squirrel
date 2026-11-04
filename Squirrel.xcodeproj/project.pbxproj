@@ -132,7 +132,6 @@
 		8D9DD6712D317EE60061DA6B /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9DD6702D317EE60061DA6B /* WhatsNewView.swift */; };
 		8D9E22D82AE6A1BD00801932 /* CustomShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E22D72AE6A1BD00801932 /* CustomShareSheet.swift */; };
 		8D9F30E92B4D7C3E00A0B8C3 /* WidgetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F30E82B4D7C3E00A0B8C3 /* WidgetsManager.swift */; };
-		8DA2DC6B2EE1D34100EE3B47 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 8DA2DC6A2EE1D34100EE3B47 /* AppIcon.icon */; };
 		8DA2E5102C24662F00FA7FDB /* ReturnRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA2E50F2C24662F00FA7FDB /* ReturnRow.swift */; };
 		8DAA0E1F2B48367D0076B81E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAA0E1E2B48367D0076B81E /* WidgetKit.framework */; };
 		8DAA0E212B48367D0076B81E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DAA0E202B48367D0076B81E /* SwiftUI.framework */; };
@@ -346,7 +345,6 @@
 		8D9DD6702D317EE60061DA6B /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		8D9E22D72AE6A1BD00801932 /* CustomShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShareSheet.swift; sourceTree = "<group>"; };
 		8D9F30E82B4D7C3E00A0B8C3 /* WidgetsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsManager.swift; sourceTree = "<group>"; };
-		8DA2DC6A2EE1D34100EE3B47 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		8DA2E50F2C24662F00FA7FDB /* ReturnRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnRow.swift; sourceTree = "<group>"; };
 		8DAA0E1C2B48367D0076B81E /* SquirrelWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SquirrelWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DAA0E1E2B48367D0076B81E /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -748,14 +746,6 @@
 				8D91DB832B74EB990040C2CE /* ChartData.swift */,
 			);
 			path = ChartData;
-			sourceTree = "<group>";
-		};
-		8DA2DC692EE1D32000EE3B47 /* Icons */ = {
-			isa = PBXGroup;
-			children = (
-				8DA2DC6A2EE1D34100EE3B47 /* AppIcon.icon */,
-			);
-			path = Icons;
 			sourceTree = "<group>";
 		};
 		8DA8BA992B3B4B1A001C5215 /* ViewModel */ = {
@@ -1161,7 +1151,6 @@
 				8DF8AE9C2AB47334006D287B /* .gitignore in Resources */,
 				8D4FE3002BA9D954001009F2 /* PrivacyInfo.xcprivacy in Resources */,
 				8D7FCA552B16A59C009AAAEB /* Localizable.xcstrings in Resources */,
-				8DA2DC6B2EE1D34100EE3B47 /* AppIcon.icon in Resources */,
 				8D1A7FB72C99DD2E00BAF6A0 /* LICENSE in Resources */,
 				8D4927672AB2128F008E6347 /* README.md in Resources */,
 				8DBFEBD22A49ED4900165414 /* Assets.xcassets in Resources */,
@@ -1647,7 +1636,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = financecontrol/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Squirrel_Dev;
+				INFOPLIST_KEY_CFBundleDisplayName = نفقات;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2024, PinkXaciD";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1691,7 +1680,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = financecontrol/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Squirrel;
+				INFOPLIST_KEY_CFBundleDisplayName = نفقات;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2024, PinkXaciD";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
