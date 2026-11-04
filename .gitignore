@@ -28,8 +28,13 @@ financecontrol/Assets.xcassets/Icons/Previews/AppIcon_Stealth_Image.imageset/*.p
 financecontrol/Assets.xcassets/*
 !financecontrol/Assets.xcassets/AppIcon.appiconset/
 !financecontrol/Assets.xcassets/AppIcon.appiconset/**
+!financecontrol/Assets.xcassets/AppIcon_Image.imageset/
+!financecontrol/Assets.xcassets/AppIcon_Image.imageset/**
+!financecontrol/Assets.xcassets/Onboarding.imageset/
+!financecontrol/Assets.xcassets/Onboarding.imageset/**
 
 financecontrolWidget/Assets.xcassets/SquirrelLogoImage.imageset/*.png
+!financecontrolWidget/Assets.xcassets/SquirrelLogoImage.imageset/*.png
 
 /Squirrel.xcodeproj/xcuserdata
 /Squirrel.xcodeproj/project.xcworkspace/xcuserdata

@@ -8,65 +8,20 @@
 import SwiftUI
 
 enum CustomIcon: CaseIterable {
-    case sqwoorl, firstFlight, neonNight, winterized, dawnOfSquipan, ghost, NA
+    case sqwoorl
 }
 
 extension CustomIcon {
     var displayName: LocalizedStringKey {
-        switch self {
-        case .sqwoorl:
-            "Sqwoorl"
-        case .firstFlight:
-            "First Flight"
-        case .neonNight:
-            "Neon Night"
-        case .winterized:
-            "Winterized"
-        case .dawnOfSquipan:
-            "Dawn of Squipan"
-        case .NA:
-            "N:A"
-        case .ghost:
-            "Ghost"
-        }
+        "Sqwoorl"
     }
     
     var description: LocalizedStringKey {
-        switch self {
-        case .sqwoorl:
-            "Yes, that's his real name"
-        case .firstFlight:
-            "To the store!"
-        case .neonNight:
-            "It's probably all LED's nowadays"
-        case .winterized:
-            "Even a squirrel needs a hat in winter"
-        case .dawnOfSquipan:
-            "App of the rising sun"
-        case .NA:
-            "Everything that lives is designed to end. We are perpetually trapped in a never-ending spiral..."
-        case .ghost:
-            "Plays to the audience"
-        }
+        "Yes, that's his real name"
     }
     
     var fileName: String? {
-        switch self {
-        case .sqwoorl:
-            nil
-        case .firstFlight:
-            "AppIcon_FirstFlight"
-        case .neonNight:
-            "AppIcon_NeonNight"
-        case .winterized:
-            "AppIcon_Winterized"
-        case .dawnOfSquipan:
-            "AppIcon_DawnOfSquipan"
-        case .NA:
-            "AppIcon_NA"
-        case .ghost:
-            "AppIcon_Ghost"
-        }
+        nil
     }
     
     var imageName: String {
