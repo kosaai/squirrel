@@ -110,6 +110,7 @@
 		8D7ECC7A2AACAF6F005A515D /* CustomColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7ECC792AACAF6F005A515D /* CustomColorSelector.swift */; };
 		8D7EFB0B2A85096B009797E8 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EFB0A2A85096B009797E8 /* Date+Extensions.swift */; };
 		8D7FCA552B16A59C009AAAEB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7FCA542B16A59C009AAAEB /* Localizable.xcstrings */; };
+		8DFECA552B16A59C009AAAEB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7FCA542B16A59C009AAAEB /* Localizable.xcstrings */; };
 		8D800A7F2D39672F00887DED /* TimeZone+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D800A7E2D39672F00887DED /* TimeZone+Extensions.swift */; };
 		8D803B112C4EA58200778B6C /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D803B102C4EA58200778B6C /* CloudKitManager.swift */; };
 		8D803B132C4EA6AD00778B6C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D803B122C4EA6AD00778B6C /* Keychain.swift */; };
@@ -1149,6 +1150,7 @@
 				8D1A7FB82C99DD2E00BAF6A0 /* LICENSE in Resources */,
 				8D4FE3022BA9DA11001009F2 /* PrivacyInfo.xcprivacy in Resources */,
 				8DAA0E282B48367E0076B81E /* Assets.xcassets in Resources */,
+				8DFECA552B16A59C009AAAEB /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

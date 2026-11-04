@@ -25,7 +25,7 @@ struct WeeklySpendingsMediumTodaySumView: View {
                     Text(currency)
                         .font(.system(.title3, design: .rounded).bold())
                     
-                    Text(Locale.current.currencyNarrowFormat(sum, currency: currency, removeFractionDigigtsFrom: 1000) ?? "Error")
+                    Text(Locale.current.currencyNarrowFormat(sum, currency: currency, removeFractionDigigtsFrom: 1000) ?? NSLocalizedString("Error", comment: ""))
                         .font(.system(.title, design: .rounded).bold())
                         .scaledToFit()
                         .minimumScaleFactor(0.5)
