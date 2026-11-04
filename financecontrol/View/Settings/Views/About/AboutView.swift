@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AboutView: View {
     @Environment(\.openURL) private var openURL
-    let version: String = Bundle.main.releaseVersionNumber ?? "unknown"
-    let build: String = Bundle.main.buildVersionNumber ?? "unknown"
+    let version: String = Bundle.main.releaseVersionNumber ?? NSLocalizedString("Unknown", comment: "Missing app version")
+    let build: String = Bundle.main.buildVersionNumber ?? NSLocalizedString("Unknown", comment: "Missing app build")
     
     @Binding
     var presentOnboarding: Bool

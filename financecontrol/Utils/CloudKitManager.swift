@@ -17,14 +17,17 @@ final class CloudKitManager: ObservableObject {
         var errorDescription: String? {
             switch self {
             case .networkUnavailable:
-                "Network Unavailable"
+                NSLocalizedString("Network Unavailable", comment: "CloudKit network error")
             default:
-                "CloudKit error \(self.rawValue)"
+                String(
+                    format: NSLocalizedString("CloudKit error %@", comment: "CloudKit error code"),
+                    self.rawValue
+                )
             }
         }
         
         var recoverySuggestion: String? {
-            "Try to restart the app"
+            NSLocalizedString("Try to restart the app", comment: "")
         }
         
         var failureReason: String? {

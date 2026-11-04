@@ -163,7 +163,10 @@ struct PrivacyPolicyView: View {
     
     private var expensesStorageText: some View {
         guard let attributedString = try? AttributedString(
-            markdown: "All expenses are stored locally by default. You can enable cloud synchronisation in settings, this way your expenses and categories will be stored in your iCloud storage in accordance with [Apple privacy policy](https://apple.com/legal/privacy) and [iCloud terms](https://www.apple.com/legal/internet-services/icloud)."
+            markdown: NSLocalizedString(
+                "All expenses are stored locally by default. You can enable cloud synchronisation in settings, this way your expenses and categories will be stored in your iCloud storage in accordance with [Apple privacy policy](https://apple.com/legal/privacy) and [iCloud terms](https://www.apple.com/legal/internet-services/icloud).",
+                comment: "Privacy policy storage text with Markdown links"
+            )
         ) else {
             return Text("privacy-policy-fallback-key")
         }
