@@ -353,7 +353,14 @@
       }
     },
     "All Time" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كل الوقت"
+          }
+        }
+      }
     },
     "Already used colors will appear here" : {
 
@@ -367,6 +374,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Amount"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المبلغ"
           }
         }
       }
@@ -382,7 +395,14 @@
       }
     },
     "An open source expense tracker." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "متتبع مصروفات مفتوح المصدر."
+          }
+        }
+      }
     },
     "App of the rising sun" : {
       "localizations" : {
@@ -556,7 +576,14 @@
       }
     },
     "Check the spelling or try a new search." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تحقق من الإملاء أو جرّب بحثًا آخر."
+          }
+        }
+      }
     },
     "Clear" : {
       "localizations" : {
@@ -652,7 +679,14 @@
       }
     },
     "Comment is too long" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الملاحظة طويلة جدًا"
+          }
+        }
+      }
     },
     "Contact Us" : {
       "localizations" : {
@@ -665,7 +699,14 @@
       }
     },
     "Content will be blurred when you minimize the app" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سيتم تمويه المحتوى عند تصغير التطبيق"
+          }
+        }
+      }
     },
     "Continue" : {
       "localizations" : {
@@ -721,7 +762,14 @@
 
     },
     "Create an issue on GitHub" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إنشاء مشكلة على GitHub"
+          }
+        }
+      }
     },
     "Create Local Backup" : {
       "localizations" : {
@@ -873,16 +921,44 @@
       }
     },
     "Delete Data from iCloud" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حذف البيانات من iCloud"
+          }
+        }
+      }
     },
     "Delete this category?" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حذف هذه الفئة؟"
+          }
+        }
+      }
     },
     "Delete this expense?" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حذف هذا المصروف؟"
+          }
+        }
+      }
     },
     "Delete this return?" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حذف هذا الاسترداد؟"
+          }
+        }
+      }
     },
     "Delimiter" : {
       "localizations" : {
@@ -905,10 +981,24 @@
       }
     },
     "Disable iCloud sync" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعطيل مزامنة iCloud"
+          }
+        }
+      }
     },
     "Disable iCloud Sync" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعطيل مزامنة iCloud"
+          }
+        }
+      }
     },
     "Disabled" : {
       "localizations" : {
@@ -941,10 +1031,24 @@
       }
     },
     "Email" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "البريد الإلكتروني"
+          }
+        }
+      }
     },
     "Empty database" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قاعدة البيانات فارغة"
+          }
+        }
+      }
     },
     "Enable iCloud sync" : {
       "localizations" : {
@@ -1003,13 +1107,34 @@
       }
     },
     "Exchange rates are provided for reference purposes only." : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تُقدَّم أسعار الصرف لأغراض مرجعية فقط."
+          }
+        }
+      }
     },
     "Exchange rates will be presented for the current hour" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ستُعرض أسعار الصرف للساعة الحالية"
+          }
+        }
+      }
     },
     "Expand" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "توسيع"
+          }
+        }
+      }
     },
     "Expenses" : {
       "localizations" : {
@@ -1042,7 +1167,14 @@
       }
     },
     "Export and Backup Data" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصدير البيانات ونسخها احتياطيًا"
+          }
+        }
+      }
     },
     "Export to CSV" : {
       "localizations" : {
@@ -1065,7 +1197,14 @@
       }
     },
     "Export to Spreadsheet" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصدير إلى جدول بيانات"
+          }
+        }
+      }
     },
     "Export with selected parameters" : {
 
@@ -1080,7 +1219,14 @@
 
     },
     "Failed to update rates" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذر تحديث أسعار الصرف"
+          }
+        }
+      }
     },
     "Favorite" : {
       "localizations" : {
@@ -1093,10 +1239,24 @@
       }
     },
     "Favorite categories" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الفئات المفضلة"
+          }
+        }
+      }
     },
     "File Options" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "خيارات الملف"
+          }
+        }
+      }
     },
     "Filter" : {
       "localizations" : {
@@ -1145,37 +1305,107 @@
       }
     },
     "From" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "من"
+          }
+        }
+      }
     },
     "Full Changelog" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سجل التغييرات الكامل"
+          }
+        }
+      }
     },
     "Gestures" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإيماءات"
+          }
+        }
+      }
     },
     "Ghost" : {
 
     },
     "Grouping Separator" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فاصل تجميع الأرقام"
+          }
+        }
+      }
     },
     "Hide" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إخفاء"
+          }
+        }
+      }
     },
     "Hide App Content" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إخفاء محتوى التطبيق"
+          }
+        }
+      }
     },
     "Hide App Content in App Switcher" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إخفاء محتوى التطبيق في مبدّل التطبيقات"
+          }
+        }
+      }
     },
     "Hide keyboard" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إخفاء لوحة المفاتيح"
+          }
+        }
+      }
     },
     "Hide Keyboard" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إخفاء لوحة المفاتيح"
+          }
+        }
+      }
     },
     "Historical exchange rates are presented as the stock exchange closed on the requested day" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تُعرض أسعار الصرف التاريخية كما كانت عند إغلاق سوق الصرف في اليوم المطلوب"
+          }
+        }
+      }
     },
     "Home" : {
       "localizations" : {
@@ -1197,7 +1427,14 @@
 
     },
     "Icon" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الأيقونة"
+          }
+        }
+      }
     },
     "If you believe this policy has been violated in any way, please create an issue on GitHub." : {
 
@@ -1223,7 +1460,14 @@
       }
     },
     "Import Local Backup" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "استيراد نسخة احتياطية محلية"
+          }
+        }
+      }
     },
     "Imported %lld expenses" : {
       "localizations" : {
@@ -1260,7 +1504,14 @@
 
     },
     "Minimize" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تصغير"
+          }
+        }
+      }
     },
     "Mint" : {
 
@@ -1279,7 +1530,14 @@
 
     },
     "More Filters" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المزيد من عوامل التصفية"
+          }
+        }
+      }
     },
     "More..." : {
 
@@ -1314,7 +1572,14 @@
 
     },
     "No Archived Categories" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد فئات مؤرشفة"
+          }
+        }
+      }
     },
     "No Categories" : {
       "localizations" : {
@@ -1327,13 +1592,34 @@
       }
     },
     "No comment provided" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لم تُضف ملاحظة"
+          }
+        }
+      }
     },
     "No connection" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا يوجد اتصال"
+          }
+        }
+      }
     },
     "No currencies" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد عملات"
+          }
+        }
+      }
     },
     "No currencies found. Maybe you have added all of them?" : {
 
@@ -1361,10 +1647,24 @@
 
     },
     "No network" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد شبكة"
+          }
+        }
+      }
     },
     "No results" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد نتائج"
+          }
+        }
+      }
     },
     "No results for \"%@\"" : {
 
@@ -1385,7 +1685,14 @@
 
     },
     "Nothing to import" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا يوجد شيء لاستيراده"
+          }
+        }
+      }
     },
     "Number Formatting" : {
       "localizations" : {
@@ -1407,13 +1714,34 @@
 
     },
     "Open in browser" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فتح في المتصفح"
+          }
+        }
+      }
     },
     "Open in Browser" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فتح في المتصفح"
+          }
+        }
+      }
     },
     "Open in the App Store" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فتح في App Store"
+          }
+        }
+      }
     },
     "Optional" : {
       "localizations" : {
@@ -1432,7 +1760,14 @@
 
     },
     "Other Currencies" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عملات أخرى"
+          }
+        }
+      }
     },
     "Our Website" : {
 
@@ -1461,10 +1796,24 @@
       }
     },
     "Place (Optional)" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المكان (اختياري)"
+          }
+        }
+      }
     },
     "Place name is too long" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اسم المكان طويل جدًا"
+          }
+        }
+      }
     },
     "Plays to the audience" : {
 
@@ -1479,13 +1828,27 @@
 
     },
     "Presets" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإعدادات المسبقة"
+          }
+        }
+      }
     },
     "Privacy" : {
 
     },
     "Privacy Policy" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سياسة الخصوصية"
+          }
+        }
+      }
     },
     "privacy-policy-fallback-key" : {
       "localizations" : {
@@ -1501,13 +1864,34 @@
 
     },
     "Rates updated" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم تحديث أسعار الصرف"
+          }
+        }
+      }
     },
     "Recommended" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "موصى به"
+          }
+        }
+      }
     },
     "Remove from favorites" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إزالة من المفضلة"
+          }
+        }
+      }
     },
     "Required" : {
       "localizations" : {
@@ -1526,10 +1910,24 @@
 
     },
     "Returned" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مُستردّ"
+          }
+        }
+      }
     },
     "Returns" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الاستردادات"
+          }
+        }
+      }
     },
     "Returns amount is greater then the expense amount" : {
 
@@ -1561,13 +1959,34 @@
       }
     },
     "Search by name" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "البحث بالاسم"
+          }
+        }
+      }
     },
     "Search by name or ISO code" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "البحث بالاسم أو رمز ISO"
+          }
+        }
+      }
     },
     "Search by place or comment" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "البحث بالمكان أو الملاحظة"
+          }
+        }
+      }
     },
     "Searching Filtered Results" : {
 
