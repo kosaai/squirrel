@@ -1636,7 +1636,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = financecontrol/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = نفقات;
+				INFOPLIST_KEY_CFBundleDisplayName = "نفقات";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2024, PinkXaciD";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1680,7 +1680,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = financecontrol/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = نفقات;
+				INFOPLIST_KEY_CFBundleDisplayName = "نفقات";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "© 2024, PinkXaciD";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
