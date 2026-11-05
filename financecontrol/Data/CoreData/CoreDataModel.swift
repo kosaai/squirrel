@@ -17,32 +17,20 @@ final class CoreDataModel: ObservableObject {
     let container: NSPersistentContainer
     let context: NSManagedObjectContext
     let manager = DataManager.shared
-    var localHistoryToken: NSPersistentHistoryToken?
-    
     let ratesViewModel: RatesViewModel
     
 #if DEBUG
     let logger = Logger(subsystem: Vars.appIdentifier, category: #fileID)
 #endif
     
-    init(isCloudSyncEnabled: Bool = true, ratesViewModel: RatesViewModel = .init()) {
+    init(ratesViewModel: RatesViewModel = .init()) {
         self.container = manager.container
         self.context = manager.context
-        self.localHistoryToken = manager.container.persistentStoreCoordinator.currentPersistentHistoryToken(fromStores: container.persistentStoreCoordinator.persistentStores)
         
         self.ratesViewModel = ratesViewModel
         
         fetchSpendings(updateWidgets: false)
         timerUpdate()
-        
-        if isCloudSyncEnabled {
-            NotificationCenter.default.addObserver(
-                self,
-                selector: #selector(updateFromCloud),
-                name: .NSPersistentStoreRemoteChange,
-                object: context.persistentStoreCoordinator
-            )
-        }
         
         NotificationCenter.default.addObserver(
             self,
@@ -50,16 +38,6 @@ final class CoreDataModel: ObservableObject {
             name: .NSManagedObjectContextDidSave,
             object: nil
         )
-    }
-    
-    @objc
-    private func updateFromCloud(_ notification: Notification) {
-        let cloudHistoryToken = notification.userInfo?[NSPersistentHistoryTokenKey] as? NSPersistentHistoryToken
-        
-        if let cloudHistoryToken, cloudHistoryToken != localHistoryToken {
-            self.fetchSpendings()
-            self.localHistoryToken = cloudHistoryToken
-        }
     }
     
     @objc

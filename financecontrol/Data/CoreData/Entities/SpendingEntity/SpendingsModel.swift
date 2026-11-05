@@ -519,9 +519,6 @@ extension CoreDataModel {
                         
                         logger.info("Rates Fetch Queue fired for \(safeSpending.wrappedId.uuidString)")
                         #endif
-                    } catch CloudKitManager.CloudKitError.networkUnavailable {
-                        self?.waitForRatesToBecomeAvailable()
-                        return
                     } catch {
                         ErrorType(error: error).publish(file: #fileID, function: #function)
                         return

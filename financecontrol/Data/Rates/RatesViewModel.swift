@@ -32,11 +32,7 @@ final class RatesViewModel: ViewModel {
     init() {
         insertRates()
         
-        hourlyUpdate()
-        
-        if UserDefaults.standard.bool(forKey: UDKey.updateRates.rawValue) {
-            updateRates(checkURLVersion: true)
-        }
+        self.rates = ["EUR": 1]
     }
     
     private func updateRates(checkURLVersion: Bool = false) {
@@ -85,10 +81,6 @@ final class RatesViewModel: ViewModel {
                 logger.debug("Rates fetched from web")
 #endif
                 
-            } catch CloudKitManager.CloudKitError.networkUnavailable {
-                await MainActor.run {
-                    self.waitForConnectionToEstablish()
-                }
             } catch {
                 await MainActor.run {
                     ErrorType(error: error).publish()
@@ -172,11 +164,10 @@ extension RatesViewModel {
         logger.info("Rates Fetch initiated for \(timestamp?.formatted(date: .abbreviated, time: .shortened) ?? "No timestamp")")
 #endif
         
-        let ckManager = CloudKitManager.shared
         let dateFormatter = DateFormatter.forRatesTimestamp
         
         if isUpdating {
-            return try await ckManager.fetchRates(timestamp: "latest")
+            return (Date(), Rates(timestamp: dateFormatter.string(from: .now), rates: rates))
         }
         
         // Check if latest needed
@@ -194,7 +185,7 @@ extension RatesViewModel {
             return (timestamp, cached)
         }
         
-        let result = try await ckManager.fetchRates(timestamp: timestampString)
+        let result = (timestamp, Rates(timestamp: timestampString, rates: rates))
         
         cache[timestampString] = result.rates
         

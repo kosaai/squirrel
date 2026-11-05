@@ -62,7 +62,7 @@ final class AddSpendingViewModel: ViewModel {
         places: [String: Place]
     ) {
         self.amount = ""
-        self.currency = UserDefaults.standard.string(forKey: UDKey.defaultSelectedCurrency.rawValue) ?? UserDefaults.standard.string(forKey: UDKey.defaultCurrency.rawValue) ?? Locale.current.currencyCode ?? "USD"
+        self.currency = "EUR"
         self.date = .now
         self.selectedCategory = nil
         self.place = ""

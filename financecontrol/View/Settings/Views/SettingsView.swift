@@ -13,8 +13,6 @@ struct SettingsView: View {
     @EnvironmentObject
     private var rvm: RatesViewModel
     @EnvironmentObject
-    private var kvsManager: CloudKitKVSManager
-    @EnvironmentObject
     private var privacyMonitor: PrivacyMonitor
     
     @AppStorage(UDKey.color.rawValue)
@@ -33,7 +31,6 @@ struct SettingsView: View {
     
     @Binding
     var presentOnboarding: Bool
-    let cloudSyncWasEnabled: Bool
     @Binding
     var scrollToTop: Int?
     
@@ -87,8 +84,6 @@ struct SettingsView: View {
                     .id(0)
                 
                 appearanceSection
-                
-                currencySection
                 
     //                shortcutsSection
                 
@@ -173,27 +168,6 @@ struct SettingsView: View {
         }
     }
     
-    var currencySection: some View {
-        Section(header: Text("Currencies")) {
-            NavigationLink {
-                DefaultCurrencySelectorView()
-            } label: {
-                HStack {
-                    Text("Currency")
-                    
-                    Spacer()
-                    
-                    Text("\(Locale.current.localizedString(forCurrencyCode: defaultCurrency) ?? defaultCurrency)")
-                        .foregroundStyle(.secondary)
-                }
-            }
-            
-            NavigationLink("Exchange Rates", destination: RatesView())
-            
-//            NavigationLink("Currency Converter", destination: CurrencyConvertView())
-        }
-    }
-    
     var categorySection: some View {
         Section(header: Text("Categories")) {
             NavigationLink("Categories") {
@@ -224,28 +198,6 @@ struct SettingsView: View {
     
     private var exportImportSection: some View {
         Section {
-            NavigationLink {
-                ICloudSyncView(cloudSyncWasEnabled: cloudSyncWasEnabled)
-                    .environmentObject(kvsManager) // Crash without
-            } label: {
-                HStack {
-                    Text("iCloud Sync")
-                    
-                    Spacer()
-                    
-                    VStack(alignment: .trailing) {
-                        Text(kvsManager.iCloudSync ? "On" : "Off")
-                            .foregroundStyle(.secondary)
-                        
-                        if kvsManager.iCloudSync != cloudSyncWasEnabled {
-                            Text("appication-restart-required-key")
-                                .foregroundStyle(.red)
-                                .font(.footnote)
-                        }
-                    }
-                }
-            }
-            
             NavigationLink("Export and Backup Data") {
                 ExportAndBackupView()
                     .environmentObject(privacyMonitor)
@@ -314,7 +266,7 @@ extension SettingsView {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(showDarkModeToggle: false, presentOnboarding: .constant(false), cloudSyncWasEnabled: false, scrollToTop: .constant(nil))
+        SettingsView(showDarkModeToggle: false, presentOnboarding: .constant(false), scrollToTop: .constant(nil))
             .environmentObject(CoreDataModel())
             .environmentObject(RatesViewModel())
     }

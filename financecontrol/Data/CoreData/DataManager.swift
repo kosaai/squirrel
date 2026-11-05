@@ -15,16 +15,12 @@ final class DataManager {
     lazy private(set) var backgroundContext: NSManagedObjectContext = container.newBackgroundContext()
 
     init() {
-        let container =  NSPersistentCloudKitContainer(name: "DataContainer")
+        let container = NSPersistentContainer(name: "DataContainer")
         
         if let storeDescription = container.persistentStoreDescriptions.first {
-            if !NSUbiquitousKeyValueStore.default.bool(forKey: UDKey.iCloudSync.rawValue) {
-                storeDescription.configuration = "Default"
-                storeDescription.cloudKitContainerOptions = nil
-            }
-            
             storeDescription.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
-            storeDescription.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
+            storeDescription.shouldMigrateStoreAutomatically = true
+            storeDescription.shouldInferMappingModelAutomatically = true
         }
         
         container.loadPersistentStores { _, error in
@@ -32,14 +28,6 @@ final class DataManager {
                 ErrorType(error: error).publish()
             }
         }
-        
-#if DEBUG
-//        do {
-//            try container.initializeCloudKitSchema()
-//        } catch {
-//            print(error)
-//        }
-#endif
         
         let context = container.viewContext
         context.name = "Main context"

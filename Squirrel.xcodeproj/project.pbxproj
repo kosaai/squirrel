@@ -112,7 +112,6 @@
 		8D7FCA552B16A59C009AAAEB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7FCA542B16A59C009AAAEB /* Localizable.xcstrings */; };
 		8DFECA552B16A59C009AAAEB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7FCA542B16A59C009AAAEB /* Localizable.xcstrings */; };
 		8D800A7F2D39672F00887DED /* TimeZone+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D800A7E2D39672F00887DED /* TimeZone+Extensions.swift */; };
-		8D803B112C4EA58200778B6C /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D803B102C4EA58200778B6C /* CloudKitManager.swift */; };
 		8D803B132C4EA6AD00778B6C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D803B122C4EA6AD00778B6C /* Keychain.swift */; };
 		8D830DF12AE00CE600EFB1E7 /* ShadowedCategoriesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D830DF02AE00CE600EFB1E7 /* ShadowedCategoriesRow.swift */; };
 		8D8439E92CD120E700D2054D /* SocialNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8439E82CD120E700D2054D /* SocialNetwork.swift */; };
@@ -127,8 +126,6 @@
 		8D8EA1932B2A18DA009B8B5D /* UIKitModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8EA1922B2A18DA009B8B5D /* UIKitModalPresenter.swift */; };
 		8D91DB842B74EB990040C2CE /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D91DB832B74EB990040C2CE /* ChartData.swift */; };
 		8D9B50162AC2FCCD00C7732B /* RatesErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9B50152AC2FCCD00C7732B /* RatesErrors.swift */; };
-		8D9DD66D2D315E390061DA6B /* OnboardingCloudSyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9DD66C2D315E390061DA6B /* OnboardingCloudSyncView.swift */; };
-		8D9DD66F2D3173B50061DA6B /* ICloudLogoAnimatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9DD66E2D3173B50061DA6B /* ICloudLogoAnimatedView.swift */; };
 		8D9DD6712D317EE60061DA6B /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9DD6702D317EE60061DA6B /* WhatsNewView.swift */; };
 		8D9E22D82AE6A1BD00801932 /* CustomShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9E22D72AE6A1BD00801932 /* CustomShareSheet.swift */; };
 		8D9F30E92B4D7C3E00A0B8C3 /* WidgetsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9F30E82B4D7C3E00A0B8C3 /* WidgetsManager.swift */; };
@@ -174,8 +171,6 @@
 		8DD1C6F42F27BB8800337689 /* SuggestionsOverlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD1C6F32F27BB8800337689 /* SuggestionsOverlayManager.swift */; };
 		8DD5C38C2A603F4500FC862C /* Formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD5C38B2A603F4500FC862C /* Formatters.swift */; };
 		8DD5C38F2A607F1C00FC862C /* CategorySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD5C38E2A607F1C00FC862C /* CategorySelector.swift */; };
-		8DD772D92D2BEC9C009F5787 /* ICloudSyncViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD772D82D2BEC9C009F5787 /* ICloudSyncViewModel.swift */; };
-		8DD772DB2D2C43C8009F5787 /* CloudKitKVSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD772DA2D2C43C8009F5787 /* CloudKitKVSManager.swift */; };
 		8DDFD4742A68249100493753 /* DefaultCurrencySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DDFD4732A68249100493753 /* DefaultCurrencySelectorView.swift */; };
 		8DE29BA82A683F01002F5C42 /* AddCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE29BA72A683F01002F5C42 /* AddCategoryView.swift */; };
 		8DE48D122A72DA88008A2DD4 /* CategoriesEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE48D112A72DA88008A2DD4 /* CategoriesEditView.swift */; };
@@ -192,7 +187,6 @@
 		8DFA1EDE2B4C163100B97113 /* CustomIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA1EDD2B4C163100B97113 /* CustomIcon.swift */; };
 		8DFA1EE02B4C16DE00B97113 /* IconRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA1EDF2B4C16DE00B97113 /* IconRow.swift */; };
 		8DFA1EE32B4C1F7A00B97113 /* IconRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA1EE22B4C1F7A00B97113 /* IconRowViewModel.swift */; };
-		8DFE477E2D20315200AA3B9F /* ICloudSyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFE477D2D20315200AA3B9F /* ICloudSyncView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -325,7 +319,6 @@
 		8D7EFB0A2A85096B009797E8 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		8D7FCA542B16A59C009AAAEB /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		8D800A7E2D39672F00887DED /* TimeZone+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeZone+Extensions.swift"; sourceTree = "<group>"; };
-		8D803B102C4EA58200778B6C /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		8D803B122C4EA6AD00778B6C /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		8D830DF02AE00CE600EFB1E7 /* ShadowedCategoriesRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowedCategoriesRow.swift; sourceTree = "<group>"; };
 		8D8439E82CD120E700D2054D /* SocialNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialNetwork.swift; sourceTree = "<group>"; };
@@ -340,8 +333,6 @@
 		8D91DB832B74EB990040C2CE /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		8D9B50132AC1BE9700C7732B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D9B50152AC2FCCD00C7732B /* RatesErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesErrors.swift; sourceTree = "<group>"; };
-		8D9DD66C2D315E390061DA6B /* OnboardingCloudSyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCloudSyncView.swift; sourceTree = "<group>"; };
-		8D9DD66E2D3173B50061DA6B /* ICloudLogoAnimatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudLogoAnimatedView.swift; sourceTree = "<group>"; };
 		8D9DD6702D317EE60061DA6B /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		8D9E22D72AE6A1BD00801932 /* CustomShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShareSheet.swift; sourceTree = "<group>"; };
 		8D9F30E82B4D7C3E00A0B8C3 /* WidgetsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsManager.swift; sourceTree = "<group>"; };
@@ -387,8 +378,6 @@
 		8DD1C6F32F27BB8800337689 /* SuggestionsOverlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionsOverlayManager.swift; sourceTree = "<group>"; };
 		8DD5C38B2A603F4500FC862C /* Formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatters.swift; sourceTree = "<group>"; };
 		8DD5C38E2A607F1C00FC862C /* CategorySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelector.swift; sourceTree = "<group>"; };
-		8DD772D82D2BEC9C009F5787 /* ICloudSyncViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudSyncViewModel.swift; sourceTree = "<group>"; };
-		8DD772DA2D2C43C8009F5787 /* CloudKitKVSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitKVSManager.swift; sourceTree = "<group>"; };
 		8DDFD4732A68249100493753 /* DefaultCurrencySelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCurrencySelectorView.swift; sourceTree = "<group>"; };
 		8DE29BA72A683F01002F5C42 /* AddCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryView.swift; sourceTree = "<group>"; };
 		8DE48D112A72DA88008A2DD4 /* CategoriesEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesEditView.swift; sourceTree = "<group>"; };
@@ -405,7 +394,6 @@
 		8DFA1EDD2B4C163100B97113 /* CustomIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIcon.swift; sourceTree = "<group>"; };
 		8DFA1EDF2B4C16DE00B97113 /* IconRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconRow.swift; sourceTree = "<group>"; };
 		8DFA1EE22B4C1F7A00B97113 /* IconRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconRowViewModel.swift; sourceTree = "<group>"; };
-		8DFE477D2D20315200AA3B9F /* ICloudSyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ICloudSyncView.swift; sourceTree = "<group>"; };
 		8DFF59662BA35D1F002DBB1B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -462,7 +450,6 @@
 		8D0763A92A4B278100D2C3FF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				8D803B102C4EA58200778B6C /* CloudKitManager.swift */,
 				8DD5C38B2A603F4500FC862C /* Formatters.swift */,
 				8D28C7EF2A73DF7000F27CD4 /* Colors.swift */,
 				8D3876622A740F960005FFAF /* InputUtils.swift */,
@@ -474,7 +461,6 @@
 				8D6A5A1C2C18A1A100322929 /* PrivacyMonitor.swift */,
 				8D51765C2C34360C00141B6C /* NetworkMonitor.swift */,
 				8D803B122C4EA6AD00778B6C /* Keychain.swift */,
-				8DD772DA2D2C43C8009F5787 /* CloudKitKVSManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -521,7 +507,6 @@
 				8D2AD7D12BA1CE6E001DCC61 /* OnboardingGesturesTemplateView.swift */,
 				8D2AD7D32BA1CEA6001DCC61 /* OnboardingCategoriesView.swift */,
 				8D59A2522C8A0DEF007E40E9 /* OnboardingHeaderView.swift */,
-				8D9DD66C2D315E390061DA6B /* OnboardingCloudSyncView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -632,7 +617,6 @@
 				8D6B3E612C1216C900C4A97A /* Shapes */,
 				8D7710A62B60615D00D3ECF5 /* UniversalViews.swift */,
 				8D54F4FA2B96335100B17886 /* CustomContentUnavailableView.swift */,
-				8D9DD66E2D3173B50061DA6B /* ICloudLogoAnimatedView.swift */,
 				8D9DD6702D317EE60061DA6B /* WhatsNewView.swift */,
 			);
 			path = Universal;
@@ -898,7 +882,6 @@
 				8DFA1EDF2B4C16DE00B97113 /* IconRow.swift */,
 				8D59A2502C860D0B007E40E9 /* SettingsFormattingView.swift */,
 				8D02AA782CBFE63300C4B4F6 /* ExportCSVView.swift */,
-				8DFE477D2D20315200AA3B9F /* ICloudSyncView.swift */,
 				8D4372482DF1F148006F9632 /* CSVOptionsView.swift */,
 			);
 			path = Views;
@@ -1012,7 +995,6 @@
 			children = (
 				8DFA1EE22B4C1F7A00B97113 /* IconRowViewModel.swift */,
 				8D02AA7A2CBFE69900C4B4F6 /* ExportCSVViewModel.swift */,
-				8DD772D82D2BEC9C009F5787 /* ICloudSyncViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1218,7 +1200,6 @@
 				8DCB302F2A97578F00DC9ABB /* View+Extensions.swift in Sources */,
 				8D044C032C35A88E00868A21 /* StatsViewModel.swift in Sources */,
 				8D88CDC32AA0E37000668DEC /* SpendingEntity+CoreDataProperties.swift in Sources */,
-				8DFE477E2D20315200AA3B9F /* ICloudSyncView.swift in Sources */,
 				8D6E441B2B18C6E800FDFF9D /* ReturnsModel.swift in Sources */,
 				8D8439E92CD120E700D2054D /* SocialNetwork.swift in Sources */,
 				8D2AD7CE2BA1CDA2001DCC61 /* OnboardingWelcomeView.swift in Sources */,
@@ -1293,7 +1274,6 @@
 				8D6059E42AB87AF60043A293 /* RatesView.swift in Sources */,
 				8D75E5B02A67FAF9009CA5C6 /* ColorAndIconView.swift in Sources */,
 				8DEC3FF12AD580D700F5D82E /* DebugView.swift in Sources */,
-				8D803B112C4EA58200778B6C /* CloudKitManager.swift in Sources */,
 				8D51765D2C34360C00141B6C /* NetworkMonitor.swift in Sources */,
 				8D6B3E602C0DE77D00C4A97A /* Line.swift in Sources */,
 				8D803B132C4EA6AD00778B6C /* Keychain.swift in Sources */,
@@ -1303,7 +1283,6 @@
 				8D5CBE782B84F68300435335 /* CoreDataErrors.swift in Sources */,
 				8D4E1CE92FE97F7000248BA7 /* CategoryEntity+Extensions.swift in Sources */,
 				8D0429DB2A9B8D2400A09BB4 /* BarChartGenerator.swift in Sources */,
-				8D9DD66F2D3173B50061DA6B /* ICloudLogoAnimatedView.swift in Sources */,
 				8D28C7F02A73DF7000F27CD4 /* Colors.swift in Sources */,
 				8D2AD7D22BA1CE6E001DCC61 /* OnboardingGesturesTemplateView.swift in Sources */,
 				8D5176592C33021C00141B6C /* CustomAlertViewModel.swift in Sources */,
@@ -1311,7 +1290,6 @@
 				8D0DF5512AE80D5F00C3CC1F /* CustomAlertView.swift in Sources */,
 				8D406EAC2A9A386E002D3ED1 /* BarChartData.swift in Sources */,
 				8D4E08182AAA152A00B3544F /* SpendingsModel.swift in Sources */,
-				8DD772D92D2BEC9C009F5787 /* ICloudSyncViewModel.swift in Sources */,
 				8DCB302D2A97314400DC9ABB /* StatsRow.swift in Sources */,
 				8DF189CB2D70A71300AA0865 /* AnyTransition+Extensions.swift in Sources */,
 				8DF003752B0CB07900133554 /* PieChartCenterView.swift in Sources */,
@@ -1329,7 +1307,6 @@
 				8D91DB842B74EB990040C2CE /* ChartData.swift in Sources */,
 				8DFA1EE02B4C16DE00B97113 /* IconRow.swift in Sources */,
 				8DB42E6C2B0F6BE1000E7EA5 /* EditSpendingViewModel.swift in Sources */,
-				8D9DD66D2D315E390061DA6B /* OnboardingCloudSyncView.swift in Sources */,
 				8D02AA7B2CBFE69900C4B4F6 /* ExportCSVViewModel.swift in Sources */,
 				8D54F4FB2B96335100B17886 /* CustomContentUnavailableView.swift in Sources */,
 				8DE48D122A72DA88008A2DD4 /* CategoriesEditView.swift in Sources */,
@@ -1339,7 +1316,6 @@
 				8D8EA1932B2A18DA009B8B5D /* UIKitModalPresenter.swift in Sources */,
 				8DBFEBF92A49ED9A00165414 /* HomeView.swift in Sources */,
 				8D800A7F2D39672F00887DED /* TimeZone+Extensions.swift in Sources */,
-				8DD772DB2D2C43C8009F5787 /* CloudKitKVSManager.swift in Sources */,
 				8DE29BA82A683F01002F5C42 /* AddCategoryView.swift in Sources */,
 				8DBD9B282CC9210300C77567 /* URL+Extensions.swift in Sources */,
 				8D4E081A2AAA15B900B3544F /* CategoriesModel.swift in Sources */,

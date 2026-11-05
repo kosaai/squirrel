@@ -14,8 +14,6 @@ enum Vars {
     
     static let widgetIdentifier: String = appIdentifier + ".squirrelWidget"
     
-    static let iCloudContainerIdentifier: String = "iCloud.dev.squirrelapp.squirrel"
-    
     static let privacyBlur: CGFloat = 10
 }
 

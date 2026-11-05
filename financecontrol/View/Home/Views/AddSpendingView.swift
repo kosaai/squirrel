@@ -197,13 +197,6 @@ struct AddSpendingView: View {
                 }
                 .normalizePadding()
             
-            HStack {
-                Text("Currency")
-                
-                CurrencySelector(currency: $vm.currency)
-            }
-            .disabled(showSuggestions && !minimizeSuggestions)
-            
             DatePicker("Date", selection: $vm.date, in: .firstAvailableDate...Date.now)
                 .datePickerStyle(.compact)
                 .padding(.vertical, -10)

@@ -18,7 +18,7 @@ struct OnboardingView: View {
     @State private var showOverlay: Bool = false
     @State private var transition: AnyTransition = .horizontalMoveForward
     
-    let finalScreenNumber: Int = 4
+    let finalScreenNumber: Int = 3
     let addSampleData: Bool = false
     
     var continueButtonText: LocalizedStringKey {
@@ -50,10 +50,6 @@ struct OnboardingView: View {
                     .animation(.smooth, value: screen)
             case 3:
                 screen3
-                    .transition(transition)
-                    .animation(.smooth, value: screen)
-            case 4:
-                screen4
                     .transition(transition)
                     .animation(.smooth, value: screen)
             default:
@@ -239,11 +235,6 @@ struct OnboardingView: View {
     }
     
     private var screen3: some View {
-        OnboardingCloudSyncView()
-            .tint(.orange)
-    }
-    
-    private var screen4: some View {
         OnboardingGesturesTemplateView()
     }
 }

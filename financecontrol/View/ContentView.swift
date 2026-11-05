@@ -45,8 +45,6 @@ struct ContentView: View {
     @StateObject
     private var statsViewModel: StatsViewModel = StatsViewModel()
     @StateObject
-    private var cloudKitKVSManager: CloudKitKVSManager
-    @StateObject
     private var barChartViewModel = BarChartViewModel(context: DataManager.shared.context)
     
     @ObservedObject 
@@ -76,18 +74,14 @@ struct ContentView: View {
     @State
     private var scrollToTop: Int? = nil
     
-    let cloudSyncWasEnabled = NSUbiquitousKeyValueStore.default.bool(forKey: UDKey.iCloudSync.rawValue)
-    
     init() {
         let ratesViewModel = RatesViewModel()
-        let cloudKitKVSManger = CloudKitKVSManager()
-        let coreDataModel = CoreDataModel(isCloudSyncEnabled: cloudKitKVSManger.iCloudSync, ratesViewModel: ratesViewModel)
+        let coreDataModel = CoreDataModel(ratesViewModel: ratesViewModel)
         let filtersViewModel = FiltersViewModel()
         let pieChartViewModel = PieChartViewModel(cdm: coreDataModel, fvm: filtersViewModel)
         let statsSearchViewModel = StatsSearchViewModel()
         let statsListViewModel = StatsListViewModel(cdm: coreDataModel, fvm: filtersViewModel, pcvm: pieChartViewModel, searchModel: statsSearchViewModel)
         self._rvm = StateObject(wrappedValue: ratesViewModel)
-        self._cloudKitKVSManager = StateObject(wrappedValue: cloudKitKVSManger)
         self._cdm = StateObject(wrappedValue: coreDataModel)
         self._pieChartViewModel = StateObject(wrappedValue: pieChartViewModel)
         self._filtersViewModel = StateObject(wrappedValue: filtersViewModel)
@@ -133,7 +127,6 @@ struct ContentView: View {
         .sheet(isPresented: $presentOnboarding) {
             OnboardingView()
                 .environmentObject(cdm)
-                .environmentObject(cloudKitKVSManager)
                 .accentColor(.orange)
                 .interactiveDismissDisabled()
         }
@@ -166,12 +159,7 @@ struct ContentView: View {
     }
     
     private var homeTab: some View {
-        HomeView(
-            showingSheet: $addExpenseAction,
-            presentOnboarding: $presentOnboarding,
-            cloudSyncWasEnabled: cloudSyncWasEnabled
-        )
-        .environmentObject(cloudKitKVSManager)
+        HomeView(showingSheet: $addExpenseAction, presentOnboarding: $presentOnboarding)
         .environmentObject(barChartViewModel)
         .tabItem {
             Label("Home", systemImage: "house.fill")
@@ -214,17 +202,14 @@ struct ContentView: View {
         SettingsView(
             showDarkModeToggle: !autoDarkMode,
             presentOnboarding: $presentOnboarding,
-            cloudSyncWasEnabled: cloudSyncWasEnabled,
             scrollToTop: $scrollToTop
         )
-        .environmentObject(cloudKitKVSManager)
         .environmentObject(privacyMonitor)
         .environmentObject(pieChartViewModel)
         .tabItem {
             Label("Settings", systemImage: "gearshape.fill")
         }
         .tag(2)
-        .badge(cloudKitKVSManager.iCloudSync != cloudSyncWasEnabled ? 1 : 0)
     }
     
     private func setColorScheme() {

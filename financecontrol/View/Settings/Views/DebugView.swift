@@ -103,7 +103,6 @@ struct DebugView: View {
                     
                     keyChainErrorsSection
                     
-                    cloudKitErrorsSection
                 }
                 .navigationTitle("Errors")
             }
@@ -217,25 +216,6 @@ struct DebugView: View {
             }
         } header: {
             Text(verbatim: "Keychain errors")
-        }
-    }
-    
-    private var cloudKitErrorsSection: some View {
-        Section {
-            Button {
-                ErrorType(CloudKitManager.CloudKitError.failedToDecodeResult).publish()
-            } label: {
-                Text(verbatim: "Failed to decode result")
-            }
-            
-            Button {
-                ErrorType(CloudKitManager.CloudKitError.failedToGetResult).publish()
-            } label: {
-                Text(verbatim: "Failed to get result")
-            }
-            
-        } header: {
-            Text(verbatim: "cloudkit errors")
         }
     }
     
@@ -366,10 +346,6 @@ struct DebugView: View {
                         
                         Spacer()
                     }
-                }
-                .refreshable {
-                    let ckManager = CloudKitManager.shared
-                    await ckManager.updateCloudKitContent(forceUpdate: true)
                 }
             } label: {
                 Text(verbatim: "URLs")

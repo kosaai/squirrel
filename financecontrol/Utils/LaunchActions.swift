@@ -12,10 +12,6 @@ import OSLog
 
 func launch() {
     let dateFormatter = ISO8601DateFormatter()
-    #if DEBUG
-    let _ = CloudKitManager.shared
-    #endif
-    
     // MARK: Rates update scheduling
     let updateTime = UserDefaults.standard.string(forKey: UDKey.updateTime.rawValue) ?? dateFormatter.string(from: .distantPast)
     
@@ -31,12 +27,12 @@ func launch() {
     }
     
     // MARK: Currency checks
-    if UserDefaults.standard.string(forKey: UDKey.defaultCurrency.rawValue) == nil {
-        UserDefaults.standard.set(Locale.current.currencyCode ?? "USD", forKey: UDKey.defaultCurrency.rawValue)
-    }
+    UserDefaults.standard.set("EUR", forKey: UDKey.defaultCurrency.rawValue)
+    UserDefaults.standard.set("EUR", forKey: UDKey.defaultSelectedCurrency.rawValue)
+    UserDefaults.standard.set(["EUR"], forKey: UDKey.savedCurrencies.rawValue)
     
     if let sharedDefaults = UserDefaults(suiteName: Vars.groupName), sharedDefaults.string(forKey: UDKey.defaultCurrency.rawValue) == nil {
-        sharedDefaults.set(Locale.current.currencyCode ?? "USD", forKey: UDKey.defaultCurrency.rawValue)
+        sharedDefaults.set("EUR", forKey: UDKey.defaultCurrency.rawValue)
         WidgetsManager.shared.reloadSumWidgets()
     }
 }

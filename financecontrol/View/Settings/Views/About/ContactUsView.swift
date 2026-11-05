@@ -99,11 +99,6 @@ struct ContactUsView: View {
                 }
             }
         }
-        #if DEBUG
-        .refreshable {
-            await CloudKitManager.shared.updateCloudKitContent(forceUpdate: true)
-        }
-        #endif
         .navigationTitle("Contact Us")
     }
 }

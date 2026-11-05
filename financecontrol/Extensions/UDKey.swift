@@ -28,7 +28,6 @@ enum UDKey: String {
     case urlUpdateVersion
     case socialNetworksUpdateVersion
     case socialNetworksJSON
-    case iCloudSync
     case timeZoneFormat
     
     static var urlKeys: [Self] {

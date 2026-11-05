@@ -35,7 +35,6 @@ struct HomeView: View {
     @Binding
     var presentOnboarding: Bool
     
-    let cloudSyncWasEnabled: Bool
     let currentBuild = Int(Bundle.main.buildVersionNumber ?? "") ?? 0
     
     var body: some View {
@@ -243,7 +242,7 @@ struct HomeView: View {
 
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(showingSheet: .constant(false), presentOnboarding: .constant(false), cloudSyncWasEnabled: false)
+        HomeView(showingSheet: .constant(false), presentOnboarding: .constant(false))
             .environmentObject(CoreDataModel())
     }
 }
