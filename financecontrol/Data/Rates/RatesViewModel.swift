@@ -187,7 +187,7 @@ extension RatesViewModel {
         
         let result = (timestamp, Rates(timestamp: timestampString, rates: rates))
         
-        cache[timestampString] = result.rates
+        cache[timestampString] = result.1
         
         return result
     }
