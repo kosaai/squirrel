@@ -32,6 +32,8 @@ financecontrol/Assets.xcassets/*
 !financecontrol/Assets.xcassets/AppIcon_Image.imageset/**
 !financecontrol/Assets.xcassets/Onboarding.imageset/
 !financecontrol/Assets.xcassets/Onboarding.imageset/**
+!financecontrol/Assets.xcassets/DimeShared/
+!financecontrol/Assets.xcassets/DimeShared/**
 
 financecontrolWidget/Assets.xcassets/SquirrelLogoImage.imageset/*.png
 !financecontrolWidget/Assets.xcassets/SquirrelLogoImage.imageset/*.png

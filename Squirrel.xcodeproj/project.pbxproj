@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1E000000000000000000011 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000001 /* Color.swift */; };
+		D1E000000000000000000012 /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000002 /* DynamicType.swift */; };
+		D1E000000000000000000013 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000003 /* FontExtension.swift */; };
+		D1E000000000000000000014 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000004 /* ViewExtension.swift */; };
 		8D00D75C2B5801C900E8C70D /* Vars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00D75B2B5801C900E8C70D /* Vars.swift */; };
 		8D00D75D2B5801C900E8C70D /* Vars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00D75B2B5801C900E8C70D /* Vars.swift */; };
 		8D02AA792CBFE63300C4B4F6 /* ExportCSVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D02AA782CBFE63300C4B4F6 /* ExportCSVView.swift */; };
@@ -221,6 +225,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D1E000000000000000000001 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D1E000000000000000000002 /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
+		D1E000000000000000000003 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		D1E000000000000000000004 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		8D00D75B2B5801C900E8C70D /* Vars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vars.swift; sourceTree = "<group>"; };
 		8D02AA782CBFE63300C4B4F6 /* ExportCSVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportCSVView.swift; sourceTree = "<group>"; };
 		8D02AA7A2CBFE69900C4B4F6 /* ExportCSVViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportCSVViewModel.swift; sourceTree = "<group>"; };
@@ -426,6 +434,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1E000000000000000000021 /* DimeShared */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000001 /* Color.swift */,
+				D1E000000000000000000002 /* DynamicType.swift */,
+				D1E000000000000000000003 /* FontExtension.swift */,
+				D1E000000000000000000004 /* ViewExtension.swift */,
+			);
+			path = DimeShared;
+			sourceTree = "<group>";
+		};
 		8D043F6B2B51A99600F2F560 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -978,6 +997,7 @@
 				8D5894942A829D8C00A6DB65 /* Spending */,
 				8D2AD7CA2BA1CD41001DCC61 /* Onboarding */,
 				8D54F4F92B96331800B17886 /* Universal */,
+				D1E000000000000000000021 /* DimeShared */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1187,6 +1207,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E000000000000000000011 /* Color.swift in Sources */,
+				D1E000000000000000000012 /* DynamicType.swift in Sources */,
+				D1E000000000000000000013 /* FontExtension.swift in Sources */,
+				D1E000000000000000000014 /* ViewExtension.swift in Sources */,
 				8D0681102B6D466600195205 /* PieChartCompleteView.swift in Sources */,
 				8D39C6932B1F3C9500F40FD6 /* EditReturnView.swift in Sources */,
 				8D1E71E32AAEFED6004A17B4 /* Color+Extensions.swift in Sources */,
