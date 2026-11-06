@@ -218,7 +218,7 @@
 		D1E000000000000000000712 /* TransactionTemplateEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */; };
 		D1E000000000000000000713 /* TransactionTemplatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000703 /* TransactionTemplatesModel.swift */; };
 		D1E000000000000000000714 /* DimeTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000705 /* DimeTemplatesView.swift */; };
-		D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Resources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */; };
+		D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */; };
 		D1E000000000000000000811 /* DimeBudgetEntity+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000801 /* DimeBudgetEntity+CoreData.swift */; };
 		D1E000000000000000000812 /* DimeBudgetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000802 /* DimeBudgetsModel.swift */; };
 		D1E000000000000000000813 /* DimeBudgetDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000803 /* DimeBudgetDataAdapter.swift */; };
@@ -1463,7 +1463,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1552,6 +1551,7 @@
 				D1E000000000000000000712 /* TransactionTemplateEntity+CoreDataProperties.swift in Sources */,
 				D1E000000000000000000713 /* TransactionTemplatesModel.swift in Sources */,
 				D1E000000000000000000714 /* DimeTemplatesView.swift in Sources */,
+				D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Sources */,
 				D1E000000000000000000614 /* DimeRecurringPicker.swift in Sources */,
 				D1E000000000000000000611 /* ScheduledTransactionEntity+CoreDataClass.swift in Sources */,
 				D1E000000000000000000612 /* ScheduledTransactionEntity+CoreDataProperties.swift in Sources */,

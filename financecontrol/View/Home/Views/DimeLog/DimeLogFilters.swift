@@ -148,7 +148,7 @@ private struct DimeLogFilterPicker: View {
     }
 }
 
-private struct DimeLogTimePicker: View {
+struct DimeLogTimePicker: View {
     @Binding var timeframe: DimeLogDataAdapter.Timeframe
     @Binding var showMenu: Bool
     @Namespace private var animation

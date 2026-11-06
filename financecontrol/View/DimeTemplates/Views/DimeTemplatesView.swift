@@ -12,10 +12,18 @@ struct DimeTemplatesView: View {
     @State private var createTemplate = false
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             Group {
                 if templates.isEmpty {
-                    ContentUnavailableView("Dime Templates Empty", systemImage: "rectangle.stack", description: Text("Dime Templates Empty Description"))
+                    VStack(spacing: 12) {
+                        Image(systemName: "rectangle.stack")
+                            .font(.system(.largeTitle, design: .rounded))
+                        Text("Dime Templates Empty")
+                            .font(.system(.title3, design: .rounded).weight(.medium))
+                        Text("Dime Templates Empty Description")
+                            .font(.system(.body, design: .rounded))
+                    }
+                    .foregroundColor(Color.SubtitleText)
                 } else {
                     List {
                         ForEach(templates) { template in
@@ -60,5 +68,5 @@ struct DimeSaveTemplateView: View {
     @Environment(\.dismiss) private var dismiss
     let amount: Double; let kind: DimeTransactionDataAdapter.Kind; let category: CategoryEntity?; let note: String
     @State private var name = ""
-    var body: some View { NavigationStack { Form { TextField("Dime Templates Name", text: $name) }.navigationTitle("Dime Templates Create").toolbar { ToolbarItem(placement: .cancellationAction) { Button("Dime Templates Cancel") { dismiss() } }; ToolbarItem(placement: .primaryAction) { Button("Dime Templates Save") { guard let categoryID = category?.id else { return }; coreDataModel.addTransactionTemplate(.init(name: name, amount: amount, isIncome: kind == .income, categoryID: categoryID, note: note, order: Int32(coreDataModel.fetchTransactionTemplates().count))); dismiss() }.disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || amount <= 0 || category == nil) } } } }
+    var body: some View { NavigationView { Form { TextField("Dime Templates Name", text: $name) }.navigationTitle("Dime Templates Create").toolbar { ToolbarItem(placement: .cancellationAction) { Button("Dime Templates Cancel") { dismiss() } }; ToolbarItem(placement: .primaryAction) { Button("Dime Templates Save") { guard let categoryID = category?.id else { return }; coreDataModel.addTransactionTemplate(.init(name: name, amount: amount, isIncome: kind == .income, categoryID: categoryID, note: note, order: Int32(coreDataModel.fetchTransactionTemplates().count))); dismiss() }.disabled(name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || amount <= 0 || category == nil) } } } }
 }

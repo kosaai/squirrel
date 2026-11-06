@@ -10,7 +10,7 @@ struct DimeBudgetView: View {
     @State private var selected: DimeBudgetEntity?
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             Group {
                 if budgets.isEmpty {
                     VStack(spacing: 12) {
@@ -103,7 +103,7 @@ struct DimeBudgetEditor: View {
     }
 
     var body: some View {
-        NavigationStack {
+        NavigationView {
             Form {
                 TextField("Dime Budget Amount", value: $amount, format: .number)
                 Picker("Dime Budget Period", selection: $period) {

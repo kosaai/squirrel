@@ -8,7 +8,7 @@ extension ScheduledTransactionEntity {
     @NSManaged var createdAt: Date?
     @NSManaged var currency: String?
     @NSManaged var frequency: Int16
-    @NSManaged var id: UUID?
+    @NSManaged public var id: UUID?
     @NSManaged var interval: Int16
     @NSManaged var isActive: Bool
     @NSManaged var isIncome: Bool
