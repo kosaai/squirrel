@@ -24,6 +24,10 @@ struct DimeTransactionView: View {
     @State private var isEditingDecimal = false
     @State private var decimalValuesAssigned: DimeAssignedDecimal = .none
     @State private var kind: DimeTransactionDataAdapter.Kind
+    @State private var recurrence: DimeRecurrenceFrequency = .none
+    @State private var recurrenceInterval = 1
+    @State private var showRecurrencePicker = false
+    @State private var showCustomRecurrence = false
 
     init(spendingToEdit: SpendingEntity?) {
         self.init(transactionToEdit: spendingToEdit.map(DimeTransactionDataAdapter.Record.expense))
@@ -55,6 +59,10 @@ struct DimeTransactionView: View {
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
                     DimeSuggestedTransactions(note: $note, amount: $amount, category: $category, suggestions: suggestions)
+                    Button { showRecurrencePicker = true } label: {
+                        HStack { Text(recurrence == .none ? "Dime Recurring None" : "Dime Recurring Every \(recurrenceInterval) \(recurrence.unit)"); Spacer(); Image(systemName: "repeat") }
+                            .font(.system(.body, design: .rounded).weight(.medium)).padding(14).foregroundColor(recurrence == .none ? Color.PrimaryText : Color.IncomeGreen).background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                    }
                     Button { showCategoryPicker = true } label: {
                         HStack {
                             Text(category?.name ?? String(localized: "Dime Transaction Category"))
@@ -71,7 +79,7 @@ struct DimeTransactionView: View {
                         .font(.system(.body, design: .rounded))
                         .padding(14)
                         .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    DatePicker("Dime Transaction Date", selection: $date, in: ...Date.now)
+                    DatePicker("Dime Transaction Date", selection: $date)
                         .font(.system(.body, design: .rounded))
                         .tint(Color.DarkIcon)
                 }
@@ -91,10 +99,20 @@ struct DimeTransactionView: View {
         .sheet(isPresented: $showCategoryPicker) {
             DimeTransactionCategoryPicker(category: $category, showPicker: $showCategoryPicker, categories: Array(categories))
         }
+        .popover(isPresented: $showRecurrencePicker) {
+            DimeRecurringPicker(frequency: $recurrence, interval: $recurrenceInterval, showMenu: $showRecurrencePicker, showCustom: $showCustomRecurrence)
+        }
+        .sheet(isPresented: $showCustomRecurrence) {
+            DimeCustomRecurringView(frequency: $recurrence, interval: $recurrenceInterval)
+        }
     }
 
     private func save() {
-        adapter.save(existing: transactionToEdit, kind: kind, amount: amount, note: note, category: category, date: date, coreDataModel: coreDataModel)
+        if transactionToEdit == nil && (recurrence != .none || date > .now) {
+            adapter.saveScheduled(amount: amount, note: note, category: category, date: date, kind: kind, frequency: recurrence, interval: recurrenceInterval, coreDataModel: coreDataModel)
+        } else {
+            adapter.save(existing: transactionToEdit, kind: kind, amount: amount, note: note, category: category, date: date, coreDataModel: coreDataModel)
+        }
         dismiss()
     }
 }

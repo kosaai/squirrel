@@ -5135,6 +5135,66 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit" } },
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "تعديل" } }
       }
+    },
+    "Dime Recurring None" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "None" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "لا تكرار" } }
+      }
+    },
+    "Dime Recurring Daily" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Daily" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يومي" } }
+      }
+    },
+    "Dime Recurring Weekly" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Weekly" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أسبوعي" } }
+      }
+    },
+    "Dime Recurring Monthly" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Monthly" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "شهري" } }
+      }
+    },
+    "Dime Recurring Custom" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Custom" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مخصص" } }
+      }
+    },
+    "Dime Recurring Custom Interval" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Custom Interval" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "فاصل مخصص" } }
+      }
+    },
+    "Dime Recurring Frequency" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Frequency" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "التكرار" } }
+      }
+    },
+    "Dime Recurring Days" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "days" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أيام" } }
+      }
+    },
+    "Dime Recurring Weeks" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "weeks" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أسابيع" } }
+      }
+    },
+    "Dime Recurring Months" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "months" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أشهر" } }
+      }
     }
   },
   "version" : "1.0"

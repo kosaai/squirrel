@@ -105,6 +105,9 @@ struct DimeLogView: View {
             DimeTransactionView(transactionToEdit: transaction)
                 .environmentObject(coreDataModel)
         }
+        .onAppear {
+            coreDataModel.generateDueScheduledTransactions()
+        }
     }
 }
 

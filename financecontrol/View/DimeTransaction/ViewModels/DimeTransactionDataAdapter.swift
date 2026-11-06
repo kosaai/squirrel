@@ -91,6 +91,21 @@ final class DimeTransactionDataAdapter: ObservableObject {
         }
     }
 
+    func saveScheduled(
+        amount: Double,
+        note: String,
+        category: CategoryEntity?,
+        date: Date,
+        kind: Kind,
+        frequency: DimeRecurrenceFrequency,
+        interval: Int,
+        coreDataModel: CoreDataModel
+    ) {
+        guard amount > 0, let categoryID = category?.id else { return }
+        coreDataModel.addScheduledTransaction(.init(amount: amount, comment: note, categoryID: categoryID, date: date, isIncome: kind == .income, frequency: frequency, interval: interval))
+        coreDataModel.generateDueScheduledTransactions()
+    }
+
     func suggestions(note: String, kind: Kind, from coreDataModel: CoreDataModel) -> [Record] {
         let normalized = note.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: .current)
         let records: [Record] = kind == .expense
