@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */; };
 		D1E000000000000000000711 /* TransactionTemplateEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */; };
 		D1E000000000000000000712 /* TransactionTemplateEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */; };
 		D1E000000000000000000713 /* TransactionTemplatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000703 /* TransactionTemplatesModel.swift */; };
@@ -252,6 +253,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTemplateTransactionEditor.swift; sourceTree = "<group>"; };
 		D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionTemplateEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionTemplateEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D1E000000000000000000703 /* TransactionTemplatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTemplatesModel.swift; sourceTree = "<group>"; };
@@ -493,7 +495,7 @@
 /* Begin PBXGroup section */
 		D1E000000000000000000721 /* TransactionTemplateEntity */ = { isa = PBXGroup; children = (D1E000000000000000000703 /* TransactionTemplatesModel.swift */, D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */, D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */, ); path = TransactionTemplateEntity; sourceTree = "<group>"; };
 		D1E000000000000000000722 /* DimeTemplates */ = { isa = PBXGroup; children = (D1E000000000000000000723 /* Views */, ); path = DimeTemplates; sourceTree = "<group>"; };
-		D1E000000000000000000723 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000000705 /* DimeTemplatesView.swift */, ); path = Views; sourceTree = "<group>"; };
+		D1E000000000000000000723 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000000705 /* DimeTemplatesView.swift */, D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */, ); path = Views; sourceTree = "<group>"; };
 		D1E000000000000000000622 /* DimeRecurring */ = { isa = PBXGroup; children = (D1E000000000000000000623 /* Components */, ); path = DimeRecurring; sourceTree = "<group>"; };
 		D1E000000000000000000623 /* Components */ = { isa = PBXGroup; children = (D1E000000000000000000605 /* DimeRecurringPicker.swift */, ); path = Components; sourceTree = "<group>"; };
 		D1E000000000000000000621 /* ScheduledTransactionEntity */ = { isa = PBXGroup; children = (D1E000000000000000000603 /* ScheduledTransactionsModel.swift */, D1E000000000000000000601 /* ScheduledTransactionEntity+CoreDataClass.swift */, D1E000000000000000000602 /* ScheduledTransactionEntity+CoreDataProperties.swift */, ); path = ScheduledTransactionEntity; sourceTree = "<group>"; };
@@ -1275,6 +1277,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
