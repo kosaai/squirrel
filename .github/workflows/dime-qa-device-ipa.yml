@@ -65,6 +65,7 @@ jobs:
       - name: Verify device build and Dime QA contents
         run: |
           set -euo pipefail
+          git merge-base --is-ancestor ec70dcd HEAD
           app_path="$RUNNER_TEMP/DimeQADeviceDerivedData/Build/Products/Release-iphoneos/Squirrel.app"
           binary="$app_path/Squirrel"
           test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app_path/Info.plist")" = "$QA_BUNDLE_ID"
@@ -81,7 +82,14 @@ jobs:
           grep -q 'DimeHomeView' financecontrol/View/ContentView.swift
           grep -q 'DimeCustomTabBar' financecontrol/View/DimeShell/Views/DimeHomeView.swift
           grep -q 'DimeTransactionView' financecontrol/View/DimeShell/Views/DimeHomeView.swift
-          codesign -dvv "$app_path" >"$RUNNER_TEMP/dime-device-logs/codesign.log" 2>&1 || true
+          grep -q 'CategoriesEditView' financecontrol/View/DimeSettings/Views/DimeSettingsView.swift
+          grep -q 'self.savedSpendings = spendings' financecontrol/Data/CoreData/Entities/SpendingEntity/SpendingsModel.swift
+          grep -q 'Restore Dime settings navigation' <(git log -1 --format=%B ec70dcd)
+          grep -q 'group.dev.squirrelapp.squirrel.dimeqa' financecontrol/financecontrol.qa.entitlements
+          if codesign -dvv "$app_path" >"$RUNNER_TEMP/dime-device-logs/codesign.log" 2>&1; then
+            echo 'Expected an unsigned QA app, but a signature was found.' >&2
+            exit 1
+          fi
       - name: Package unsigned Dime QA IPA
         run: |
           set -euo pipefail
@@ -91,15 +99,15 @@ jobs:
           cp -R "$app_path" "$package_path/Nafaqat-Dime-QA.app"
           ditto -c -k --sequesterRsrc --keepParent \
             "$package_path" \
-            "$RUNNER_TEMP/Nafaqat-Dime-QA-Unsigned.ipa"
-          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-contents.log"
-          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Unsigned.ipa" | grep -q 'Payload/Nafaqat-Dime-QA.app/Squirrel$'
-          stat -f '%z bytes' "$RUNNER_TEMP/Nafaqat-Dime-QA-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-size.log"
+            "$RUNNER_TEMP/Nafaqat-Dime-QA-Updated-Unsigned.ipa"
+          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Updated-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-contents.log"
+          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Updated-Unsigned.ipa" | grep -q 'Payload/Nafaqat-Dime-QA.app/Squirrel$'
+          stat -f '%z bytes' "$RUNNER_TEMP/Nafaqat-Dime-QA-Updated-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-size.log"
       - name: Upload unsigned Dime QA device IPA
         uses: actions/upload-artifact@v4
         with:
-          name: Nafaqat-Dime-QA-Unsigned-IPA
-          path: ${{ runner.temp }}/Nafaqat-Dime-QA-Unsigned.ipa
+          name: Nafaqat-Dime-QA-Updated-Unsigned-IPA
+          path: ${{ runner.temp }}/Nafaqat-Dime-QA-Updated-Unsigned.ipa
           if-no-files-found: error
       - name: Upload device IPA verification
         if: always()
