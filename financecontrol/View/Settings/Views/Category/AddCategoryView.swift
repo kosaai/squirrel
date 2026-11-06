@@ -23,7 +23,6 @@ struct AddCategoryView: View {
     
     let colors: [OKLCH]
     let unusedColors: [Double]
-    let initiallyFocusName: Bool = true
     
     @State
     var oklch: OKLCH
@@ -75,11 +74,7 @@ struct AddCategoryView: View {
                 .font(.largeTitle.bold())
                 .foregroundColor(tintColor)
                 .padding(.vertical, namePadding)
-                .onAppear {
-                    if initiallyFocusName {
-                        fieldFocus()
-                    }
-                }
+                .onAppear(perform: fieldFocus)
         } header: {
             Text("Name")
         } footer: {

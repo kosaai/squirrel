@@ -305,8 +305,7 @@ private struct DimeCategoryEditorQAHarness: View {
                     insert: false,
                     colors: [],
                     unusedColors: [],
-                    oklch: OKLCH(lightness: 0.9, chroma: CategoryColorValues.chroma),
-                    initiallyFocusName: focusName
+                    oklch: OKLCH(lightness: 0.9, chroma: CategoryColorValues.chroma)
                 )
             } label: {
                 EmptyView()
