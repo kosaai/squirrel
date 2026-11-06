@@ -14,7 +14,7 @@ extension CoreDataModel {
     /// Fetches all spendings from CoreData and updates all related values
     ///
     /// This method is thread-safe and works on main thread asynchronously
-    func fetchSpendings(updateWidgets: Bool = true) {        
+    func fetchSpendings(updateWidgets: Bool = true, completion: (() -> Void)? = nil) {
         #if DEBUG
         logger.info("\(#function) called")
         #endif
@@ -89,6 +89,7 @@ extension CoreDataModel {
             
             self.usedCurrencies = currencies
             self.usedTimeZones = timeZones
+            self.savedSpendings = spendings
             self.pieChartSpendings = pieChartData
             self.spendingsCount = spendings.count
             NotificationCenter.default.post(name: .UpdatePieChart, object: nil)
@@ -102,6 +103,8 @@ extension CoreDataModel {
             if updateWidgets {
                 passSpendingsToSumWidget()
             }
+
+            completion?()
         }
     }
     
@@ -185,15 +188,25 @@ extension CoreDataModel {
     ///   - playHaptic: Indicates whether to play haptic on success
     ///
     /// This method is thread-safe
-    func addSpending(spending: SpendingEntityLocal, timeZoneIdentifier: String, playHaptic: Bool = true, addToFetchQueue: Bool = false) {
+    func addSpending(
+        spending: SpendingEntityLocal,
+        timeZoneIdentifier: String,
+        playHaptic: Bool = true,
+        addToFetchQueue: Bool = false,
+        completion: @escaping (Result<Void, Error>) -> Void = { _ in }
+    ) {
         context.perform { [self] in
             guard let description = NSEntityDescription.entity(forEntityName: "SpendingEntity", in: context) else {
-                ErrorType(CoreDataError.failedToGetEntityDescription).publish()
+                let error = CoreDataError.failedToGetEntityDescription
+                ErrorType(error).publish()
+                completion(.failure(error))
                 return
             }
             
             guard let category = findCategory(spending.categoryId, in: context) else {
-                ErrorType(CoreDataError.failedToFindCategory).publish()
+                let error = CoreDataError.failedToFindCategory
+                ErrorType(error).publish()
+                completion(.failure(error))
                 return
             }
             
@@ -215,10 +228,16 @@ extension CoreDataModel {
                 UserDefaults.standard.addToFetchQueue(spendingID)
             }
             
-            try? context.save()
-            
-            if playHaptic {
-                HapticManager.shared.notification(.success)
+            switch manager.save() {
+            case .success:
+                fetchSpendings {
+                    if playHaptic {
+                        HapticManager.shared.notification(.success)
+                    }
+                    completion(.success(()))
+                }
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
     }
@@ -258,8 +277,18 @@ extension CoreDataModel {
     ///   - newSpending: Object with values to be inserted into spending
     ///
     /// This method is thread-safe and works on main thread asynchronously
-    func editSpending(spending: SpendingEntity, newSpending: SpendingEntityLocal, exchangeRate: Double = 1, addToFetchQueue: Bool = false) {
+    func editSpending(
+        spending: SpendingEntity,
+        newSpending: SpendingEntityLocal,
+        exchangeRate: Double = 1,
+        addToFetchQueue: Bool = false,
+        completion: @escaping (Result<Void, Error>) -> Void = { _ in }
+    ) {
         context.perform { [weak self] in
+            guard let self else {
+                completion(.failure(CoreDataError.failedToGetEntityDescription))
+                return
+            }
             var check: Bool {
                 spending.amount != newSpending.amount ||
                 spending.currency != newSpending.currency ||
@@ -270,6 +299,14 @@ extension CoreDataModel {
             }
             
             guard check else {
+                completion(.success(()))
+                return
+            }
+
+            guard let category = self.findCategory(newSpending.categoryId, in: self.context) else {
+                let error = CoreDataError.failedToFindCategory
+                ErrorType(error).publish()
+                completion(.failure(error))
                 return
             }
             
@@ -280,16 +317,14 @@ extension CoreDataModel {
             spending.date = newSpending.date
             spending.comment = newSpending.comment
             
-            if let category = self?.findCategory(newSpending.categoryId, in: DataManager.shared.context) {
-                spending.category = category
-            }
+            spending.category = category
             
             for returnEntity in spending.returnsArr {
                 if returnEntity.currency == newSpending.currency {
                     continue
                 }
                 
-                self?.editRerturnFromSpending(
+                self.editRerturnFromSpending(
                     spending: spending,
                     oldReturn: returnEntity,
                     amount: returnEntity.amount,
@@ -302,16 +337,22 @@ extension CoreDataModel {
             }
             
             #if DEBUG
-            Logger(subsystem: Vars.appIdentifier, category: "\(#fileID)").log("\(self?.context.name ?? "") saved")
+            Logger(subsystem: Vars.appIdentifier, category: "\(#fileID)").log("\(self.context.name ?? "") saved")
             #endif
             
             if addToFetchQueue {
                 UserDefaults.standard.addToFetchQueue(spending.wrappedId)
             }
             
-            self?.manager.save()
-            
-            HapticManager.shared.notification(.success)
+            switch self.manager.save() {
+            case .success:
+                self.fetchSpendings {
+                    HapticManager.shared.notification(.success)
+                    completion(.success(()))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
         }
     }
     

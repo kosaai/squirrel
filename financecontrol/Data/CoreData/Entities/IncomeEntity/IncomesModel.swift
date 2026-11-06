@@ -27,13 +27,25 @@ extension CoreDataModel {
         }
     }
 
-    func addIncome(_ income: IncomeEntityLocal, timeZoneIdentifier: String = TimeZone.autoupdatingCurrent.identifier) {
+    func addIncome(
+        _ income: IncomeEntityLocal,
+        timeZoneIdentifier: String = TimeZone.autoupdatingCurrent.identifier,
+        completion: @escaping (Result<Void, Error>) -> Void = { _ in }
+    ) {
         context.perform { [weak self] in
-            guard let self,
-                  income.amount > 0,
-                  let category = self.findCategory(income.categoryID, in: self.context),
-                  let description = NSEntityDescription.entity(forEntityName: "IncomeEntity", in: self.context)
-            else { return }
+            guard let self else { return }
+            guard income.amount > 0 else {
+                completion(.failure(CocoaError(.validationNumberTooSmall)))
+                return
+            }
+            guard let category = self.findCategory(income.categoryID, in: self.context) else {
+                completion(.failure(CoreDataError.failedToFindCategory))
+                return
+            }
+            guard let description = NSEntityDescription.entity(forEntityName: "IncomeEntity", in: self.context) else {
+                completion(.failure(CoreDataError.failedToGetEntityDescription))
+                return
+            }
 
             let entity = IncomeEntity(entity: description, insertInto: self.context)
             entity.id = UUID()
@@ -44,16 +56,26 @@ extension CoreDataModel {
             entity.place = income.place
             entity.timeZoneIdentifier = timeZoneIdentifier
             entity.category = category
-            self.manager.save()
+            completion(self.manager.save())
         }
     }
 
-    func editIncome(_ income: IncomeEntity, with replacement: IncomeEntityLocal, timeZoneIdentifier: String = TimeZone.autoupdatingCurrent.identifier) {
+    func editIncome(
+        _ income: IncomeEntity,
+        with replacement: IncomeEntityLocal,
+        timeZoneIdentifier: String = TimeZone.autoupdatingCurrent.identifier,
+        completion: @escaping (Result<Void, Error>) -> Void = { _ in }
+    ) {
         context.perform { [weak self] in
-            guard let self,
-                  replacement.amount > 0,
-                  let category = self.findCategory(replacement.categoryID, in: self.context)
-            else { return }
+            guard let self else { return }
+            guard replacement.amount > 0 else {
+                completion(.failure(CocoaError(.validationNumberTooSmall)))
+                return
+            }
+            guard let category = self.findCategory(replacement.categoryID, in: self.context) else {
+                completion(.failure(CoreDataError.failedToFindCategory))
+                return
+            }
 
             income.amount = replacement.amount
             income.currency = "EUR"
@@ -62,7 +84,7 @@ extension CoreDataModel {
             income.place = replacement.place
             income.timeZoneIdentifier = timeZoneIdentifier
             income.category = category
-            self.manager.save()
+            completion(self.manager.save())
         }
     }
 

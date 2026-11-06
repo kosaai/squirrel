@@ -39,15 +39,20 @@ final class DataManager {
         self.context = context
     }
     
-    func save() {
+    @discardableResult
+    func save() -> Result<Void, Error> {
         if context.hasChanges {
             do {
                 try context.save()
+                return .success(())
             } catch {
                 context.rollback()
                 ErrorType(error: error).publish(file: #fileID, function: #function)
+                return .failure(error)
             }
         }
+
+        return .success(())
     }
     
     func deleteSpending(with objectID: NSManagedObjectID) {

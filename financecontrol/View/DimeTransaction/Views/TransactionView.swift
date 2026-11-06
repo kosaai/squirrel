@@ -30,6 +30,8 @@ struct DimeTransactionView: View {
     @State private var showCustomRecurrence = false
     @State private var showTemplates = false
     @State private var showSaveTemplate = false
+    @State private var saveErrorMessage = ""
+    @State private var showSaveError = false
 
     init(spendingToEdit: SpendingEntity?) {
         self.init(transactionToEdit: spendingToEdit.map(DimeTransactionDataAdapter.Record.expense))
@@ -50,7 +52,7 @@ struct DimeTransactionView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            DimeTransactionHeader(isEditing: transactionToEdit != nil, dismiss: dismiss, save: save)
+            DimeTransactionHeader(isEditing: transactionToEdit != nil, dismiss: dismiss, save: save, isSaving: adapter.isSaving)
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 18) {
                     DimeTransactionKindPicker(kind: $kind)
@@ -102,6 +104,7 @@ struct DimeTransactionView: View {
             )
             .frame(height: 290)
             .padding(.horizontal, 20)
+            .disabled(adapter.isSaving)
         }
         .background(Color.PrimaryBackground)
         .sheet(isPresented: $showCategoryPicker) {
@@ -128,15 +131,37 @@ struct DimeTransactionView: View {
             DimeSaveTemplateView(amount: amount, kind: kind, category: category, note: note)
                 .environmentObject(coreDataModel)
         }
+        .alert("Dime Transaction Save Failed", isPresented: $showSaveError) {
+            Button("Dime Transaction Error OK", role: .cancel) {}
+        } message: {
+            Text(saveErrorMessage)
+        }
     }
 
     private func save() {
         if transactionToEdit == nil && (recurrence != .none || date > .now) {
             adapter.saveScheduled(amount: amount, note: note, category: category, date: date, kind: kind, frequency: recurrence, interval: recurrenceInterval, coreDataModel: coreDataModel)
+            dismiss()
         } else {
-            adapter.save(existing: transactionToEdit, kind: kind, amount: amount, note: note, category: category, date: date, coreDataModel: coreDataModel)
+            adapter.save(
+                existing: transactionToEdit,
+                kind: kind,
+                amount: amount,
+                note: note,
+                category: category,
+                date: date,
+                coreDataModel: coreDataModel
+            ) { result in
+                switch result {
+                case .success:
+                    dismiss()
+                case .failure(let error):
+                    saveErrorMessage = NSLocalizedString(error.localizationKey, comment: "")
+                    showSaveError = true
+                }
+            }
+            return
         }
-        dismiss()
     }
 }
 
@@ -170,6 +195,7 @@ private struct DimeTransactionHeader: View {
     let isEditing: Bool
     let dismiss: DismissAction
     let save: () -> Void
+    let isSaving: Bool
 
     var body: some View {
         HStack {
@@ -180,6 +206,7 @@ private struct DimeTransactionHeader: View {
                 .foregroundColor(Color.PrimaryText)
             Spacer()
             Button("Dime Transaction Save", action: save)
+                .disabled(isSaving)
         }
         .font(.system(.body, design: .rounded).weight(.medium))
         .foregroundColor(Color.DarkIcon)

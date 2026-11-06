@@ -10,6 +10,25 @@ import Combine
 
 @MainActor
 final class DimeTransactionDataAdapter: ObservableObject {
+    enum SaveError: Error {
+        case invalidAmount
+        case missingCategory
+        case persistence(Error)
+
+        var localizationKey: String {
+            switch self {
+            case .invalidAmount:
+                return "Dime Transaction Invalid Amount"
+            case .missingCategory:
+                return "Dime Transaction Missing Category"
+            case .persistence:
+                return "Dime Transaction Save Error Message"
+            }
+        }
+    }
+
+    @Published private(set) var isSaving = false
+
     enum Kind: String, CaseIterable, Identifiable, Hashable {
         case expense, income
         var id: String { rawValue }
@@ -76,18 +95,53 @@ final class DimeTransactionDataAdapter: ObservableObject {
         note: String,
         category: CategoryEntity?,
         date: Date,
-        coreDataModel: CoreDataModel
+        coreDataModel: CoreDataModel,
+        completion: @escaping (Result<Void, SaveError>) -> Void
     ) {
-        guard amount > 0, let categoryID = category?.id else { return }
+        guard !isSaving else { return }
+        guard amount > 0 else {
+            completion(.failure(.invalidAmount))
+            return
+        }
+        guard let categoryID = category?.id else {
+            completion(.failure(.missingCategory))
+            return
+        }
+
+        isSaving = true
+        let finish: (Result<Void, Error>) -> Void = { [weak self] result in
+            Task { @MainActor in
+                self?.isSaving = false
+                completion(result.mapError { .persistence($0) })
+            }
+        }
+
         switch (kind, existing) {
         case (.expense, .some(.expense(let existing))):
-            coreDataModel.editSpending(spending: existing, newSpending: spending(from: amount, note: note, categoryID: categoryID, date: date), exchangeRate: 1)
+            coreDataModel.editSpending(
+                spending: existing,
+                newSpending: spending(from: amount, note: note, categoryID: categoryID, date: date),
+                exchangeRate: 1,
+                completion: finish
+            )
         case (.expense, _):
-            coreDataModel.addSpending(spending: spending(from: amount, note: note, categoryID: categoryID, date: date), timeZoneIdentifier: TimeZone.autoupdatingCurrent.identifier, addToFetchQueue: false)
+            coreDataModel.addSpending(
+                spending: spending(from: amount, note: note, categoryID: categoryID, date: date),
+                timeZoneIdentifier: TimeZone.autoupdatingCurrent.identifier,
+                addToFetchQueue: false,
+                completion: finish
+            )
         case (.income, .some(.income(let existing))):
-            coreDataModel.editIncome(existing, with: income(from: amount, note: note, categoryID: categoryID, date: date))
+            coreDataModel.editIncome(
+                existing,
+                with: income(from: amount, note: note, categoryID: categoryID, date: date),
+                completion: finish
+            )
         case (.income, _):
-            coreDataModel.addIncome(income(from: amount, note: note, categoryID: categoryID, date: date))
+            coreDataModel.addIncome(
+                income(from: amount, note: note, categoryID: categoryID, date: date),
+                completion: finish
+            )
         }
     }
 

@@ -32,6 +32,7 @@ final class SpendingsCoreDataModelTests: XCTestCase {
     }
 
     func testAddSpendingAddsSpending() {
+        let saveExpectation = expectation(description: "Save spending")
         let amount: Double = Double.random(in: 0..<10000)
         let amountUSD: Double = Double.random(in: 0..<10000)
         let currency: String = ["USD", "EUR", "JPY"].randomElement()!
@@ -49,7 +50,13 @@ final class SpendingsCoreDataModelTests: XCTestCase {
             comment: comment
         )
         
-        cdm?.addSpending(spending: local)
+        cdm?.addSpending(spending: local) { result in
+            if case .failure(let error) = result {
+                XCTFail("Saving spending failed: \(error)")
+            }
+            saveExpectation.fulfill()
+        }
+        wait(for: [saveExpectation], timeout: 5)
         
         guard let spendings = cdm?.savedSpendings else {
             XCTFail()
@@ -69,6 +76,37 @@ final class SpendingsCoreDataModelTests: XCTestCase {
             XCTAssertEqual(spending.amountWithReturns, amount)
             XCTAssertEqual(spending.amountUSDWithReturns, amountUSD)
         }
+    }
+
+    func testSavedEuroExpenseIsPersistedAndPublishedForDimeLog() throws {
+        let saveExpectation = expectation(description: "Save €20 expense")
+        let categoryID = try XCTUnwrap(categoryId)
+        let date = Date.now
+        let local = SpendingEntityLocal(
+            amount: 20,
+            amountUSD: 20,
+            currency: "EUR",
+            date: date,
+            place: "",
+            categoryId: categoryID,
+            comment: "Dime log regression"
+        )
+
+        cdm?.addSpending(spending: local, playHaptic: false) { result in
+            if case .failure(let error) = result {
+                XCTFail("Saving €20 expense failed: \(error)")
+            }
+            saveExpectation.fulfill()
+        }
+        wait(for: [saveExpectation], timeout: 5)
+
+        let persisted = try XCTUnwrap(cdm).getSpendings().first { $0.comment == "Dime log regression" }
+        let saved = cdm?.savedSpendings.first { $0.comment == "Dime log regression" }
+
+        XCTAssertEqual(persisted?.amount, 20)
+        XCTAssertEqual(persisted?.wrappedCurrency, "EUR")
+        XCTAssertEqual(persisted?.category?.id, categoryID)
+        XCTAssertEqual(saved?.objectID, persisted?.objectID)
     }
     
     func testEditSpendingEditsSpendings() {

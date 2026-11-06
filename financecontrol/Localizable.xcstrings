@@ -5100,6 +5100,36 @@
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "حفظ" } }
       }
     },
+    "Dime Transaction Save Failed" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn’t save transaction" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تعذر حفظ العملية" } }
+      }
+    },
+    "Dime Transaction Save Error Message" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your transaction was not saved. Please try again." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "لم يتم حفظ العملية. يرجى المحاولة مرة أخرى." } }
+      }
+    },
+    "Dime Transaction Invalid Amount" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enter an amount greater than zero." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أدخل مبلغًا أكبر من صفر." } }
+      }
+    },
+    "Dime Transaction Missing Category" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Choose a category before saving." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اختر فئة قبل الحفظ." } }
+      }
+    },
+    "Dime Transaction Error OK" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "OK" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حسنًا" } }
+      }
+    },
     "Dime Transaction Expense" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Expense" } },
