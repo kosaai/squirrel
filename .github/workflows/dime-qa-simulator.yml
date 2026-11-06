@@ -1,0 +1,68 @@
+name: Dime QA simulator verification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  simulator:
+    name: Build and launch isolated Dime QA app
+    runs-on: macos-26
+    timeout-minutes: 60
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+      QA_BUNDLE_ID: dev.squirrelapp.squirrel.dimeqa
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode 26.6
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/dime-qa-logs"
+          sudo xcode-select --switch "$DEVELOPER_DIR"
+          xcodebuild -version | tee "$RUNNER_TEMP/dime-qa-logs/xcode-version.log"
+      - name: Create isolated simulator
+        run: |
+          set -euo pipefail
+          device_json="$(xcrun simctl list devices available -j)"
+          device_id="$(python3 -c 'import json,sys; d=json.load(sys.stdin)["devices"]; print(next(x["udid"] for values in d.values() for x in values if x.get("isAvailable") and x["name"].startswith("iPhone")))' <<< "$device_json")"
+          echo "SIMULATOR_UDID=$device_id" >> "$GITHUB_ENV"
+          xcrun simctl boot "$device_id" || true
+          xcrun simctl bootstatus "$device_id" -b
+      - name: Build isolated Dime QA app
+        run: |
+          set -o pipefail
+          rm -f Squirrel.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+          xcodebuild build \
+            -project Squirrel.xcodeproj \
+            -target Squirrel \
+            -configuration Debug \
+            -sdk iphonesimulator \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_UDID" \
+            -derivedDataPath "$RUNNER_TEMP/DimeQADerivedData" \
+            PRODUCT_BUNDLE_IDENTIFIER="$QA_BUNDLE_ID" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_ENTITLEMENTS=financecontrol/financecontrol.qa.entitlements \
+            'SWIFT_ACTIVE_COMPILATION_CONDITIONS=$(inherited) DIME_QA' \
+            | tee "$RUNNER_TEMP/dime-qa-logs/xcodebuild.log"
+      - name: Install and launch isolated Dime QA app
+        run: |
+          set -euo pipefail
+          app_path="$RUNNER_TEMP/DimeQADerivedData/Build/Products/Debug-iphonesimulator/Squirrel.app"
+          test -d "$app_path"
+          xcrun simctl install "$SIMULATOR_UDID" "$app_path"
+          xcrun simctl launch "$SIMULATOR_UDID" "$QA_BUNDLE_ID" | tee "$RUNNER_TEMP/dime-qa-logs/launch.log"
+          sleep 5
+          xcrun simctl io "$SIMULATOR_UDID" screenshot "$RUNNER_TEMP/Dime-QA-launch.png"
+      - name: Upload Dime QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Dime-QA-simulator-evidence
+          path: |
+            ${{ runner.temp }}/dime-qa-logs
+            ${{ runner.temp }}/Dime-QA-launch.png
+          if-no-files-found: warn

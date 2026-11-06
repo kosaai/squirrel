@@ -90,6 +90,9 @@ struct ContentView: View {
     }
         
     var body: some View {
+#if DIME_QA
+        DimeQARoot(coreDataModel: cdm)
+#else
         Group {
             if #available(iOS 18.0, *) {
                 NavigationStack {
@@ -156,6 +159,7 @@ struct ContentView: View {
             Text("\(error.errorDescription)\n\(error.recoverySuggestion)")
         }
         .styleListsToDynamicType()
+#endif
     }
     
     private var homeTab: some View {
@@ -246,6 +250,28 @@ struct ContentView: View {
         }
     }
 }
+
+#if DIME_QA
+private struct DimeQARoot: View {
+    @ObservedObject var coreDataModel: CoreDataModel
+    @State private var presentOnboarding = false
+    @State private var statsScrollToTop: Int?
+    @State private var settingsScrollToTop: Int?
+
+    var body: some View {
+        GeometryReader { proxy in
+            DimeHomeView(
+                presentOnboarding: $presentOnboarding,
+                statsScrollToTop: $statsScrollToTop,
+                settingsScrollToTop: $settingsScrollToTop,
+                topEdge: proxy.safeAreaInsets.top,
+                bottomEdge: proxy.safeAreaInsets.bottom
+            )
+            .environmentObject(coreDataModel)
+        }
+    }
+}
+#endif
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
