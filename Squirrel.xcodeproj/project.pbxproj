@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1E000000000000000000411 /* DimeTransactionDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */; };
+		D1E000000000000000000412 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000402 /* TransactionView.swift */; };
+		D1E000000000000000000413 /* NumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000403 /* NumberPad.swift */; };
+		D1E000000000000000000414 /* SuggestedTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000404 /* SuggestedTransactions.swift */; };
+		D1E000000000000000000415 /* TransactionCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000405 /* TransactionCategoryPicker.swift */; };
 		D1E000000000000000000311 /* DimeHomeNavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000301 /* DimeHomeNavigationState.swift */; };
 		D1E000000000000000000312 /* DimeHomeDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000302 /* DimeHomeDestinationView.swift */; };
 		D1E000000000000000000313 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000303 /* HomeView.swift */; };
@@ -236,6 +241,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTransactionDataAdapter.swift; sourceTree = "<group>"; };
+		D1E000000000000000000402 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
+		D1E000000000000000000403 /* NumberPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPad.swift; sourceTree = "<group>"; };
+		D1E000000000000000000404 /* SuggestedTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedTransactions.swift; sourceTree = "<group>"; };
+		D1E000000000000000000405 /* TransactionCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryPicker.swift; sourceTree = "<group>"; };
 		D1E000000000000000000301 /* DimeHomeNavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeHomeNavigationState.swift; sourceTree = "<group>"; };
 		D1E000000000000000000302 /* DimeHomeDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeHomeDestinationView.swift; sourceTree = "<group>"; };
 		D1E000000000000000000303 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -456,6 +466,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1E000000000000000000421 /* DimeTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000422 /* ViewModels */,
+				D1E000000000000000000423 /* Views */,
+				D1E000000000000000000424 /* Components */,
+			);
+			path = DimeTransaction;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000422 /* ViewModels */ = { isa = PBXGroup; children = (D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */, ); path = ViewModels; sourceTree = "<group>"; };
+		D1E000000000000000000423 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000000402 /* TransactionView.swift */, ); path = Views; sourceTree = "<group>"; };
+		D1E000000000000000000424 /* Components */ = { isa = PBXGroup; children = (D1E000000000000000000403 /* NumberPad.swift */, D1E000000000000000000404 /* SuggestedTransactions.swift */, D1E000000000000000000405 /* TransactionCategoryPicker.swift */, ); path = Components; sourceTree = "<group>"; };
 		D1E000000000000000000221 /* DimeShell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1071,6 +1094,7 @@
 				8D54F4F92B96331800B17886 /* Universal */,
 				D1E000000000000000000021 /* DimeShared */,
 				D1E000000000000000000221 /* DimeShell */,
+				D1E000000000000000000421 /* DimeTransaction */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1280,6 +1304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E000000000000000000411 /* DimeTransactionDataAdapter.swift in Sources */,
+				D1E000000000000000000412 /* TransactionView.swift in Sources */,
+				D1E000000000000000000413 /* NumberPad.swift in Sources */,
+				D1E000000000000000000414 /* SuggestedTransactions.swift in Sources */,
+				D1E000000000000000000415 /* TransactionCategoryPicker.swift in Sources */,
 				D1E000000000000000000311 /* DimeHomeNavigationState.swift in Sources */,
 				D1E000000000000000000312 /* DimeHomeDestinationView.swift in Sources */,
 				D1E000000000000000000313 /* HomeView.swift in Sources */,

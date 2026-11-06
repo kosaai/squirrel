@@ -5057,6 +5057,48 @@
           }
         }
       }
+    },
+    "Dime Transaction Category" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Category" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الفئة" } }
+      }
+    },
+    "Dime Transaction Note" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Note" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "ملاحظة" } }
+      }
+    },
+    "Dime Transaction Date" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Date" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "التاريخ" } }
+      }
+    },
+    "Dime Transaction Cancel" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إلغاء" } }
+      }
+    },
+    "Dime Transaction Edit" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit transaction" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تعديل العملية" } }
+      }
+    },
+    "Dime Transaction Add" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "New transaction" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "عملية جديدة" } }
+      }
+    },
+    "Dime Transaction Save" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حفظ" } }
+      }
     }
   },
   "version" : "1.0"
