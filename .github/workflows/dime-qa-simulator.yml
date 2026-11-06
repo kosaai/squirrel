@@ -47,12 +47,19 @@ jobs:
             -sdk iphonesimulator \
             -destination "platform=iOS Simulator,id=$SIMULATOR_UDID" \
             -derivedDataPath "$RUNNER_TEMP/DimeQADerivedData" \
-            PRODUCT_BUNDLE_IDENTIFIER="$QA_BUNDLE_ID" \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_ENTITLEMENTS=financecontrol/financecontrol.qa.entitlements \
             'SWIFT_ACTIVE_COMPILATION_CONDITIONS=$(inherited) DIME_QA' \
             | tee "$RUNNER_TEMP/dime-qa-logs/xcodebuild.log"
+      - name: Assign isolated QA bundle identifiers
+        run: |
+          set -euo pipefail
+          app_path="$RUNNER_TEMP/DimeQADerivedData/Build/Products/Debug-iphonesimulator/Squirrel.app"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier $QA_BUNDLE_ID" "$app_path/Info.plist"
+          extension_plist="$(find "$app_path/PlugIns" -name Info.plist -print -quit)"
+          test -n "$extension_plist"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier $QA_BUNDLE_ID.squirrelWidget" "$extension_plist"
       - name: Install and launch isolated Dime QA app
         run: |
           set -euo pipefail
