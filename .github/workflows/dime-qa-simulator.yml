@@ -2,6 +2,11 @@ name: Dime QA simulator verification
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - dime-full-migration
+    paths:
+      - .github/workflows/dime-qa-simulator.yml
 
 permissions:
   contents: read
