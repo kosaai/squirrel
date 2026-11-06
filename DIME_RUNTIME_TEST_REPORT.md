@@ -1,7 +1,7 @@
 # Dime runtime test report
 
-**Date:** 2026-11-06  
-**Branch:** `dime-full-migration`  
+**Date:** 2026-11-06
+**Branch:** `dime-full-migration`
 **Required baseline:** `b52defc` is an ancestor of this branch.
 
 ## Build results
