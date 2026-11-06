@@ -1,0 +1,110 @@
+name: Build Dime QA unsigned device IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dime-full-migration
+    paths:
+      - .github/workflows/dime-qa-device-ipa.yml
+
+permissions:
+  contents: read
+
+jobs:
+  device-ipa:
+    name: Build verified Dime QA iPhone IPA
+    runs-on: macos-26
+    timeout-minutes: 60
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.6.app/Contents/Developer
+      QA_BUNDLE_ID: dev.squirrelapp.squirrel.dimeqa
+      QA_WIDGET_BUNDLE_ID: dev.squirrelapp.squirrel.dimeqa.squirrelWidget
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode 26.6
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/dime-device-logs"
+          sudo xcode-select --switch "$DEVELOPER_DIR"
+          xcodebuild -version | tee "$RUNNER_TEMP/dime-device-logs/xcode-version.log"
+      - name: Resolve dependencies
+        run: |
+          set -o pipefail
+          rm -f Squirrel.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+          xcodebuild -resolvePackageDependencies \
+            -project Squirrel.xcodeproj \
+            -scheme Squirrel_Release \
+            -derivedDataPath "$RUNNER_TEMP/DimeQADeviceDerivedData" \
+            | tee "$RUNNER_TEMP/dime-device-logs/spm-resolve.log"
+      - name: Build Dime QA for iPhoneOS
+        run: |
+          set -o pipefail
+          xcodebuild build \
+            -project Squirrel.xcodeproj \
+            -scheme Squirrel_Release \
+            -configuration Release \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath "$RUNNER_TEMP/DimeQADeviceDerivedData" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY='' \
+            CODE_SIGN_ENTITLEMENTS=financecontrol/financecontrol.qa.entitlements \
+            'SWIFT_ACTIVE_COMPILATION_CONDITIONS=$(inherited) DIME_QA' \
+            | tee "$RUNNER_TEMP/dime-device-logs/xcodebuild-iphoneos.log"
+      - name: Assign Dime QA package identities
+        run: |
+          set -euo pipefail
+          app_path="$RUNNER_TEMP/DimeQADeviceDerivedData/Build/Products/Release-iphoneos/Squirrel.app"
+          test -d "$app_path"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier $QA_BUNDLE_ID" "$app_path/Info.plist"
+          extension_plist="$(find "$app_path/PlugIns" -name Info.plist -print -quit)"
+          test -n "$extension_plist"
+          /usr/libexec/PlistBuddy -c "Set :CFBundleIdentifier $QA_WIDGET_BUNDLE_ID" "$extension_plist"
+      - name: Verify device build and Dime QA contents
+        run: |
+          set -euo pipefail
+          app_path="$RUNNER_TEMP/DimeQADeviceDerivedData/Build/Products/Release-iphoneos/Squirrel.app"
+          binary="$app_path/Squirrel"
+          test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app_path/Info.plist")" = "$QA_BUNDLE_ID"
+          test "$(find "$app_path/PlugIns" -name Info.plist -exec /usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' {} \;)" = "$QA_WIDGET_BUNDLE_ID"
+          test -f "$binary"
+          file "$binary" | tee "$RUNNER_TEMP/dime-device-logs/macho-file.log"
+          file "$binary" | grep -E 'arm64|arm64e'
+          otool -l "$binary" | grep -A 3 'LC_BUILD_VERSION' | tee "$RUNNER_TEMP/dime-device-logs/macho-platform.log"
+          find "$app_path" -name 'DataContainer.momd' -print | tee "$RUNNER_TEMP/dime-device-logs/core-data-model.log"
+          test -n "$(find "$app_path" -name 'DataContainer.momd' -print -quit)"
+          find "$app_path" -path '*ar.lproj*' -print | tee "$RUNNER_TEMP/dime-device-logs/arabic-resources.log"
+          test -n "$(find "$app_path" -path '*ar.lproj*' -print -quit)"
+          grep -q '#if DIME_QA' financecontrol/View/ContentView.swift
+          grep -q 'DimeHomeView' financecontrol/View/ContentView.swift
+          grep -q 'DimeCustomTabBar' financecontrol/View/DimeShell/Views/DimeHomeView.swift
+          grep -q 'DimeTransactionView' financecontrol/View/DimeShell/Views/DimeHomeView.swift
+          codesign -dvv "$app_path" >"$RUNNER_TEMP/dime-device-logs/codesign.log" 2>&1 || true
+      - name: Package unsigned Dime QA IPA
+        run: |
+          set -euo pipefail
+          app_path="$RUNNER_TEMP/DimeQADeviceDerivedData/Build/Products/Release-iphoneos/Squirrel.app"
+          package_path="$RUNNER_TEMP/dime-qa-ipa/Payload"
+          mkdir -p "$package_path"
+          cp -R "$app_path" "$package_path/Nafaqat-Dime-QA.app"
+          ditto -c -k --sequesterRsrc --keepParent \
+            "$package_path" \
+            "$RUNNER_TEMP/Nafaqat-Dime-QA-Unsigned.ipa"
+          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-contents.log"
+          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Unsigned.ipa" | grep -q 'Payload/Nafaqat-Dime-QA.app/Squirrel$'
+          stat -f '%z bytes' "$RUNNER_TEMP/Nafaqat-Dime-QA-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-size.log"
+      - name: Upload unsigned Dime QA device IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nafaqat-Dime-QA-Unsigned-IPA
+          path: ${{ runner.temp }}/Nafaqat-Dime-QA-Unsigned.ipa
+          if-no-files-found: error
+      - name: Upload device IPA verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Nafaqat-Dime-QA-device-verification
+          path: ${{ runner.temp }}/dime-device-logs
+          if-no-files-found: warn
