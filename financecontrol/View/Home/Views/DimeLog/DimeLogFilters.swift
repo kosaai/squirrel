@@ -12,11 +12,11 @@ enum DimeLogFilter: String, CaseIterable, Identifiable {
     var id: String { rawValue }
     var title: LocalizedStringKey {
         switch self {
-        case .all: "Dime Log All"
-        case .category: "Dime Log Category"
-        case .day: "Dime Log Day"
-        case .week: "Dime Log Week"
-        case .month: "Dime Log Month"
+        case .all: return "Dime Log All"
+        case .category: return "Dime Log Category"
+        case .day: return "Dime Log Day"
+        case .week: return "Dime Log Week"
+        case .month: return "Dime Log Month"
         }
     }
 }
@@ -193,9 +193,9 @@ private struct DimeLogDateStepper: View {
 
     private var format: Date.FormatStyle {
         switch component {
-        case .month: .dateTime.month(.wide).year()
-        case .weekOfYear: .dateTime.day().month()
-        default: .dateTime.day().month().year()
+        case .month: return .dateTime.month(.wide).year()
+        case .weekOfYear: return .dateTime.day().month()
+        default: return .dateTime.day().month().year()
         }
     }
 }

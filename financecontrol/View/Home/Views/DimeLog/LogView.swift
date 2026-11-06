@@ -150,11 +150,11 @@ private struct DimeLogInsights: View {
 extension DimeLogDataAdapter.Timeframe {
     var title: LocalizedStringKey {
         switch self {
-        case .today: "Dime Log Today"
-        case .week: "Dime Log This Week"
-        case .month: "Dime Log This Month"
-        case .year: "Dime Log This Year"
-        case .all: "Dime Log All Time"
+        case .today: return "Dime Log Today"
+        case .week: return "Dime Log This Week"
+        case .month: return "Dime Log This Month"
+        case .year: return "Dime Log This Year"
+        case .all: return "Dime Log All Time"
         }
     }
 }
