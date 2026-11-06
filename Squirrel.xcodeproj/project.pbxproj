@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1E000000000000000000311 /* DimeHomeNavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000301 /* DimeHomeNavigationState.swift */; };
+		D1E000000000000000000312 /* DimeHomeDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000302 /* DimeHomeDestinationView.swift */; };
+		D1E000000000000000000313 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000303 /* HomeView.swift */; };
 		D1E000000000000000000211 /* DimeTabDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000201 /* DimeTabDestination.swift */; };
 		D1E000000000000000000212 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000202 /* CustomTabBar.swift */; };
 		D1E000000000000000000213 /* DimeTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000203 /* DimeTabButton.swift */; };
@@ -233,6 +236,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D1E000000000000000000301 /* DimeHomeNavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeHomeNavigationState.swift; sourceTree = "<group>"; };
+		D1E000000000000000000302 /* DimeHomeDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeHomeDestinationView.swift; sourceTree = "<group>"; };
+		D1E000000000000000000303 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D1E000000000000000000201 /* DimeTabDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTabDestination.swift; sourceTree = "<group>"; };
 		D1E000000000000000000202 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		D1E000000000000000000203 /* DimeTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTabButton.swift; sourceTree = "<group>"; };
@@ -463,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				D1E000000000000000000201 /* DimeTabDestination.swift */,
+				D1E000000000000000000301 /* DimeHomeNavigationState.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -473,6 +480,8 @@
 				D1E000000000000000000202 /* CustomTabBar.swift */,
 				D1E000000000000000000203 /* DimeTabButton.swift */,
 				D1E000000000000000000204 /* DimeAddTransactionButton.swift */,
+				D1E000000000000000000303 /* HomeView.swift */,
+				D1E000000000000000000302 /* DimeHomeDestinationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1271,6 +1280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E000000000000000000311 /* DimeHomeNavigationState.swift in Sources */,
+				D1E000000000000000000312 /* DimeHomeDestinationView.swift in Sources */,
+				D1E000000000000000000313 /* HomeView.swift in Sources */,
 				D1E000000000000000000211 /* DimeTabDestination.swift in Sources */,
 				D1E000000000000000000212 /* CustomTabBar.swift in Sources */,
 				D1E000000000000000000213 /* DimeTabButton.swift in Sources */,

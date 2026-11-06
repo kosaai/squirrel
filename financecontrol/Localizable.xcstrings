@@ -5041,6 +5041,22 @@
           }
         }
       }
+    },
+    "Dime Tab Unavailable" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This screen will be available in a future update."
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ستتوفر هذه الشاشة في تحديث قادم."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
