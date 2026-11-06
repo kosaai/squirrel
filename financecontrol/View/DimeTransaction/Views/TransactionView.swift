@@ -28,6 +28,8 @@ struct DimeTransactionView: View {
     @State private var recurrenceInterval = 1
     @State private var showRecurrencePicker = false
     @State private var showCustomRecurrence = false
+    @State private var showTemplates = false
+    @State private var showSaveTemplate = false
 
     init(spendingToEdit: SpendingEntity?) {
         self.init(transactionToEdit: spendingToEdit.map(DimeTransactionDataAdapter.Record.expense))
@@ -59,6 +61,12 @@ struct DimeTransactionView: View {
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
                     DimeSuggestedTransactions(note: $note, amount: $amount, category: $category, suggestions: suggestions)
+                    HStack(spacing: 10) {
+                        Button { showTemplates = true } label: { Label("Dime Templates Saved", systemImage: "rectangle.stack") }
+                        Button { showSaveTemplate = true } label: { Label("Dime Templates Save As", systemImage: "plus.rectangle.on.rectangle") }
+                    }
+                    .font(.system(.body, design: .rounded).weight(.medium))
+                    .foregroundColor(Color.DarkIcon)
                     Button { showRecurrencePicker = true } label: {
                         HStack { Text(recurrence == .none ? "Dime Recurring None" : "Dime Recurring Every \(recurrenceInterval) \(recurrence.unit)"); Spacer(); Image(systemName: "repeat") }
                             .font(.system(.body, design: .rounded).weight(.medium)).padding(14).foregroundColor(recurrence == .none ? Color.PrimaryText : Color.IncomeGreen).background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
@@ -104,6 +112,21 @@ struct DimeTransactionView: View {
         }
         .sheet(isPresented: $showCustomRecurrence) {
             DimeCustomRecurringView(frequency: $recurrence, interval: $recurrenceInterval)
+        }
+        .sheet(isPresented: $showTemplates) {
+            DimeTemplatesView { template in
+                amount = template.amount
+                note = template.note ?? ""
+                category = template.category
+                kind = template.isIncome ? .income : .expense
+                recurrence = .none
+                recurrenceInterval = 1
+            }
+            .environmentObject(coreDataModel)
+        }
+        .sheet(isPresented: $showSaveTemplate) {
+            DimeSaveTemplateView(amount: amount, kind: kind, category: category, note: note)
+                .environmentObject(coreDataModel)
         }
     }
 

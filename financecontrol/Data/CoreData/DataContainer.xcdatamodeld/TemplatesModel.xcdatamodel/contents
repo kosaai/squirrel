@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23507" systemVersion="24B83" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CategoryEntity" representedClassName="CategoryEntity" syncable="YES">
+        <attribute name="color" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isShadowed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="incomes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="IncomeEntity" inverseName="category" inverseEntity="IncomeEntity"/>
+        <relationship name="spendings" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SpendingEntity" inverseName="category" inverseEntity="SpendingEntity"/>
+        <fetchIndex name="byShadowedState">
+            <fetchIndexElement property="isShadowed" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="IncomeEntity" representedClassName=".IncomeEntity" syncable="YES">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="currency" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="place" optional="YES" attributeType="String"/>
+        <attribute name="timeZoneIdentifier" optional="YES" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity" inverseName="incomes" inverseEntity="CategoryEntity"/>
+    </entity>
+    <entity name="ScheduledTransactionEntity" representedClassName=".ScheduledTransactionEntity" syncable="YES">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="currency" optional="YES" attributeType="String"/>
+        <attribute name="frequency" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="interval" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="isActive" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES"/>
+        <attribute name="isIncome" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="nextDueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="place" optional="YES" attributeType="String"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity"/>
+        <relationship name="occurrences" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ScheduledOccurrenceEntity" inverseName="schedule" inverseEntity="ScheduledTransactionEntity"/>
+    </entity>
+    <entity name="ScheduledOccurrenceEntity" representedClassName=".ScheduledOccurrenceEntity" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="scheduleID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="scheduledDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="income" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="IncomeEntity"/>
+        <relationship name="schedule" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ScheduledTransactionEntity" inverseName="occurrences" inverseEntity="ScheduledTransactionEntity"/>
+        <relationship name="spending" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpendingEntity"/>
+    </entity>
+    <entity name="TransactionTemplateEntity" representedClassName=".TransactionTemplateEntity" syncable="YES">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isIncome" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="modifiedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="note" optional="YES" attributeType="String"/>
+        <attribute name="order" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity"/>
+    </entity>
+    <entity name="ReturnEntity" representedClassName="ReturnEntity" syncable="YES">
+        <attribute name="amount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="amountUSD" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="currency" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="spending" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SpendingEntity" inverseName="returns" inverseEntity="SpendingEntity"/>
+    </entity>
+    <entity name="SpendingEntity" representedClassName=".SpendingEntity" syncable="YES">
+        <attribute name="amount" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="amountUSD" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String"/>
+        <attribute name="currency" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="place" optional="YES" attributeType="String"/>
+        <attribute name="timeZoneIdentifier" optional="YES" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryEntity" inverseName="spendings" inverseEntity="CategoryEntity"/>
+        <relationship name="returns" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ReturnEntity" inverseName="spending" inverseEntity="ReturnEntity"/>
+    </entity>
+</model>

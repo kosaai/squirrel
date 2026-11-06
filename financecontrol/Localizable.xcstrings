@@ -5195,6 +5195,78 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "months" } },
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "أشهر" } }
       }
+    },
+    "Dime Templates Saved" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Saved Templates" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "القوالب المحفوظة" } }
+      }
+    },
+    "Dime Templates Save As" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save as Template" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حفظ كقالب" } }
+      }
+    },
+    "Dime Templates Create" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Create Template" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إنشاء قالب" } }
+      }
+    },
+    "Dime Templates Edit" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit Template" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تعديل القالب" } }
+      }
+    },
+    "Dime Templates Delete" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete Template" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حذف القالب" } }
+      }
+    },
+    "Dime Templates Apply" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Apply Template" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تطبيق القالب" } }
+      }
+    },
+    "Dime Templates Name" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Template Name" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اسم القالب" } }
+      }
+    },
+    "Dime Templates Empty" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No Templates" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "لا توجد قوالب" } }
+      }
+    },
+    "Dime Templates Empty Description" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save a transaction as a template to reuse it here." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "احفظ عملية كقالب لإعادة استخدامها هنا." } }
+      }
+    },
+    "Dime Templates Delete Confirmation" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Delete this template?" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حذف هذا القالب؟" } }
+      }
+    },
+    "Dime Templates Cancel" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إلغاء" } }
+      }
+    },
+    "Dime Templates Save" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حفظ" } }
+      }
     }
   },
   "version" : "1.0"
