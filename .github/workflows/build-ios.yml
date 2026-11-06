@@ -30,6 +30,9 @@ jobs:
       - name: Resolve Swift Package Manager dependencies
         run: |
           set -o pipefail
+          # Resolve from the project declarations on the runner. Xcode 26 rejects
+          # the historical lockfile before it begins package resolution.
+          rm -f Squirrel.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
           xcodebuild -resolvePackageDependencies \
             -project Squirrel.xcodeproj \
             -scheme Squirrel_Release \
