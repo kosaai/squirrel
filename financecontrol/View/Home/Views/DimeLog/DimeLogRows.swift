@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DimeLogTransactionList: View {
     let days: [DimeLogDataAdapter.Day]
-    let coreDataModel: CoreDataModel
+    let onEdit: (DimeLogDataAdapter.Record) -> Void
+    let onDelete: (DimeLogDataAdapter.Record) -> Void
     let bottomEdge: CGFloat
 
     var body: some View {
@@ -29,8 +30,8 @@ struct DimeLogTransactionList: View {
                     .foregroundColor(Color.SubtitleText)
                     DimeLogLine()
                         .stroke(Color.Outline, style: StrokeStyle(lineWidth: 1.3, lineCap: .round))
-                    ForEach(day.spendings) { spending in
-                        DimeLogTransactionRow(spending: spending, coreDataModel: coreDataModel)
+                    ForEach(day.transactions) { transaction in
+                        DimeLogTransactionRow(transaction: transaction, onEdit: onEdit, onDelete: onDelete)
                     }
                 }
                 .padding(.bottom, 18)
@@ -41,30 +42,32 @@ struct DimeLogTransactionList: View {
 
 private struct DimeLogTransactionRow: View {
     @Environment(\.layoutDirection) private var layoutDirection
-    let spending: SpendingEntity
-    let coreDataModel: CoreDataModel
+    let transaction: DimeLogDataAdapter.Record
+    let onEdit: (DimeLogDataAdapter.Record) -> Void
+    let onDelete: (DimeLogDataAdapter.Record) -> Void
     @State private var showDeleteConfirmation = false
 
-    private var amount: Double { spending.amountWithReturns }
-    private var categoryColor: String { spending.category?.color ?? "#FFFFFF" }
-    private var categoryName: String { spending.category?.name ?? "" }
+    private var amount: Double { transaction.amount }
+    private var categoryColor: String { transaction.category?.color ?? "#FFFFFF" }
+    private var categoryName: String { transaction.category?.name ?? "" }
+    private var isIncome: Bool { transaction.kind == .income }
     private var gestureEdge: HorizontalEdge { layoutDirection == .rightToLeft ? .leading : .trailing }
 
     var body: some View {
         HStack(spacing: 12) {
             DimeLogCategoryBadge(name: categoryName, color: categoryColor)
             VStack(alignment: .leading, spacing: 2) {
-                Text(spending.comment?.isEmpty == false ? spending.comment! : categoryName)
+                Text(transaction.note.isEmpty ? categoryName : transaction.note)
                     .font(.system(.body, design: .rounded).weight(.medium))
                     .foregroundColor(Color.PrimaryText)
                     .lineLimit(1)
-                Text(spending.wrappedDate, format: .dateTime.hour().minute())
+                Text(transaction.date, format: .dateTime.hour().minute())
                     .font(.system(.subheadline, design: .rounded).weight(.medium))
                     .foregroundColor(Color.SubtitleText)
                     .lineLimit(1)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            Text("-\(amount, format: .currency(code: \"EUR\"))")
+            Text("\(isIncome ? "+" : "-")\(amount, format: .currency(code: \"EUR\"))")
                 .font(.system(.title3, design: .rounded).weight(.medium))
                 .foregroundColor(Color.PrimaryText)
                 .minimumScaleFactor(0.7)
@@ -74,7 +77,11 @@ private struct DimeLogTransactionRow: View {
         .padding(.vertical, 8)
         .padding(.horizontal, 10)
         .contentShape(RoundedRectangle(cornerRadius: 10))
+        .onTapGesture { onEdit(transaction) }
         .contextMenu {
+            Button { onEdit(transaction) } label: {
+                Label("Dime Log Edit", systemImage: "pencil")
+            }
             Button(role: .destructive) { showDeleteConfirmation = true } label: {
                 Label("Dime Log Delete", systemImage: "xmark.bin")
             }
@@ -86,11 +93,11 @@ private struct DimeLogTransactionRow: View {
         }
         .confirmationDialog("Dime Log Delete Confirmation", isPresented: $showDeleteConfirmation, titleVisibility: .visible) {
             Button("Dime Log Delete", role: .destructive) {
-                coreDataModel.deleteSpending(spending)
+                onDelete(transaction)
             }
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(spending.comment ?? categoryName), \(amount.formatted(.currency(code: \"EUR\"))), \(categoryName)")
+        .accessibilityLabel("\(transaction.note.isEmpty ? categoryName : transaction.note), \(amount.formatted(.currency(code: \"EUR\"))), \(categoryName)")
     }
 }
 

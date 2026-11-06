@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum DimeLogFilter: String, CaseIterable, Identifiable {
-    case all, category, day, week, month
+    case all, category, day, week, month, type
     var id: String { rawValue }
     var title: LocalizedStringKey {
         switch self {
@@ -17,6 +17,7 @@ enum DimeLogFilter: String, CaseIterable, Identifiable {
         case .day: return "Dime Log Day"
         case .week: return "Dime Log Week"
         case .month: return "Dime Log Month"
+        case .type: return "Dime Log Type"
         }
     }
 }
@@ -29,6 +30,7 @@ struct DimeLogHeader: View {
     @Binding var date: Date
     @Binding var week: Date
     @Binding var month: Date
+    @Binding var transactionKind: DimeLogDataAdapter.Kind
     let categories: [CategoryEntity]
 
     var body: some View {
@@ -76,9 +78,36 @@ struct DimeLogHeader: View {
             case .day: DimeLogDateStepper(date: $date, component: .day)
             case .week: DimeLogDateStepper(date: $week, component: .weekOfYear)
             case .month: DimeLogDateStepper(date: $month, component: .month)
+            case .type: DimeLogTypePicker(kind: $transactionKind)
             }
         }
         .frame(height: filter == .all ? 50 : 110, alignment: .top)
+    }
+}
+
+private struct DimeLogTypePicker: View {
+    @Binding var kind: DimeLogDataAdapter.Kind
+    @Namespace private var animation
+
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(DimeLogDataAdapter.Kind.allCases) { item in
+                Text(item == .expense ? "Dime Transaction Expense" : "Dime Transaction Income")
+                    .font(.system(.body, design: .rounded).weight(.semibold))
+                    .foregroundColor(kind == item ? Color.PrimaryText : Color.SubtitleText)
+                    .padding(6)
+                    .frame(width: 100)
+                    .contentShape(Rectangle())
+                    .background {
+                        if kind == item {
+                            Capsule().fill(Color.SecondaryBackground).matchedGeometryEffect(id: "log-type", in: animation)
+                        }
+                    }
+                    .onTapGesture { withAnimation(.easeIn(duration: 0.15)) { kind = item } }
+            }
+        }
+        .padding(3)
+        .overlay(Capsule().stroke(Color.Outline.opacity(0.4), lineWidth: 1.3))
     }
 }
 

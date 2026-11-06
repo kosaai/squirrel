@@ -3,13 +3,15 @@
 //  Squirrel
 //
 //  Directly adapted from app/dime/Views/LogView.swift (Dime).
-//  CloudKit sync and Dime persistence calls are intentionally excluded.
+//  Remote sync and Dime persistence calls are intentionally excluded.
 //
 
 import SwiftUI
+import CoreData
 
 struct DimeLogView: View {
     @EnvironmentObject private var coreDataModel: CoreDataModel
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)]) private var incomes: FetchedResults<IncomeEntity>
     @StateObject private var adapter = DimeLogDataAdapter()
     @State private var searchMode = false
     @State private var searchQuery = ""
@@ -20,12 +22,25 @@ struct DimeLogView: View {
     @State private var filterWeek = Date.now
     @State private var filterMonth = Date.now
     @State private var timeframe: DimeLogDataAdapter.Timeframe = .month
+    @State private var transactionKind: DimeLogDataAdapter.Kind = .expense
+    @State private var selectedTransaction: DimeTransactionDataAdapter.Record?
 
     var topEdge: CGFloat = 0
     var bottomEdge: CGFloat = 0
 
-    private var spendings: [SpendingEntity] {
-        adapter.filteredSpendings(from: coreDataModel, query: searchQuery, category: filter == .category ? category : nil, dateRange: activeDateRange)
+    private var transactions: [DimeLogDataAdapter.Record] {
+        adapter.filteredTransactions(
+            from: coreDataModel,
+            query: searchQuery,
+            category: filter == .category ? category : nil,
+            dateRange: activeDateRange,
+            kind: filter == .type ? transactionKind : nil,
+            incomes: Array(incomes)
+        )
+    }
+
+    private var allTransactions: [DimeLogDataAdapter.Record] {
+        adapter.allTransactions(from: coreDataModel, incomes: Array(incomes))
     }
 
     private var activeDateRange: DateInterval? {
@@ -44,7 +59,7 @@ struct DimeLogView: View {
 
     var body: some View {
         Group {
-            if coreDataModel.savedSpendings.isEmpty {
+            if allTransactions.isEmpty {
                 DimeLogEmptyState()
             } else {
                 VStack(spacing: 0) {
@@ -56,6 +71,7 @@ struct DimeLogView: View {
                         date: $filterDate,
                         week: $filterWeek,
                         month: $filterMonth,
+                        transactionKind: $transactionKind,
                         categories: coreDataModel.savedCategories
                     )
                     .padding(.horizontal, 25)
@@ -64,14 +80,15 @@ struct DimeLogView: View {
                     ScrollView(showsIndicators: false) {
                         if filter == .all {
                             DimeLogInsights(
-                                total: adapter.total(from: adapter.allSpendings(from: coreDataModel), timeframe: timeframe),
+                                totals: adapter.totals(from: allTransactions, timeframe: timeframe),
                                 timeframe: $timeframe
                             )
                         }
 
                         DimeLogTransactionList(
-                            days: adapter.groupedDays(spendings),
-                            coreDataModel: coreDataModel,
+                            days: adapter.groupedDays(transactions),
+                            onEdit: { selectedTransaction = $0 },
+                            onDelete: { adapter.delete($0, with: coreDataModel) },
                             bottomEdge: bottomEdge
                         )
                         .padding(.horizontal, 20)
@@ -83,6 +100,10 @@ struct DimeLogView: View {
         .background(Color.PrimaryBackground)
         .sheet(isPresented: $searchMode) {
             DimeLogSearchView(query: $searchQuery)
+        }
+        .sheet(item: $selectedTransaction) { transaction in
+            DimeTransactionView(transactionToEdit: transaction)
+                .environmentObject(coreDataModel)
         }
     }
 }
@@ -112,16 +133,23 @@ private struct DimeLogEmptyState: View {
 }
 
 private struct DimeLogInsights: View {
-    let total: Double
+    let totals: DimeLogDataAdapter.Totals
     @Binding var timeframe: DimeLogDataAdapter.Timeframe
     @State private var showMenu = false
+    @State private var showSummaryMenu = false
+    @State private var summary: DimeLogSummary = .net
 
     var body: some View {
         VStack(spacing: 2) {
             HStack(spacing: 4) {
-                Text("Dime Log Spent")
-                    .font(.system(.body, design: .rounded).weight(.medium))
-                    .foregroundColor(Color.PrimaryText.opacity(0.9))
+                Button { showSummaryMenu = true } label: {
+                    Text(summary.title)
+                        .font(.system(.body, design: .rounded).weight(.medium))
+                        .foregroundColor(Color.PrimaryText.opacity(0.9))
+                }
+                .popover(isPresented: $showSummaryMenu) {
+                    DimeLogSummaryPicker(summary: $summary, showMenu: $showSummaryMenu)
+                }
                 Button {
                     showMenu = true
                 } label: {
@@ -144,6 +172,54 @@ private struct DimeLogInsights: View {
         }
         .padding([.bottom, .horizontal], 20)
         .frame(height: 170)
+    }
+
+    private var total: Double {
+        switch summary {
+        case .net: return totals.net
+        case .income: return totals.income
+        case .expense: return totals.expenses
+        }
+    }
+}
+
+private struct DimeLogSummaryPicker: View {
+    @Binding var summary: DimeLogSummary
+    @Binding var showMenu: Bool
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 1) {
+            ForEach(DimeLogSummary.allCases) { item in
+                Button {
+                    withAnimation(.easeIn(duration: 0.15)) { summary = item }
+                    showMenu = false
+                } label: {
+                    HStack {
+                        Text(item.title)
+                        Spacer()
+                        if summary == item { Image(systemName: "checkmark") }
+                    }
+                    .padding(5)
+                }
+            }
+        }
+        .font(.system(.body, design: .rounded).weight(.medium))
+        .foregroundColor(Color("AlwaysDarkBackground"))
+        .padding(4)
+        .frame(width: 150)
+        .background(RoundedRectangle(cornerRadius: 9).fill(Color("AlwaysLightBackground")).shadow(color: .gray.opacity(0.25), radius: 6))
+    }
+}
+
+private enum DimeLogSummary: CaseIterable, Identifiable {
+    case net, income, expense
+    var id: Self { self }
+    var title: LocalizedStringKey {
+        switch self {
+        case .net: return "Dime Log Net Total"
+        case .income: return "Dime Log Earned"
+        case .expense: return "Dime Log Spent"
+        }
     }
 }
 

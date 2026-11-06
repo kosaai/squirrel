@@ -14,7 +14,7 @@ struct DimeTransactionView: View {
     @FetchRequest(sortDescriptors: [SortDescriptor(\CategoryEntity.name)], predicate: NSPredicate(format: "isShadowed == false"))
     private var categories: FetchedResults<CategoryEntity>
 
-    let spendingToEdit: SpendingEntity?
+    let transactionToEdit: DimeTransactionDataAdapter.Record?
     @StateObject private var adapter = DimeTransactionDataAdapter()
     @State private var note: String
     @State private var amount: Double
@@ -23,24 +23,32 @@ struct DimeTransactionView: View {
     @State private var showCategoryPicker = false
     @State private var isEditingDecimal = false
     @State private var decimalValuesAssigned: DimeAssignedDecimal = .none
+    @State private var kind: DimeTransactionDataAdapter.Kind
 
-    init(spendingToEdit: SpendingEntity? = nil) {
-        self.spendingToEdit = spendingToEdit
-        _note = State(initialValue: spendingToEdit?.comment ?? "")
-        _amount = State(initialValue: spendingToEdit?.amount ?? 0)
-        _category = State(initialValue: spendingToEdit?.category)
-        _date = State(initialValue: spendingToEdit?.wrappedDate ?? .now)
+    init(spendingToEdit: SpendingEntity?) {
+        self.init(transactionToEdit: spendingToEdit.map(DimeTransactionDataAdapter.Record.expense))
     }
 
-    private var suggestions: [SpendingEntity] {
-        adapter.suggestions(note: note, from: coreDataModel.savedSpendings)
+    init(transactionToEdit: DimeTransactionDataAdapter.Record? = nil) {
+        self.transactionToEdit = transactionToEdit
+        _note = State(initialValue: transactionToEdit?.note ?? "")
+        _amount = State(initialValue: transactionToEdit?.amount ?? 0)
+        _category = State(initialValue: transactionToEdit?.category)
+        _date = State(initialValue: transactionToEdit?.date ?? .now)
+        _kind = State(initialValue: transactionToEdit?.kind ?? .expense)
+    }
+
+    private var suggestions: [DimeTransactionDataAdapter.Record] {
+        adapter.suggestions(note: note, kind: kind, from: coreDataModel)
     }
 
     var body: some View {
         VStack(spacing: 0) {
-            DimeTransactionHeader(isEditing: spendingToEdit != nil, dismiss: dismiss, save: save)
+            DimeTransactionHeader(isEditing: transactionToEdit != nil, dismiss: dismiss, save: save)
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 18) {
+                    DimeTransactionKindPicker(kind: $kind)
+                        .disabled(transactionToEdit != nil)
                     Text(amount, format: .currency(code: "EUR"))
                         .font(.system(size: 50, weight: .regular, design: .rounded))
                         .foregroundColor(Color.PrimaryText)
@@ -86,8 +94,34 @@ struct DimeTransactionView: View {
     }
 
     private func save() {
-        adapter.save(existing: spendingToEdit, amount: amount, note: note, category: category, date: date, coreDataModel: coreDataModel)
+        adapter.save(existing: transactionToEdit, kind: kind, amount: amount, note: note, category: category, date: date, coreDataModel: coreDataModel)
         dismiss()
+    }
+}
+
+private struct DimeTransactionKindPicker: View {
+    @Binding var kind: DimeTransactionDataAdapter.Kind
+    @Namespace private var animation
+
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(DimeTransactionDataAdapter.Kind.allCases) { item in
+                Text(item == .expense ? "Dime Transaction Expense" : "Dime Transaction Income")
+                    .font(.system(.body, design: .rounded).weight(.semibold))
+                    .foregroundColor(kind == item ? Color.PrimaryText : Color.SubtitleText)
+                    .padding(6)
+                    .frame(width: 100)
+                    .contentShape(Rectangle())
+                    .background {
+                        if kind == item {
+                            Capsule().fill(Color.SecondaryBackground).matchedGeometryEffect(id: "transaction-kind", in: animation)
+                        }
+                    }
+                    .onTapGesture { withAnimation(.easeIn(duration: 0.15)) { kind = item } }
+            }
+        }
+        .padding(3)
+        .overlay(Capsule().stroke(Color.Outline.opacity(0.4), lineWidth: 1.3))
     }
 }
 

@@ -5099,6 +5099,42 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "حفظ" } }
       }
+    },
+    "Dime Transaction Expense" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Expense" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مصروف" } }
+      }
+    },
+    "Dime Transaction Income" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Income" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "دخل" } }
+      }
+    },
+    "Dime Log Type" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Type" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "النوع" } }
+      }
+    },
+    "Dime Log Net Total" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Net total" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "صافي الإجمالي" } }
+      }
+    },
+    "Dime Log Earned" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Earned" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الدخل" } }
+      }
+    },
+    "Dime Log Edit" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تعديل" } }
+      }
     }
   },
   "version" : "1.0"
