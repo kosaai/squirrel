@@ -66,9 +66,14 @@ jobs:
           app_path="$RUNNER_TEMP/DimeQADerivedData/Build/Products/Debug-iphonesimulator/Squirrel.app"
           test -d "$app_path"
           xcrun simctl install "$SIMULATOR_UDID" "$app_path"
-          xcrun simctl launch "$SIMULATOR_UDID" "$QA_BUNDLE_ID" | tee "$RUNNER_TEMP/dime-qa-logs/launch.log"
+          qa_arguments=(-AppleLanguages '(ar)' -AppleLocale ar_SA -AppleTextDirection YES -dimeQA-category-editor)
+          xcrun simctl launch "$SIMULATOR_UDID" "$QA_BUNDLE_ID" "${qa_arguments[@]}" | tee "$RUNNER_TEMP/dime-qa-logs/category-editor-hidden.log"
           sleep 5
-          xcrun simctl io "$SIMULATOR_UDID" screenshot "$RUNNER_TEMP/Dime-QA-launch.png"
+          xcrun simctl io "$SIMULATOR_UDID" screenshot "$RUNNER_TEMP/Dime-QA-category-editor-hidden.png"
+          xcrun simctl terminate "$SIMULATOR_UDID" "$QA_BUNDLE_ID"
+          xcrun simctl launch "$SIMULATOR_UDID" "$QA_BUNDLE_ID" "${qa_arguments[@]}" -dimeQA-focus-name | tee "$RUNNER_TEMP/dime-qa-logs/category-editor-keyboard.log"
+          sleep 5
+          xcrun simctl io "$SIMULATOR_UDID" screenshot "$RUNNER_TEMP/Dime-QA-category-editor-keyboard.png"
       - name: Upload Dime QA evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -76,5 +81,6 @@ jobs:
           name: Dime-QA-simulator-evidence
           path: |
             ${{ runner.temp }}/dime-qa-logs
-            ${{ runner.temp }}/Dime-QA-launch.png
+            ${{ runner.temp }}/Dime-QA-category-editor-hidden.png
+            ${{ runner.temp }}/Dime-QA-category-editor-keyboard.png
           if-no-files-found: warn

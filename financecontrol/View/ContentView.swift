@@ -91,7 +91,7 @@ struct ContentView: View {
         
     var body: some View {
 #if DIME_QA
-        DimeQARoot(coreDataModel: cdm)
+        DimeQARoot(coreDataModel: cdm, ratesViewModel: rvm)
 #else
         Group {
             if #available(iOS 18.0, *) {
@@ -254,11 +254,27 @@ struct ContentView: View {
 #if DIME_QA
 private struct DimeQARoot: View {
     @ObservedObject var coreDataModel: CoreDataModel
+    @ObservedObject var ratesViewModel: RatesViewModel
     @State private var presentOnboarding = false
     @State private var statsScrollToTop: Int?
     @State private var settingsScrollToTop: Int?
 
     var body: some View {
+#if DIME_QA
+        if ProcessInfo.processInfo.arguments.contains("-dimeQA-category-editor") {
+            DimeCategoryEditorQAHarness(
+                focusName: ProcessInfo.processInfo.arguments.contains("-dimeQA-focus-name")
+            )
+            .environmentObject(coreDataModel)
+        } else {
+            dimeHome
+        }
+#else
+        dimeHome
+#endif
+    }
+
+    private var dimeHome: some View {
         GeometryReader { proxy in
             DimeHomeView(
                 presentOnboarding: $presentOnboarding,
@@ -268,9 +284,37 @@ private struct DimeQARoot: View {
                 bottomEdge: proxy.safeAreaInsets.bottom
             )
             .environmentObject(coreDataModel)
+            .environmentObject(ratesViewModel)
         }
     }
 }
+
+#if DIME_QA
+private struct DimeCategoryEditorQAHarness: View {
+    let focusName: Bool
+    @State private var showEditor = true
+
+    var body: some View {
+        NavigationView {
+            NavigationLink(isActive: $showEditor) {
+                AddCategoryView(
+                    selectedCategory: .constant(nil),
+                    insert: false,
+                    colors: [],
+                    unusedColors: [],
+                    oklch: OKLCH(lightness: 0.9, chroma: CategoryColorValues.chroma),
+                    initiallyFocusName: focusName
+                )
+            } label: {
+                EmptyView()
+            }
+            .hidden()
+            .navigationTitle("Categories")
+        }
+        .navigationViewStyle(.stack)
+    }
+}
+#endif
 #endif
 
 struct ContentView_Previews: PreviewProvider {

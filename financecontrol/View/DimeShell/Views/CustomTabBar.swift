@@ -32,5 +32,6 @@ struct DimeCustomTabBar: View {
         .padding(.bottom, bottomEdge - 10)
         .frame(maxWidth: .infinity)
         .background(Color.PrimaryBackground)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
 }
