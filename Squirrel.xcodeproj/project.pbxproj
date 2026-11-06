@@ -7,47 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D1E000000000000000001011 /* DimeSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001001 /* DimeSettingsRow.swift */; };
-		D1E000000000000000001012 /* DimeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001002 /* DimeSettingsView.swift */; };
-		D1E000000000000000000911 /* DimeInsightsDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000901 /* DimeInsightsDataAdapter.swift */; };
-		D1E000000000000000000912 /* DimeInsightsCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000902 /* DimeInsightsCharts.swift */; };
-		D1E000000000000000000913 /* DimeInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000903 /* DimeInsightsView.swift */; };
-		D1E000000000000000000811 /* DimeBudgetEntity+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000801 /* DimeBudgetEntity+CoreData.swift */; };
-		D1E000000000000000000812 /* DimeBudgetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000802 /* DimeBudgetsModel.swift */; };
-		D1E000000000000000000813 /* DimeBudgetDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000803 /* DimeBudgetDataAdapter.swift */; };
-		D1E000000000000000000814 /* DimeBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000804 /* DimeBudgetView.swift */; };
-		D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */; };
-		D1E000000000000000000711 /* TransactionTemplateEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */; };
-		D1E000000000000000000712 /* TransactionTemplateEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */; };
-		D1E000000000000000000713 /* TransactionTemplatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000703 /* TransactionTemplatesModel.swift */; };
-		D1E000000000000000000714 /* DimeTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000705 /* DimeTemplatesView.swift */; };
-		D1E000000000000000000614 /* DimeRecurringPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000605 /* DimeRecurringPicker.swift */; };
-		D1E000000000000000000611 /* ScheduledTransactionEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000601 /* ScheduledTransactionEntity+CoreDataClass.swift */; };
-		D1E000000000000000000612 /* ScheduledTransactionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000602 /* ScheduledTransactionEntity+CoreDataProperties.swift */; };
-		D1E000000000000000000613 /* ScheduledTransactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000603 /* ScheduledTransactionsModel.swift */; };
-		D1E000000000000000000511 /* IncomeEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000501 /* IncomeEntity+CoreDataClass.swift */; };
-		D1E000000000000000000512 /* IncomeEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000502 /* IncomeEntity+CoreDataProperties.swift */; };
-		D1E000000000000000000513 /* IncomesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000503 /* IncomesModel.swift */; };
-		D1E000000000000000000411 /* DimeTransactionDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */; };
-		D1E000000000000000000412 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000402 /* TransactionView.swift */; };
-		D1E000000000000000000413 /* NumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000403 /* NumberPad.swift */; };
-		D1E000000000000000000414 /* SuggestedTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000404 /* SuggestedTransactions.swift */; };
-		D1E000000000000000000415 /* TransactionCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000405 /* TransactionCategoryPicker.swift */; };
-		D1E000000000000000000311 /* DimeHomeNavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000301 /* DimeHomeNavigationState.swift */; };
-		D1E000000000000000000312 /* DimeHomeDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000302 /* DimeHomeDestinationView.swift */; };
-		D1E000000000000000000313 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000303 /* HomeView.swift */; };
-		D1E000000000000000000211 /* DimeTabDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000201 /* DimeTabDestination.swift */; };
-		D1E000000000000000000212 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000202 /* CustomTabBar.swift */; };
-		D1E000000000000000000213 /* DimeTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000203 /* DimeTabButton.swift */; };
-		D1E000000000000000000214 /* DimeAddTransactionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000204 /* DimeAddTransactionButton.swift */; };
-		D1E000000000000000000111 /* DimeLogDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000101 /* DimeLogDataAdapter.swift */; };
-		D1E000000000000000000112 /* DimeLogFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000102 /* DimeLogFilters.swift */; };
-		D1E000000000000000000113 /* DimeLogRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000103 /* DimeLogRows.swift */; };
-		D1E000000000000000000114 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000104 /* LogView.swift */; };
-		D1E000000000000000000011 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000001 /* Color.swift */; };
-		D1E000000000000000000012 /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000002 /* DynamicType.swift */; };
-		D1E000000000000000000013 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000003 /* FontExtension.swift */; };
-		D1E000000000000000000014 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000004 /* ViewExtension.swift */; };
 		8D00D75C2B5801C900E8C70D /* Vars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00D75B2B5801C900E8C70D /* Vars.swift */; };
 		8D00D75D2B5801C900E8C70D /* Vars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D00D75B2B5801C900E8C70D /* Vars.swift */; };
 		8D02AA792CBFE63300C4B4F6 /* ExportCSVView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D02AA782CBFE63300C4B4F6 /* ExportCSVView.swift */; };
@@ -151,7 +110,6 @@
 		8D7ECC7A2AACAF6F005A515D /* CustomColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7ECC792AACAF6F005A515D /* CustomColorSelector.swift */; };
 		8D7EFB0B2A85096B009797E8 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7EFB0A2A85096B009797E8 /* Date+Extensions.swift */; };
 		8D7FCA552B16A59C009AAAEB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7FCA542B16A59C009AAAEB /* Localizable.xcstrings */; };
-		8DFECA552B16A59C009AAAEB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7FCA542B16A59C009AAAEB /* Localizable.xcstrings */; };
 		8D800A7F2D39672F00887DED /* TimeZone+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D800A7E2D39672F00887DED /* TimeZone+Extensions.swift */; };
 		8D803B132C4EA6AD00778B6C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D803B122C4EA6AD00778B6C /* Keychain.swift */; };
 		8D830DF12AE00CE600EFB1E7 /* ShadowedCategoriesRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D830DF02AE00CE600EFB1E7 /* ShadowedCategoriesRow.swift */; };
@@ -228,6 +186,48 @@
 		8DFA1EDE2B4C163100B97113 /* CustomIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA1EDD2B4C163100B97113 /* CustomIcon.swift */; };
 		8DFA1EE02B4C16DE00B97113 /* IconRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA1EDF2B4C16DE00B97113 /* IconRow.swift */; };
 		8DFA1EE32B4C1F7A00B97113 /* IconRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFA1EE22B4C1F7A00B97113 /* IconRowViewModel.swift */; };
+		8DFECA552B16A59C009AAAEB /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 8D7FCA542B16A59C009AAAEB /* Localizable.xcstrings */; };
+		D1E000000000000000000011 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000001 /* Color.swift */; };
+		D1E000000000000000000012 /* DynamicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000002 /* DynamicType.swift */; };
+		D1E000000000000000000013 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000003 /* FontExtension.swift */; };
+		D1E000000000000000000014 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000004 /* ViewExtension.swift */; };
+		D1E000000000000000000111 /* DimeLogDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000101 /* DimeLogDataAdapter.swift */; };
+		D1E000000000000000000112 /* DimeLogFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000102 /* DimeLogFilters.swift */; };
+		D1E000000000000000000113 /* DimeLogRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000103 /* DimeLogRows.swift */; };
+		D1E000000000000000000114 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000104 /* LogView.swift */; };
+		D1E000000000000000000211 /* DimeTabDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000201 /* DimeTabDestination.swift */; };
+		D1E000000000000000000212 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000202 /* CustomTabBar.swift */; };
+		D1E000000000000000000213 /* DimeTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000203 /* DimeTabButton.swift */; };
+		D1E000000000000000000214 /* DimeAddTransactionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000204 /* DimeAddTransactionButton.swift */; };
+		D1E000000000000000000311 /* DimeHomeNavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000301 /* DimeHomeNavigationState.swift */; };
+		D1E000000000000000000312 /* DimeHomeDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000302 /* DimeHomeDestinationView.swift */; };
+		D1E000000000000000000313 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000303 /* HomeView.swift */; };
+		D1E000000000000000000411 /* DimeTransactionDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */; };
+		D1E000000000000000000412 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000402 /* TransactionView.swift */; };
+		D1E000000000000000000413 /* NumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000403 /* NumberPad.swift */; };
+		D1E000000000000000000414 /* SuggestedTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000404 /* SuggestedTransactions.swift */; };
+		D1E000000000000000000415 /* TransactionCategoryPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000405 /* TransactionCategoryPicker.swift */; };
+		D1E000000000000000000511 /* IncomeEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000501 /* IncomeEntity+CoreDataClass.swift */; };
+		D1E000000000000000000512 /* IncomeEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000502 /* IncomeEntity+CoreDataProperties.swift */; };
+		D1E000000000000000000513 /* IncomesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000503 /* IncomesModel.swift */; };
+		D1E000000000000000000611 /* ScheduledTransactionEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000601 /* ScheduledTransactionEntity+CoreDataClass.swift */; };
+		D1E000000000000000000612 /* ScheduledTransactionEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000602 /* ScheduledTransactionEntity+CoreDataProperties.swift */; };
+		D1E000000000000000000613 /* ScheduledTransactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000603 /* ScheduledTransactionsModel.swift */; };
+		D1E000000000000000000614 /* DimeRecurringPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000605 /* DimeRecurringPicker.swift */; };
+		D1E000000000000000000711 /* TransactionTemplateEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */; };
+		D1E000000000000000000712 /* TransactionTemplateEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */; };
+		D1E000000000000000000713 /* TransactionTemplatesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000703 /* TransactionTemplatesModel.swift */; };
+		D1E000000000000000000714 /* DimeTemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000705 /* DimeTemplatesView.swift */; };
+		D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Resources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */; };
+		D1E000000000000000000811 /* DimeBudgetEntity+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000801 /* DimeBudgetEntity+CoreData.swift */; };
+		D1E000000000000000000812 /* DimeBudgetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000802 /* DimeBudgetsModel.swift */; };
+		D1E000000000000000000813 /* DimeBudgetDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000803 /* DimeBudgetDataAdapter.swift */; };
+		D1E000000000000000000814 /* DimeBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000804 /* DimeBudgetView.swift */; };
+		D1E000000000000000000911 /* DimeInsightsDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000901 /* DimeInsightsDataAdapter.swift */; };
+		D1E000000000000000000912 /* DimeInsightsCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000902 /* DimeInsightsCharts.swift */; };
+		D1E000000000000000000913 /* DimeInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000903 /* DimeInsightsView.swift */; };
+		D1E000000000000000001011 /* DimeSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001001 /* DimeSettingsRow.swift */; };
+		D1E000000000000000001012 /* DimeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001002 /* DimeSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -262,51 +262,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D1E000000000000000001001 /* DimeSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeSettingsRow.swift; sourceTree = "<group>"; };
-		D1E000000000000000001002 /* DimeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeSettingsView.swift; sourceTree = "<group>"; };
-		D1E000000000000000000901 /* DimeInsightsDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeInsightsDataAdapter.swift; sourceTree = "<group>"; };
-		D1E000000000000000000902 /* DimeInsightsCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeInsightsCharts.swift; sourceTree = "<group>"; };
-		D1E000000000000000000903 /* DimeInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeInsightsView.swift; sourceTree = "<group>"; };
-		D1E000000000000000000801 /* DimeBudgetEntity+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetEntity+CoreData.swift; sourceTree = "<group>"; };
-		D1E000000000000000000802 /* DimeBudgetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetsModel.swift; sourceTree = "<group>"; };
-		D1E000000000000000000803 /* DimeBudgetDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetDataAdapter.swift; sourceTree = "<group>"; };
-		D1E000000000000000000804 /* DimeBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetView.swift; sourceTree = "<group>"; };
-		D1E000000000000000000805 /* BudgetsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetsModel.xcdatamodel; sourceTree = "<group>"; };
-		D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTemplateTransactionEditor.swift; sourceTree = "<group>"; };
-		D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionTemplateEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionTemplateEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D1E000000000000000000703 /* TransactionTemplatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTemplatesModel.swift; sourceTree = "<group>"; };
-		D1E000000000000000000704 /* TemplatesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TemplatesModel.xcdatamodel; sourceTree = "<group>"; };
-		D1E000000000000000000705 /* DimeTemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTemplatesView.swift; sourceTree = "<group>"; };
-		D1E000000000000000000605 /* DimeRecurringPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeRecurringPicker.swift; sourceTree = "<group>"; };
-		D1E000000000000000000601 /* ScheduledTransactionEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduledTransactionEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D1E000000000000000000602 /* ScheduledTransactionEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduledTransactionEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D1E000000000000000000603 /* ScheduledTransactionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledTransactionsModel.swift; sourceTree = "<group>"; };
-		D1E000000000000000000604 /* ScheduledTransactionsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScheduledTransactionsModel.xcdatamodel; sourceTree = "<group>"; };
-		D1E000000000000000000501 /* IncomeEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D1E000000000000000000502 /* IncomeEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D1E000000000000000000503 /* IncomesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomesModel.swift; sourceTree = "<group>"; };
-		D1E000000000000000000504 /* IncomeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncomeModel.xcdatamodel; sourceTree = "<group>"; };
-		D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTransactionDataAdapter.swift; sourceTree = "<group>"; };
-		D1E000000000000000000402 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
-		D1E000000000000000000403 /* NumberPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPad.swift; sourceTree = "<group>"; };
-		D1E000000000000000000404 /* SuggestedTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedTransactions.swift; sourceTree = "<group>"; };
-		D1E000000000000000000405 /* TransactionCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryPicker.swift; sourceTree = "<group>"; };
-		D1E000000000000000000301 /* DimeHomeNavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeHomeNavigationState.swift; sourceTree = "<group>"; };
-		D1E000000000000000000302 /* DimeHomeDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeHomeDestinationView.swift; sourceTree = "<group>"; };
-		D1E000000000000000000303 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		D1E000000000000000000201 /* DimeTabDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTabDestination.swift; sourceTree = "<group>"; };
-		D1E000000000000000000202 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		D1E000000000000000000203 /* DimeTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTabButton.swift; sourceTree = "<group>"; };
-		D1E000000000000000000204 /* DimeAddTransactionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeAddTransactionButton.swift; sourceTree = "<group>"; };
-		D1E000000000000000000101 /* DimeLogDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeLogDataAdapter.swift; sourceTree = "<group>"; };
-		D1E000000000000000000102 /* DimeLogFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeLogFilters.swift; sourceTree = "<group>"; };
-		D1E000000000000000000103 /* DimeLogRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeLogRows.swift; sourceTree = "<group>"; };
-		D1E000000000000000000104 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
-		D1E000000000000000000001 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		D1E000000000000000000002 /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
-		D1E000000000000000000003 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
-		D1E000000000000000000004 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		8D00D75B2B5801C900E8C70D /* Vars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vars.swift; sourceTree = "<group>"; };
 		8D02AA782CBFE63300C4B4F6 /* ExportCSVView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportCSVView.swift; sourceTree = "<group>"; };
 		8D02AA7A2CBFE69900C4B4F6 /* ExportCSVViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportCSVViewModel.swift; sourceTree = "<group>"; };
@@ -481,6 +436,51 @@
 		8DFA1EDF2B4C16DE00B97113 /* IconRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconRow.swift; sourceTree = "<group>"; };
 		8DFA1EE22B4C1F7A00B97113 /* IconRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconRowViewModel.swift; sourceTree = "<group>"; };
 		8DFF59662BA35D1F002DBB1B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		D1E000000000000000000001 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D1E000000000000000000002 /* DynamicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicType.swift; sourceTree = "<group>"; };
+		D1E000000000000000000003 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
+		D1E000000000000000000004 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		D1E000000000000000000101 /* DimeLogDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeLogDataAdapter.swift; sourceTree = "<group>"; };
+		D1E000000000000000000102 /* DimeLogFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeLogFilters.swift; sourceTree = "<group>"; };
+		D1E000000000000000000103 /* DimeLogRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeLogRows.swift; sourceTree = "<group>"; };
+		D1E000000000000000000104 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
+		D1E000000000000000000201 /* DimeTabDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTabDestination.swift; sourceTree = "<group>"; };
+		D1E000000000000000000202 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		D1E000000000000000000203 /* DimeTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTabButton.swift; sourceTree = "<group>"; };
+		D1E000000000000000000204 /* DimeAddTransactionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeAddTransactionButton.swift; sourceTree = "<group>"; };
+		D1E000000000000000000301 /* DimeHomeNavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeHomeNavigationState.swift; sourceTree = "<group>"; };
+		D1E000000000000000000302 /* DimeHomeDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeHomeDestinationView.swift; sourceTree = "<group>"; };
+		D1E000000000000000000303 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTransactionDataAdapter.swift; sourceTree = "<group>"; };
+		D1E000000000000000000402 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
+		D1E000000000000000000403 /* NumberPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPad.swift; sourceTree = "<group>"; };
+		D1E000000000000000000404 /* SuggestedTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestedTransactions.swift; sourceTree = "<group>"; };
+		D1E000000000000000000405 /* TransactionCategoryPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryPicker.swift; sourceTree = "<group>"; };
+		D1E000000000000000000501 /* IncomeEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D1E000000000000000000502 /* IncomeEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1E000000000000000000503 /* IncomesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomesModel.swift; sourceTree = "<group>"; };
+		D1E000000000000000000504 /* IncomeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncomeModel.xcdatamodel; sourceTree = "<group>"; };
+		D1E000000000000000000601 /* ScheduledTransactionEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduledTransactionEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D1E000000000000000000602 /* ScheduledTransactionEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScheduledTransactionEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1E000000000000000000603 /* ScheduledTransactionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledTransactionsModel.swift; sourceTree = "<group>"; };
+		D1E000000000000000000604 /* ScheduledTransactionsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScheduledTransactionsModel.xcdatamodel; sourceTree = "<group>"; };
+		D1E000000000000000000605 /* DimeRecurringPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeRecurringPicker.swift; sourceTree = "<group>"; };
+		D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionTemplateEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionTemplateEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1E000000000000000000703 /* TransactionTemplatesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTemplatesModel.swift; sourceTree = "<group>"; };
+		D1E000000000000000000704 /* TemplatesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TemplatesModel.xcdatamodel; sourceTree = "<group>"; };
+		D1E000000000000000000705 /* DimeTemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTemplatesView.swift; sourceTree = "<group>"; };
+		D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTemplateTransactionEditor.swift; sourceTree = "<group>"; };
+		D1E000000000000000000801 /* DimeBudgetEntity+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DimeBudgetEntity+CoreData.swift"; sourceTree = "<group>"; };
+		D1E000000000000000000802 /* DimeBudgetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetsModel.swift; sourceTree = "<group>"; };
+		D1E000000000000000000803 /* DimeBudgetDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetDataAdapter.swift; sourceTree = "<group>"; };
+		D1E000000000000000000804 /* DimeBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetView.swift; sourceTree = "<group>"; };
+		D1E000000000000000000805 /* BudgetsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetsModel.xcdatamodel; sourceTree = "<group>"; };
+		D1E000000000000000000901 /* DimeInsightsDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeInsightsDataAdapter.swift; sourceTree = "<group>"; };
+		D1E000000000000000000902 /* DimeInsightsCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeInsightsCharts.swift; sourceTree = "<group>"; };
+		D1E000000000000000000903 /* DimeInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeInsightsView.swift; sourceTree = "<group>"; };
+		D1E000000000000000001001 /* DimeSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeSettingsRow.swift; sourceTree = "<group>"; };
+		D1E000000000000000001002 /* DimeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -512,105 +512,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D1E000000000000000001021 /* DimeSettings */ = { isa = PBXGroup; children = (D1E000000000000000001022 /* Components */, D1E000000000000000001023 /* Views */, ); path = DimeSettings; sourceTree = "<group>"; };
-		D1E000000000000000001022 /* Components */ = { isa = PBXGroup; children = (D1E000000000000000001001 /* DimeSettingsRow.swift */, ); path = Components; sourceTree = "<group>"; };
-		D1E000000000000000001023 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000001002 /* DimeSettingsView.swift */, ); path = Views; sourceTree = "<group>"; };
-		D1E000000000000000000921 /* DimeInsights */ = { isa = PBXGroup; children = (D1E000000000000000000922 /* ViewModels */, D1E000000000000000000923 /* Components */, D1E000000000000000000924 /* Views */, ); path = DimeInsights; sourceTree = "<group>"; };
-		D1E000000000000000000922 /* ViewModels */ = { isa = PBXGroup; children = (D1E000000000000000000901 /* DimeInsightsDataAdapter.swift */, ); path = ViewModels; sourceTree = "<group>"; };
-		D1E000000000000000000923 /* Components */ = { isa = PBXGroup; children = (D1E000000000000000000902 /* DimeInsightsCharts.swift */, ); path = Components; sourceTree = "<group>"; };
-		D1E000000000000000000924 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000000903 /* DimeInsightsView.swift */, ); path = Views; sourceTree = "<group>"; };
-		D1E000000000000000000821 /* DimeBudgetEntity */ = { isa = PBXGroup; children = (D1E000000000000000000801 /* DimeBudgetEntity+CoreData.swift */, D1E000000000000000000802 /* DimeBudgetsModel.swift */, ); path = DimeBudgetEntity; sourceTree = "<group>"; };
-		D1E000000000000000000822 /* DimeBudget */ = { isa = PBXGroup; children = (D1E000000000000000000823 /* ViewModels */, D1E000000000000000000824 /* Views */, ); path = DimeBudget; sourceTree = "<group>"; };
-		D1E000000000000000000823 /* ViewModels */ = { isa = PBXGroup; children = (D1E000000000000000000803 /* DimeBudgetDataAdapter.swift */, ); path = ViewModels; sourceTree = "<group>"; };
-		D1E000000000000000000824 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000000804 /* DimeBudgetView.swift */, ); path = Views; sourceTree = "<group>"; };
-		D1E000000000000000000721 /* TransactionTemplateEntity */ = { isa = PBXGroup; children = (D1E000000000000000000703 /* TransactionTemplatesModel.swift */, D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */, D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */, ); path = TransactionTemplateEntity; sourceTree = "<group>"; };
-		D1E000000000000000000722 /* DimeTemplates */ = { isa = PBXGroup; children = (D1E000000000000000000723 /* Views */, ); path = DimeTemplates; sourceTree = "<group>"; };
-		D1E000000000000000000723 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000000705 /* DimeTemplatesView.swift */, D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */, ); path = Views; sourceTree = "<group>"; };
-		D1E000000000000000000622 /* DimeRecurring */ = { isa = PBXGroup; children = (D1E000000000000000000623 /* Components */, ); path = DimeRecurring; sourceTree = "<group>"; };
-		D1E000000000000000000623 /* Components */ = { isa = PBXGroup; children = (D1E000000000000000000605 /* DimeRecurringPicker.swift */, ); path = Components; sourceTree = "<group>"; };
-		D1E000000000000000000621 /* ScheduledTransactionEntity */ = { isa = PBXGroup; children = (D1E000000000000000000603 /* ScheduledTransactionsModel.swift */, D1E000000000000000000601 /* ScheduledTransactionEntity+CoreDataClass.swift */, D1E000000000000000000602 /* ScheduledTransactionEntity+CoreDataProperties.swift */, ); path = ScheduledTransactionEntity; sourceTree = "<group>"; };
-		D1E000000000000000000521 /* IncomeEntity */ = {
-			isa = PBXGroup;
-			children = (
-				D1E000000000000000000503 /* IncomesModel.swift */,
-				D1E000000000000000000501 /* IncomeEntity+CoreDataClass.swift */,
-				D1E000000000000000000502 /* IncomeEntity+CoreDataProperties.swift */,
-			);
-			path = IncomeEntity;
-			sourceTree = "<group>";
-		};
-		D1E000000000000000000421 /* DimeTransaction */ = {
-			isa = PBXGroup;
-			children = (
-				D1E000000000000000000422 /* ViewModels */,
-				D1E000000000000000000423 /* Views */,
-				D1E000000000000000000424 /* Components */,
-			);
-			path = DimeTransaction;
-			sourceTree = "<group>";
-		};
-		D1E000000000000000000422 /* ViewModels */ = { isa = PBXGroup; children = (D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */, ); path = ViewModels; sourceTree = "<group>"; };
-		D1E000000000000000000423 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000000402 /* TransactionView.swift */, ); path = Views; sourceTree = "<group>"; };
-		D1E000000000000000000424 /* Components */ = { isa = PBXGroup; children = (D1E000000000000000000403 /* NumberPad.swift */, D1E000000000000000000404 /* SuggestedTransactions.swift */, D1E000000000000000000405 /* TransactionCategoryPicker.swift */, ); path = Components; sourceTree = "<group>"; };
-		D1E000000000000000000221 /* DimeShell */ = {
-			isa = PBXGroup;
-			children = (
-				D1E000000000000000000222 /* Models */,
-				D1E000000000000000000223 /* Views */,
-			);
-			path = DimeShell;
-			sourceTree = "<group>";
-		};
-		D1E000000000000000000222 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				D1E000000000000000000201 /* DimeTabDestination.swift */,
-				D1E000000000000000000301 /* DimeHomeNavigationState.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		D1E000000000000000000223 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				D1E000000000000000000202 /* CustomTabBar.swift */,
-				D1E000000000000000000203 /* DimeTabButton.swift */,
-				D1E000000000000000000204 /* DimeAddTransactionButton.swift */,
-				D1E000000000000000000303 /* HomeView.swift */,
-				D1E000000000000000000302 /* DimeHomeDestinationView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		D1E000000000000000000121 /* DimeLog */ = {
-			isa = PBXGroup;
-			children = (
-				D1E000000000000000000101 /* DimeLogDataAdapter.swift */,
-			);
-			path = DimeLog;
-			sourceTree = "<group>";
-		};
-		D1E000000000000000000122 /* DimeLog */ = {
-			isa = PBXGroup;
-			children = (
-				D1E000000000000000000104 /* LogView.swift */,
-				D1E000000000000000000102 /* DimeLogFilters.swift */,
-				D1E000000000000000000103 /* DimeLogRows.swift */,
-			);
-			path = DimeLog;
-			sourceTree = "<group>";
-		};
-		D1E000000000000000000021 /* DimeShared */ = {
-			isa = PBXGroup;
-			children = (
-				D1E000000000000000000001 /* Color.swift */,
-				D1E000000000000000000002 /* DynamicType.swift */,
-				D1E000000000000000000003 /* FontExtension.swift */,
-				D1E000000000000000000004 /* ViewExtension.swift */,
-			);
-			path = DimeShared;
-			sourceTree = "<group>";
-		};
 		8D043F6B2B51A99600F2F560 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
@@ -1144,7 +1045,7 @@
 				8D9B50132AC1BE9700C7732B /* Info.plist */,
 				8D7FCA542B16A59C009AAAEB /* Localizable.xcstrings */,
 				8DBFEBD12A49ED4900165414 /* Assets.xcassets */,
-				8DA2DC692EE1D32000EE3B47 /* Icons */,
+				8DA2DC692EE1D32000EE3B47,
 				8DBFEBCD2A49ED4800165414 /* SquirrelApp.swift */,
 				8DBFEBF72A49ED7600165414 /* View */,
 				8D2240B92B0F947B00D5572B /* ViewModel */,
@@ -1196,6 +1097,257 @@
 				8D02AA7A2CBFE69900C4B4F6 /* ExportCSVViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000021 /* DimeShared */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000001 /* Color.swift */,
+				D1E000000000000000000002 /* DynamicType.swift */,
+				D1E000000000000000000003 /* FontExtension.swift */,
+				D1E000000000000000000004 /* ViewExtension.swift */,
+			);
+			path = DimeShared;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000121 /* DimeLog */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000101 /* DimeLogDataAdapter.swift */,
+			);
+			path = DimeLog;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000122 /* DimeLog */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000104 /* LogView.swift */,
+				D1E000000000000000000102 /* DimeLogFilters.swift */,
+				D1E000000000000000000103 /* DimeLogRows.swift */,
+			);
+			path = DimeLog;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000221 /* DimeShell */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000222 /* Models */,
+				D1E000000000000000000223 /* Views */,
+			);
+			path = DimeShell;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000222 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000201 /* DimeTabDestination.swift */,
+				D1E000000000000000000301 /* DimeHomeNavigationState.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000223 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000202 /* CustomTabBar.swift */,
+				D1E000000000000000000203 /* DimeTabButton.swift */,
+				D1E000000000000000000204 /* DimeAddTransactionButton.swift */,
+				D1E000000000000000000303 /* HomeView.swift */,
+				D1E000000000000000000302 /* DimeHomeDestinationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000421 /* DimeTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000422 /* ViewModels */,
+				D1E000000000000000000423 /* Views */,
+				D1E000000000000000000424 /* Components */,
+			);
+			path = DimeTransaction;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000422 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000423 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000402 /* TransactionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000424 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000403 /* NumberPad.swift */,
+				D1E000000000000000000404 /* SuggestedTransactions.swift */,
+				D1E000000000000000000405 /* TransactionCategoryPicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000521 /* IncomeEntity */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000503 /* IncomesModel.swift */,
+				D1E000000000000000000501 /* IncomeEntity+CoreDataClass.swift */,
+				D1E000000000000000000502 /* IncomeEntity+CoreDataProperties.swift */,
+			);
+			path = IncomeEntity;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000621 /* ScheduledTransactionEntity */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000603 /* ScheduledTransactionsModel.swift */,
+				D1E000000000000000000601 /* ScheduledTransactionEntity+CoreDataClass.swift */,
+				D1E000000000000000000602 /* ScheduledTransactionEntity+CoreDataProperties.swift */,
+			);
+			path = ScheduledTransactionEntity;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000622 /* DimeRecurring */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000623 /* Components */,
+			);
+			path = DimeRecurring;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000623 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000605 /* DimeRecurringPicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000721 /* TransactionTemplateEntity */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000703 /* TransactionTemplatesModel.swift */,
+				D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */,
+				D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */,
+			);
+			path = TransactionTemplateEntity;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000722 /* DimeTemplates */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000723 /* Views */,
+			);
+			path = DimeTemplates;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000723 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000705 /* DimeTemplatesView.swift */,
+				D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000821 /* DimeBudgetEntity */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000801 /* DimeBudgetEntity+CoreData.swift */,
+				D1E000000000000000000802 /* DimeBudgetsModel.swift */,
+			);
+			path = DimeBudgetEntity;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000822 /* DimeBudget */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000823 /* ViewModels */,
+				D1E000000000000000000824 /* Views */,
+			);
+			path = DimeBudget;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000823 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000803 /* DimeBudgetDataAdapter.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000824 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000804 /* DimeBudgetView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000921 /* DimeInsights */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000922 /* ViewModels */,
+				D1E000000000000000000923 /* Components */,
+				D1E000000000000000000924 /* Views */,
+			);
+			path = DimeInsights;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000922 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000901 /* DimeInsightsDataAdapter.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000923 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000902 /* DimeInsightsCharts.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000924 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000903 /* DimeInsightsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000001021 /* DimeSettings */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000001022 /* Components */,
+				D1E000000000000000001023 /* Views */,
+			);
+			path = DimeSettings;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000001022 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000001001 /* DimeSettingsRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000001023 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000001002 /* DimeSettingsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1311,7 +1463,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Sources */,
+				D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
