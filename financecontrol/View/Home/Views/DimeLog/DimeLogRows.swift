@@ -67,7 +67,7 @@ private struct DimeLogTransactionRow: View {
                     .lineLimit(1)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            Text("\(isIncome ? "+" : "-")\(amount, format: .currency(code: \"EUR\"))")
+            Text("\(isIncome ? "+" : "-")\(amount, format: .currency(code: "EUR"))")
                 .font(.system(.title3, design: .rounded).weight(.medium))
                 .foregroundColor(Color.PrimaryText)
                 .minimumScaleFactor(0.7)
@@ -97,7 +97,7 @@ private struct DimeLogTransactionRow: View {
             }
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(transaction.note.isEmpty ? categoryName : transaction.note), \(amount.formatted(.currency(code: \"EUR\"))), \(categoryName)")
+        .accessibilityLabel("\(transaction.note.isEmpty ? categoryName : transaction.note), \(amount.formatted(.currency(code: "EUR"))), \(categoryName)")
     }
 }
 

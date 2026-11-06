@@ -1,7 +1,112 @@
 // Source-driven adaptation of Dime Views/InsightsView.swift.
-import SwiftUI
 import CoreData
-struct DimeInsightsView: View { @EnvironmentObject private var coreDataModel:CoreDataModel; @FetchRequest(sortDescriptors:[NSSortDescriptor(key:"date",ascending:false)]) private var incomes:FetchedResults<IncomeEntity>; @StateObject private var adapter=DimeInsightsDataAdapter(); @State private var period:DimeInsightsDataAdapter.Period = .month; @State private var showPeriod=false; private var summary:DimeInsightsDataAdapter.Summary { adapter.summary(spendings:coreDataModel.savedSpendings,incomes:Array(incomes),period:period) }; var body:some View { Group { if coreDataModel.savedSpendings.isEmpty && incomes.isEmpty { VStack(spacing:5){Image("chart").resizable().frame(width:75,height:75).padding(.bottom,20);Text("Dime Insights Empty").font(.system(.title2,design:.rounded).weight(.medium));Text("Dime Insights Empty Description").font(.system(.body,design:.rounded)).foregroundColor(Color.SubtitleText)}.frame(maxWidth:.infinity,maxHeight:.infinity) } else { ScrollView { VStack(spacing:18){HStack{Text("Dime Insights Title").font(.system(.title,design:.rounded).weight(.semibold));Spacer();Button{showPeriod=true}label:{HStack{Text(period.title);Image(systemName:"chevron.up.chevron.down")}.font(.system(.body,design:.rounded).weight(.medium))}.popover(isPresented:$showPeriod){DimeInsightsPeriodPicker(period:$period,show:$showPeriod)}};DimeInsightsSummary(summary:summary);DimeInsightsCategoryBars(values:adapter.categories(spendings:coreDataModel.savedSpendings,period:period)).padding(16).background(Color.SecondaryBackground,in:RoundedRectangle(cornerRadius:18,style:.continuous))}.padding(20) } } }.background(Color.PrimaryBackground) } }
-private struct DimeInsightsSummary:View{let summary:DimeInsightsDataAdapter.Summary;var body:some View{HStack{metric("Dime Insights Expenses",summary.expenses,Color.AlertRed);metric("Dime Insights Income",summary.income,Color.IncomeGreen);metric("Dime Insights Net",summary.net,Color.PrimaryText)}.padding(16).background(Color.SecondaryBackground,in:RoundedRectangle(cornerRadius:18,style:.continuous))}func metric(_ title:LocalizedStringKey,_ amount:Double,_ color:Color)->some View{VStack(alignment:.leading){Text(title).font(.system(.caption,design:.rounded));Text(amount,format:.currency(code:"EUR")).font(.system(.body,design:.rounded).weight(.semibold)).foregroundColor(color)}}}
-private struct DimeInsightsPeriodPicker:View{@Binding var period:DimeInsightsDataAdapter.Period;@Binding var show:Bool;var body:some View{VStack(alignment:.leading){ForEach(DimeInsightsDataAdapter.Period.allCases){item in Button{period=item;show=false}label:{HStack{Text(item.title);Spacer();if item == period{Image(systemName:"checkmark")}}}}}.padding()}}
-extension DimeInsightsDataAdapter.Period{var title:LocalizedStringKey{self == .week ? "Dime Insights Week" : self == .month ? "Dime Insights Month" : "Dime Insights Year"}}
+import SwiftUI
+
+struct DimeInsightsView: View {
+    @EnvironmentObject private var coreDataModel: CoreDataModel
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "date", ascending: false)]) private var incomes: FetchedResults<IncomeEntity>
+    @StateObject private var adapter = DimeInsightsDataAdapter()
+    @State private var period: DimeInsightsDataAdapter.Period = .month
+    @State private var showPeriod = false
+
+    private var summary: DimeInsightsDataAdapter.Summary {
+        adapter.summary(spendings: coreDataModel.savedSpendings, incomes: Array(incomes), period: period)
+    }
+
+    var body: some View {
+        Group {
+            if coreDataModel.savedSpendings.isEmpty && incomes.isEmpty {
+                VStack(spacing: 5) {
+                    Image("chart")
+                        .resizable()
+                        .frame(width: 75, height: 75)
+                        .padding(.bottom, 20)
+                    Text("Dime Insights Empty")
+                        .font(.system(.title2, design: .rounded).weight(.medium))
+                    Text("Dime Insights Empty Description")
+                        .font(.system(.body, design: .rounded))
+                        .foregroundColor(Color.SubtitleText)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                ScrollView {
+                    VStack(spacing: 18) {
+                        HStack {
+                            Text("Dime Insights Title")
+                                .font(.system(.title, design: .rounded).weight(.semibold))
+                            Spacer()
+                            Button { showPeriod = true } label: {
+                                HStack {
+                                    Text(period.title)
+                                    Image(systemName: "chevron.up.chevron.down")
+                                }
+                                .font(.system(.body, design: .rounded).weight(.medium))
+                            }
+                            .popover(isPresented: $showPeriod) {
+                                DimeInsightsPeriodPicker(period: $period, show: $showPeriod)
+                            }
+                        }
+                        DimeInsightsSummary(summary: summary)
+                        DimeInsightsCategoryBars(values: adapter.categories(spendings: coreDataModel.savedSpendings, period: period))
+                            .padding(16)
+                            .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+                    }
+                    .padding(20)
+                }
+            }
+        }
+        .background(Color.PrimaryBackground)
+    }
+}
+
+private struct DimeInsightsSummary: View {
+    let summary: DimeInsightsDataAdapter.Summary
+
+    var body: some View {
+        HStack {
+            metric("Dime Insights Expenses", summary.expenses, Color.AlertRed)
+            metric("Dime Insights Income", summary.income, Color.IncomeGreen)
+            metric("Dime Insights Net", summary.net, Color.PrimaryText)
+        }
+        .padding(16)
+        .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
+    }
+
+    private func metric(_ title: LocalizedStringKey, _ amount: Double, _ color: Color) -> some View {
+        VStack(alignment: .leading) {
+            Text(title).font(.system(.caption, design: .rounded))
+            Text(amount, format: .currency(code: "EUR"))
+                .font(.system(.body, design: .rounded).weight(.semibold))
+                .foregroundColor(color)
+        }
+    }
+}
+
+private struct DimeInsightsPeriodPicker: View {
+    @Binding var period: DimeInsightsDataAdapter.Period
+    @Binding var show: Bool
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            ForEach(DimeInsightsDataAdapter.Period.allCases) { item in
+                Button {
+                    period = item
+                    show = false
+                } label: {
+                    HStack {
+                        Text(item.title)
+                        Spacer()
+                        if item == period { Image(systemName: "checkmark") }
+                    }
+                }
+            }
+        }
+        .padding()
+    }
+}
+
+extension DimeInsightsDataAdapter.Period {
+    var title: LocalizedStringKey {
+        self == .week ? "Dime Insights Week" : self == .month ? "Dime Insights Month" : "Dime Insights Year"
+    }
+}
