@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1E000000000000000000511 /* IncomeEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000501 /* IncomeEntity+CoreDataClass.swift */; };
+		D1E000000000000000000512 /* IncomeEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000502 /* IncomeEntity+CoreDataProperties.swift */; };
+		D1E000000000000000000513 /* IncomesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000503 /* IncomesModel.swift */; };
 		D1E000000000000000000411 /* DimeTransactionDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */; };
 		D1E000000000000000000412 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000402 /* TransactionView.swift */; };
 		D1E000000000000000000413 /* NumberPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000403 /* NumberPad.swift */; };
@@ -241,6 +244,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D1E000000000000000000501 /* IncomeEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D1E000000000000000000502 /* IncomeEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1E000000000000000000503 /* IncomesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomesModel.swift; sourceTree = "<group>"; };
+		D1E000000000000000000504 /* IncomeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncomeModel.xcdatamodel; sourceTree = "<group>"; };
 		D1E000000000000000000401 /* DimeTransactionDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTransactionDataAdapter.swift; sourceTree = "<group>"; };
 		D1E000000000000000000402 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 		D1E000000000000000000403 /* NumberPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPad.swift; sourceTree = "<group>"; };
@@ -466,6 +473,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1E000000000000000000521 /* IncomeEntity */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000503 /* IncomesModel.swift */,
+				D1E000000000000000000501 /* IncomeEntity+CoreDataClass.swift */,
+				D1E000000000000000000502 /* IncomeEntity+CoreDataProperties.swift */,
+			);
+			path = IncomeEntity;
+			sourceTree = "<group>";
+		};
 		D1E000000000000000000421 /* DimeTransaction */ = {
 			isa = PBXGroup;
 			children = (
@@ -899,6 +916,7 @@
 				8DAFF8A82B39CF50001D5A9D /* SpendingEntity */,
 				8DAFF8AA2B39CF8C001D5A9D /* CategoryEntity */,
 				8DAFF8A92B39CF62001D5A9D /* ReturnEntity */,
+				D1E000000000000000000521 /* IncomeEntity */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1304,6 +1322,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E000000000000000000511 /* IncomeEntity+CoreDataClass.swift in Sources */,
+				D1E000000000000000000512 /* IncomeEntity+CoreDataProperties.swift in Sources */,
+				D1E000000000000000000513 /* IncomesModel.swift in Sources */,
 				D1E000000000000000000411 /* DimeTransactionDataAdapter.swift in Sources */,
 				D1E000000000000000000412 /* TransactionView.swift in Sources */,
 				D1E000000000000000000413 /* NumberPad.swift in Sources */,
@@ -1899,8 +1920,9 @@
 			isa = XCVersionGroup;
 			children = (
 				8D044C002C34639300868A21 /* SpendingsModel.xcdatamodel */,
+				D1E000000000000000000504 /* IncomeModel.xcdatamodel */,
 			);
-			currentVersion = 8D044C002C34639300868A21 /* SpendingsModel.xcdatamodel */;
+			currentVersion = D1E000000000000000000504 /* IncomeModel.xcdatamodel */;
 			path = DataContainer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

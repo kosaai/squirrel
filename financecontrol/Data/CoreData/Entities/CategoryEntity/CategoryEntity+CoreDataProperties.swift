@@ -20,7 +20,25 @@ extension CategoryEntity {
     @NSManaged public var isShadowed: Bool
     @NSManaged public var isFavorite: Bool
     @NSManaged public var name: String?
+    @NSManaged public var incomes: NSSet?
     @NSManaged public var spendings: NSSet?
+
+}
+
+// MARK: Generated accessors for incomes
+extension CategoryEntity {
+
+    @objc(addIncomesObject:)
+    @NSManaged public func addToIncomes(_ value: IncomeEntity)
+
+    @objc(removeIncomesObject:)
+    @NSManaged public func removeFromIncomes(_ value: IncomeEntity)
+
+    @objc(addIncomes:)
+    @NSManaged public func addToIncomes(_ values: NSSet)
+
+    @objc(removeIncomes:)
+    @NSManaged public func removeFromIncomes(_ values: NSSet)
 
 }
 
