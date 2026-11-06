@@ -68,7 +68,7 @@ struct DimeTransactionView: View {
                     .font(.system(.body, design: .rounded).weight(.medium))
                     .foregroundColor(Color.DarkIcon)
                     Button { showRecurrencePicker = true } label: {
-                        HStack { Text(recurrence == .none ? "Dime Recurring None" : "Dime Recurring Every \(recurrenceInterval) \(recurrence.unit)"); Spacer(); Image(systemName: "repeat") }
+                        HStack { Text(recurrence == .none ? String(localized: "Dime Recurring None") : "\(String(localized: "Dime Recurring Every")) \(recurrenceInterval) \(recurrence.unit)"); Spacer(); Image(systemName: "repeat") }
                             .font(.system(.body, design: .rounded).weight(.medium)).padding(14).foregroundColor(recurrence == .none ? Color.PrimaryText : Color.IncomeGreen).background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                     }
                     Button { showCategoryPicker = true } label: {

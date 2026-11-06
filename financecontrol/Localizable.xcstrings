@@ -5447,6 +5447,12 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Local only" } },
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "محلي فقط" } }
       }
+    },
+    "Dime Recurring Every" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Every" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "كل" } }
+      }
     }
   },
   "version" : "1.0"

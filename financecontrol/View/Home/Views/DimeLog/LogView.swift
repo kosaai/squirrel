@@ -214,7 +214,7 @@ private struct DimeLogSummaryPicker: View {
     }
 }
 
-private enum DimeLogSummary: CaseIterable, Identifiable {
+private enum DimeLogSummary: CaseIterable, Identifiable, Hashable {
     case net, income, expense
     var id: Self { self }
     var title: LocalizedStringKey {

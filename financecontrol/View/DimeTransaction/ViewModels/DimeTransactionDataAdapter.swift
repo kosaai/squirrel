@@ -10,7 +10,7 @@ import Combine
 
 @MainActor
 final class DimeTransactionDataAdapter: ObservableObject {
-    enum Kind: String, CaseIterable, Identifiable {
+    enum Kind: String, CaseIterable, Identifiable, Hashable {
         case expense, income
         var id: String { rawValue }
     }

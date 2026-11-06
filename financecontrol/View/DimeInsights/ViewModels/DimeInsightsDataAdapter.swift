@@ -1,6 +1,6 @@
 import Foundation
 @MainActor final class DimeInsightsDataAdapter: ObservableObject {
- enum Period: CaseIterable, Identifiable { case week, month, year; var id: Self { self }; var component: Calendar.Component { self == .week ? .weekOfYear : self == .month ? .month : .year } }
+ enum Period: CaseIterable, Identifiable, Hashable { case week, month, year; var id: Self { self }; var component: Calendar.Component { self == .week ? .weekOfYear : self == .month ? .month : .year } }
  struct CategoryTotal: Identifiable { let category: CategoryEntity?; let amount: Double; var id: String { category?.objectID.uriRepresentation().absoluteString ?? "uncategorized" }; var percentage: Double = 0 }
  struct Summary { let expenses: Double; let income: Double; var net: Double { income-expenses } }
  func range(for period:Period, now:Date=.now, calendar:Calendar=.autoupdatingCurrent)->DateInterval { DateInterval(start:calendar.dateInterval(of:period.component,for:now)?.start ?? now,end:(calendar.date(byAdding:period.component,value:1,to:calendar.dateInterval(of:period.component,for:now)?.start ?? now) ?? now)) }

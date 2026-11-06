@@ -22,7 +22,7 @@ struct DimeRecurringPicker: View {
                 .onTapGesture { withAnimation(.easeIn(duration: 0.15)) { frequency = option; interval = 1 }; showMenu = false }
             }
             HStack {
-                Text(interval == 1 ? "Dime Recurring Custom" : String(localized: "Dime Recurring Every \(interval) \(frequency.unit)"))
+                Text(interval == 1 ? String(localized: "Dime Recurring Custom") : "\(String(localized: "Dime Recurring Every")) \(interval) \(frequency.unit)")
                 Spacer()
                 if interval > 1 { Image(systemName: "checkmark") }
             }
@@ -48,7 +48,7 @@ struct DimeCustomRecurringView: View {
                 Spacer()
                 Button { dismiss() } label: { Image(systemName: "checkmark").foregroundColor(Color.IncomeGreen).padding(7).background(Color.IncomeGreen.opacity(0.23), in: Circle()) }
             }
-            Stepper(value: $interval, in: 1...30) { Text("Dime Recurring Every \(interval) \(frequency.unit)").font(.system(.title3, design: .rounded).weight(.medium)) }
+            Stepper(value: $interval, in: 1...30) { Text("\(String(localized: "Dime Recurring Every")) \(interval) \(frequency.unit)").font(.system(.title3, design: .rounded).weight(.medium)) }
             Picker("Dime Recurring Frequency", selection: $frequency) {
                 Text(DimeRecurrenceFrequency.daily.title).tag(DimeRecurrenceFrequency.daily)
                 Text(DimeRecurrenceFrequency.weekly.title).tag(DimeRecurrenceFrequency.weekly)
