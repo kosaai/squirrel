@@ -5478,6 +5478,162 @@
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "محلي فقط" } }
       }
     },
+    "Dime Settings Notifications" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Notifications" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الإشعارات" } }
+      }
+    },
+    "Dime Settings Time Frames" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Time Frames" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الفترات الزمنية" } }
+      }
+    },
+    "Dime Settings Hide App Content" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hide App Content" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إخفاء محتوى التطبيق" } }
+      }
+    },
+    "Dime Settings Theme" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Theme" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "المظهر" } }
+      }
+    },
+    "Dime Settings Other" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Other" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أخرى" } }
+      }
+    },
+    "Dime Settings Local Data" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Local Data" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "البيانات المحلية" } }
+      }
+    },
+    "Dime Settings EUR Local Footer" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dime uses EUR and stores your data locally on this device." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يستخدم Dime اليورو ويحفظ بياناتك محليًا على هذا الجهاز." } }
+      }
+    },
+    "Dime Settings System" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "System" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "النظام" } }
+      }
+    },
+    "Dime Settings Light" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Light" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "فاتح" } }
+      }
+    },
+    "Dime Settings Dark" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dark" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "داكن" } }
+      }
+    },
+    "Dime Settings Close" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Close" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إغلاق" } }
+      }
+    },
+    "Dime Settings Theme Description" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Theme changes apply immediately." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تُطبّق تغييرات المظهر فورًا." } }
+      }
+    },
+    "Dime Settings Enable Notifications" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enable Notifications" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تفعيل الإشعارات" } }
+      }
+    },
+    "Dime Settings Reminder Time" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Reminder Time" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "وقت التذكير" } }
+      }
+    },
+    "Dime Settings Notification Description" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Receive a daily local reminder to record your expenses." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تلقي تذكير محلي يومي لتسجيل مصروفاتك." } }
+      }
+    },
+    "Dime Settings Notifications Unavailable" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Notifications Unavailable" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الإشعارات غير متاحة" } }
+      }
+    },
+    "Dime Settings Notifications Unavailable Description" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Allow notifications in iPhone Settings to enable reminders." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "اسمح بالإشعارات من إعدادات iPhone لتفعيل التذكيرات." } }
+      }
+    },
+    "Dime Settings Reminder Title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Keep the streak going!" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "واصل التسجيل!" } }
+      }
+    },
+    "Dime Settings Reminder Body" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Remember to record today’s expenses." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تذكّر تسجيل مصروفات اليوم." } }
+      }
+    },
+    "Dime Settings On" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "On" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مفعّل" } }
+      }
+    },
+    "Dime Settings Off" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Off" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "متوقف" } }
+      }
+    },
+    "Dime Settings Number Entry" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Number Entry" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إدخال الأرقام" } }
+      }
+    },
+    "Dime Settings Number Entry Type One" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Type 1" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "النوع 1" } }
+      }
+    },
+    "Dime Settings Number Entry Type Two" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Type 2" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "النوع 2" } }
+      }
+    },
+    "Dime Settings Number Entry Type One Description" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enter cents automatically." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أدخل السنتات تلقائيًا." } }
+      }
+    },
+    "Dime Settings Number Entry Type Two Description" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enter whole-number amounts." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أدخل مبالغ بالأرقام الصحيحة." } }
+      }
+    },
     "Dime Recurring Every" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Every" } },

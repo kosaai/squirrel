@@ -11,6 +11,7 @@ import UIKit
 enum DimeAssignedDecimal { case none, first, second }
 
 struct DimeNumberPad: View {
+    @AppStorage("dimeNumberEntryType") private var numberEntryType = 1
     @Binding var price: Double
     @Binding var category: CategoryEntity?
     @Binding var isEditingDecimal: Bool
@@ -58,8 +59,13 @@ struct DimeNumberPad: View {
         Button {
             guard price < 100_000_000 else { return }
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
-            price *= 10
-            price += Double(number) / 100
+            if numberEntryType == 1 {
+                price *= 10
+                price += Double(number) / 100
+            } else {
+                price *= 10
+                price += Double(number)
+            }
         } label: {
             Text("\(number)")
                 .font(.system(size: 34, weight: .regular, design: .rounded))
@@ -72,7 +78,7 @@ struct DimeNumberPad: View {
     }
 
     private func deleteLastDigit() {
-        price = Double(Int(price * 10)) / 100
+        price = numberEntryType == 1 ? Double(Int(price * 10)) / 100 : Double(Int(price / 10))
         isEditingDecimal = false
         decimalValuesAssigned = .none
     }
