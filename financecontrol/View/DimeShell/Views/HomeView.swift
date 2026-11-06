@@ -59,6 +59,9 @@ struct DimeHomeView: View {
                 )
                 .tag(DimeTabDestination.insights)
 
+                DimeHomeDestinationView(destination: .budget, topEdge: topEdge, bottomEdge: bottomEdge, presentOnboarding: $presentOnboarding, statsScrollToTop: $statsScrollToTop, settingsScrollToTop: $settingsScrollToTop)
+                .tag(DimeTabDestination.budget)
+
                 DimeHomeDestinationView(
                     destination: .settings,
                     topEdge: topEdge,

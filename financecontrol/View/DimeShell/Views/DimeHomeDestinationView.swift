@@ -21,6 +21,8 @@ struct DimeHomeDestinationView: View {
                 DimeLogView(topEdge: topEdge, bottomEdge: bottomEdge)
             } else if destination == .insights {
                 StatsView(scrollToTop: $statsScrollToTop)
+            } else if destination == .budget {
+                DimeBudgetView()
             } else {
                 SettingsView(
                     showDarkModeToggle: true,

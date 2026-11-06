@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1E000000000000000000811 /* DimeBudgetEntity+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000801 /* DimeBudgetEntity+CoreData.swift */; };
+		D1E000000000000000000812 /* DimeBudgetsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000802 /* DimeBudgetsModel.swift */; };
+		D1E000000000000000000813 /* DimeBudgetDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000803 /* DimeBudgetDataAdapter.swift */; };
+		D1E000000000000000000814 /* DimeBudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000804 /* DimeBudgetView.swift */; };
 		D1E000000000000000000715 /* DimeTemplateTransactionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */; };
 		D1E000000000000000000711 /* TransactionTemplateEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */; };
 		D1E000000000000000000712 /* TransactionTemplateEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */; };
@@ -253,6 +257,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D1E000000000000000000801 /* DimeBudgetEntity+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetEntity+CoreData.swift; sourceTree = "<group>"; };
+		D1E000000000000000000802 /* DimeBudgetsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetsModel.swift; sourceTree = "<group>"; };
+		D1E000000000000000000803 /* DimeBudgetDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetDataAdapter.swift; sourceTree = "<group>"; };
+		D1E000000000000000000804 /* DimeBudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeBudgetView.swift; sourceTree = "<group>"; };
+		D1E000000000000000000805 /* BudgetsModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BudgetsModel.xcdatamodel; sourceTree = "<group>"; };
 		D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTemplateTransactionEditor.swift; sourceTree = "<group>"; };
 		D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionTemplateEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionTemplateEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -493,6 +502,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1E000000000000000000821 /* DimeBudgetEntity */ = { isa = PBXGroup; children = (D1E000000000000000000801 /* DimeBudgetEntity+CoreData.swift */, D1E000000000000000000802 /* DimeBudgetsModel.swift */, ); path = DimeBudgetEntity; sourceTree = "<group>"; };
+		D1E000000000000000000822 /* DimeBudget */ = { isa = PBXGroup; children = (D1E000000000000000000823 /* ViewModels */, D1E000000000000000000824 /* Views */, ); path = DimeBudget; sourceTree = "<group>"; };
+		D1E000000000000000000823 /* ViewModels */ = { isa = PBXGroup; children = (D1E000000000000000000803 /* DimeBudgetDataAdapter.swift */, ); path = ViewModels; sourceTree = "<group>"; };
+		D1E000000000000000000824 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000000804 /* DimeBudgetView.swift */, ); path = Views; sourceTree = "<group>"; };
 		D1E000000000000000000721 /* TransactionTemplateEntity */ = { isa = PBXGroup; children = (D1E000000000000000000703 /* TransactionTemplatesModel.swift */, D1E000000000000000000701 /* TransactionTemplateEntity+CoreDataClass.swift */, D1E000000000000000000702 /* TransactionTemplateEntity+CoreDataProperties.swift */, ); path = TransactionTemplateEntity; sourceTree = "<group>"; };
 		D1E000000000000000000722 /* DimeTemplates */ = { isa = PBXGroup; children = (D1E000000000000000000723 /* Views */, ); path = DimeTemplates; sourceTree = "<group>"; };
 		D1E000000000000000000723 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000000705 /* DimeTemplatesView.swift */, D1E000000000000000000706 /* DimeTemplateTransactionEditor.swift */, ); path = Views; sourceTree = "<group>"; };
@@ -945,6 +958,7 @@
 				D1E000000000000000000521 /* IncomeEntity */,
 				D1E000000000000000000621 /* ScheduledTransactionEntity */,
 				D1E000000000000000000721 /* TransactionTemplateEntity */,
+				D1E000000000000000000821 /* DimeBudgetEntity */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1143,6 +1157,7 @@
 				D1E000000000000000000421 /* DimeTransaction */,
 				D1E000000000000000000622 /* DimeRecurring */,
 				D1E000000000000000000722 /* DimeTemplates */,
+				D1E000000000000000000822 /* DimeBudget */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1353,6 +1368,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E000000000000000000811 /* DimeBudgetEntity+CoreData.swift in Sources */,
+				D1E000000000000000000812 /* DimeBudgetsModel.swift in Sources */,
+				D1E000000000000000000813 /* DimeBudgetDataAdapter.swift in Sources */,
+				D1E000000000000000000814 /* DimeBudgetView.swift in Sources */,
 				D1E000000000000000000711 /* TransactionTemplateEntity+CoreDataClass.swift in Sources */,
 				D1E000000000000000000712 /* TransactionTemplateEntity+CoreDataProperties.swift in Sources */,
 				D1E000000000000000000713 /* TransactionTemplatesModel.swift in Sources */,
@@ -1962,8 +1981,9 @@
 				D1E000000000000000000504 /* IncomeModel.xcdatamodel */,
 				D1E000000000000000000604 /* ScheduledTransactionsModel.xcdatamodel */,
 				D1E000000000000000000704 /* TemplatesModel.xcdatamodel */,
+				D1E000000000000000000805 /* BudgetsModel.xcdatamodel */,
 			);
-			currentVersion = D1E000000000000000000704 /* TemplatesModel.xcdatamodel */;
+			currentVersion = D1E000000000000000000805 /* BudgetsModel.xcdatamodel */;
 			path = DataContainer.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -11,7 +11,7 @@ import Combine
 final class DimeHomeNavigationState: ObservableObject {
     @Published var selectedDestination: DimeTabDestination = .log
 
-    let availableDestinations: Set<DimeTabDestination> = [.log, .insights, .settings]
+    let availableDestinations: Set<DimeTabDestination> = [.log, .insights, .budget, .settings]
 
     func select(_ destination: DimeTabDestination) {
         guard availableDestinations.contains(destination) else { return }

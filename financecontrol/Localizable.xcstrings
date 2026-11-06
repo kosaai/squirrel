@@ -5267,6 +5267,84 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "حفظ" } }
       }
+    },
+    "Dime Budget Title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Budget" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الميزانية" } }
+      }
+    },
+    "Dime Budget Empty" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No Budgets" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "لا توجد ميزانيات" } }
+      }
+    },
+    "Dime Budget Empty Description" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Create a budget to track your spending." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أنشئ ميزانية لتتبع إنفاقك." } }
+      }
+    },
+    "Dime Budget Overall" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Overall" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إجمالي" } }
+      }
+    },
+    "Dime Budget Amount" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Budget Amount" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "مبلغ الميزانية" } }
+      }
+    },
+    "Dime Budget Period" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Period" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الفترة" } }
+      }
+    },
+    "Dime Budget Category" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Category" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الفئة" } }
+      }
+    },
+    "Dime Budget Week" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Week" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أسبوع" } }
+      }
+    },
+    "Dime Budget Month" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Month" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "شهر" } }
+      }
+    },
+    "Dime Budget Year" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Year" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "سنة" } }
+      }
+    },
+    "Dime Budget Edit" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Edit Budget" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "تعديل الميزانية" } }
+      }
+    },
+    "Dime Budget Cancel" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Cancel" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إلغاء" } }
+      }
+    },
+    "Dime Budget Save" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حفظ" } }
+      }
     }
   },
   "version" : "1.0"
