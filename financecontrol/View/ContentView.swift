@@ -7,6 +7,9 @@
 //
 
 import SwiftUI
+#if DIME_QA
+import Beige
+#endif
 #if DEBUG
 import OSLog
 #endif
