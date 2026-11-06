@@ -81,3 +81,21 @@ No signing certificate, provisioning profile, or legitimate QA App ID provisioni
 ## Recommendation
 
 **Build and isolated Dime startup are verified. Production release is BLOCKED pending historical-store migration testing and functional UI/runtime coverage listed above.** Do not install the unsigned IPA or enable the Dime path in production.
+
+## Device Dime QA IPA (2026-11-06)
+
+A dedicated iPhoneOS workflow was added at `.github/workflows/dime-qa-device-ipa.yml`. Unlike the previous production workflow, it builds with `DIME_QA`, which selects `DimeQARoot` and `DimeHomeView` in `ContentView.swift`.
+
+- Device build run: [42228617307](https://github.com/kosaai/squirrel/actions/runs/42228617307)
+- IPA artifact: [Nafaqat-Dime-QA-Unsigned-IPA](https://github.com/kosaai/squirrel/actions/runs/42228617307/artifacts/13507505440)
+- Verification logs: [Nafaqat-Dime-QA-device-verification](https://github.com/kosaai/squirrel/actions/runs/42228617307/artifacts/13505649966)
+- Filename: `Nafaqat-Dime-QA-Unsigned.ipa`
+- Size: `1,915,331 bytes`
+- QA app bundle ID: `dev.squirrelapp.squirrel.dimeqa`
+- QA widget bundle ID: `dev.squirrelapp.squirrel.dimeqa.squirrelWidget`
+
+The workflow verified the packaged app binary is `Mach-O 64-bit executable arm64` with iOS platform `2` and minimum iOS `15.0`; it is not a simulator binary. It verified the QA bundle identifiers, `Payload/Nafaqat-Dime-QA.app/Squirrel`, Arabic resources, the Core Data model, and Dime root/tab/editor source wiring. `codesign` reported that the app is not signed.
+
+The same `DIME_QA` root was launched in the simulator and a screenshot was inspected. It visibly shows the Dime Log empty state, original custom four-tab bar, and central add-transaction button: [simulator evidence](https://github.com/kosaai/squirrel/actions/runs/42224554948/artifacts/13505312591).
+
+This IPA is ready for manual signing, not direct installation. Manual signing must sign the app and embedded widget extension with profiles matching the two QA bundle IDs and the QA App Group `group.dev.squirrelapp.squirrel.dimeqa`; do not use production identifiers or entitlements.
