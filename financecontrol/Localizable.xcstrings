@@ -5345,6 +5345,66 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Save" } },
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "حفظ" } }
       }
+    },
+    "Dime Insights Title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Insights" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "التحليلات" } }
+      }
+    },
+    "Dime Insights Empty" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Analyse Your Expenditure" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حلل إنفاقك" } }
+      }
+    },
+    "Dime Insights Empty Description" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "As transactions start piling up" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "عندما تبدأ العمليات بالتراكم" } }
+      }
+    },
+    "Dime Insights Expenses" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Expenses" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "المصروفات" } }
+      }
+    },
+    "Dime Insights Income" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Income" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الدخل" } }
+      }
+    },
+    "Dime Insights Net" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Net balance" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "صافي الرصيد" } }
+      }
+    },
+    "Dime Insights Uncategorized" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Uncategorized" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "غير مصنف" } }
+      }
+    },
+    "Dime Insights Week" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Week" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أسبوع" } }
+      }
+    },
+    "Dime Insights Month" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Month" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "شهر" } }
+      }
+    },
+    "Dime Insights Year" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Year" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "سنة" } }
+      }
     }
   },
   "version" : "1.0"

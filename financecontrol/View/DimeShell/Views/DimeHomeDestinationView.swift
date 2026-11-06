@@ -20,7 +20,7 @@ struct DimeHomeDestinationView: View {
             if destination == .log {
                 DimeLogView(topEdge: topEdge, bottomEdge: bottomEdge)
             } else if destination == .insights {
-                StatsView(scrollToTop: $statsScrollToTop)
+                DimeInsightsView()
             } else if destination == .budget {
                 DimeBudgetView()
             } else {
