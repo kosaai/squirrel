@@ -43,7 +43,6 @@ jobs:
           xcodebuild build \
             -project Squirrel.xcodeproj \
             -scheme Squirrel_Debug \
-            -target Squirrel \
             -configuration Debug \
             -sdk iphonesimulator \
             -destination "platform=iOS Simulator,id=$SIMULATOR_UDID" \
