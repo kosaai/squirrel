@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1E000000000000000000211 /* DimeTabDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000201 /* DimeTabDestination.swift */; };
+		D1E000000000000000000212 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000202 /* CustomTabBar.swift */; };
+		D1E000000000000000000213 /* DimeTabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000203 /* DimeTabButton.swift */; };
+		D1E000000000000000000214 /* DimeAddTransactionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000204 /* DimeAddTransactionButton.swift */; };
 		D1E000000000000000000111 /* DimeLogDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000101 /* DimeLogDataAdapter.swift */; };
 		D1E000000000000000000112 /* DimeLogFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000102 /* DimeLogFilters.swift */; };
 		D1E000000000000000000113 /* DimeLogRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000103 /* DimeLogRows.swift */; };
@@ -229,6 +233,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D1E000000000000000000201 /* DimeTabDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTabDestination.swift; sourceTree = "<group>"; };
+		D1E000000000000000000202 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		D1E000000000000000000203 /* DimeTabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeTabButton.swift; sourceTree = "<group>"; };
+		D1E000000000000000000204 /* DimeAddTransactionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeAddTransactionButton.swift; sourceTree = "<group>"; };
 		D1E000000000000000000101 /* DimeLogDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeLogDataAdapter.swift; sourceTree = "<group>"; };
 		D1E000000000000000000102 /* DimeLogFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeLogFilters.swift; sourceTree = "<group>"; };
 		D1E000000000000000000103 /* DimeLogRows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeLogRows.swift; sourceTree = "<group>"; };
@@ -442,6 +450,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1E000000000000000000221 /* DimeShell */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000222 /* Models */,
+				D1E000000000000000000223 /* Views */,
+			);
+			path = DimeShell;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000222 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000201 /* DimeTabDestination.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000000223 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000000202 /* CustomTabBar.swift */,
+				D1E000000000000000000203 /* DimeTabButton.swift */,
+				D1E000000000000000000204 /* DimeAddTransactionButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D1E000000000000000000121 /* DimeLog */ = {
 			isa = PBXGroup;
 			children = (
@@ -1026,6 +1061,7 @@
 				8D2AD7CA2BA1CD41001DCC61 /* Onboarding */,
 				8D54F4F92B96331800B17886 /* Universal */,
 				D1E000000000000000000021 /* DimeShared */,
+				D1E000000000000000000221 /* DimeShell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1235,6 +1271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E000000000000000000211 /* DimeTabDestination.swift in Sources */,
+				D1E000000000000000000212 /* CustomTabBar.swift in Sources */,
+				D1E000000000000000000213 /* DimeTabButton.swift in Sources */,
+				D1E000000000000000000214 /* DimeAddTransactionButton.swift in Sources */,
 				D1E000000000000000000111 /* DimeLogDataAdapter.swift in Sources */,
 				D1E000000000000000000112 /* DimeLogFilters.swift in Sources */,
 				D1E000000000000000000113 /* DimeLogRows.swift in Sources */,
