@@ -5405,6 +5405,48 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Year" } },
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "سنة" } }
       }
+    },
+    "Dime Settings Title" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الإعدادات" } }
+      }
+    },
+    "Dime Settings General" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "General" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "عام" } }
+      }
+    },
+    "Dime Settings Appearance" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Appearance" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "المظهر" } }
+      }
+    },
+    "Dime Settings About" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "About" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حول" } }
+      }
+    },
+    "Dime Settings Categories" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Categories" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "الفئات" } }
+      }
+    },
+    "Dime Settings Data" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Data & Backup" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "البيانات والنسخ الاحتياطي" } }
+      }
+    },
+    "Dime Settings Local Only" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Local only" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "محلي فقط" } }
+      }
     }
   },
   "version" : "1.0"

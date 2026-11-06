@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1E000000000000000001011 /* DimeSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001001 /* DimeSettingsRow.swift */; };
+		D1E000000000000000001012 /* DimeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001002 /* DimeSettingsView.swift */; };
 		D1E000000000000000000911 /* DimeInsightsDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000901 /* DimeInsightsDataAdapter.swift */; };
 		D1E000000000000000000912 /* DimeInsightsCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000902 /* DimeInsightsCharts.swift */; };
 		D1E000000000000000000913 /* DimeInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000903 /* DimeInsightsView.swift */; };
@@ -260,6 +262,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D1E000000000000000001001 /* DimeSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeSettingsRow.swift; sourceTree = "<group>"; };
+		D1E000000000000000001002 /* DimeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeSettingsView.swift; sourceTree = "<group>"; };
 		D1E000000000000000000901 /* DimeInsightsDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeInsightsDataAdapter.swift; sourceTree = "<group>"; };
 		D1E000000000000000000902 /* DimeInsightsCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeInsightsCharts.swift; sourceTree = "<group>"; };
 		D1E000000000000000000903 /* DimeInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeInsightsView.swift; sourceTree = "<group>"; };
@@ -508,6 +512,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1E000000000000000001021 /* DimeSettings */ = { isa = PBXGroup; children = (D1E000000000000000001022 /* Components */, D1E000000000000000001023 /* Views */, ); path = DimeSettings; sourceTree = "<group>"; };
+		D1E000000000000000001022 /* Components */ = { isa = PBXGroup; children = (D1E000000000000000001001 /* DimeSettingsRow.swift */, ); path = Components; sourceTree = "<group>"; };
+		D1E000000000000000001023 /* Views */ = { isa = PBXGroup; children = (D1E000000000000000001002 /* DimeSettingsView.swift */, ); path = Views; sourceTree = "<group>"; };
 		D1E000000000000000000921 /* DimeInsights */ = { isa = PBXGroup; children = (D1E000000000000000000922 /* ViewModels */, D1E000000000000000000923 /* Components */, D1E000000000000000000924 /* Views */, ); path = DimeInsights; sourceTree = "<group>"; };
 		D1E000000000000000000922 /* ViewModels */ = { isa = PBXGroup; children = (D1E000000000000000000901 /* DimeInsightsDataAdapter.swift */, ); path = ViewModels; sourceTree = "<group>"; };
 		D1E000000000000000000923 /* Components */ = { isa = PBXGroup; children = (D1E000000000000000000902 /* DimeInsightsCharts.swift */, ); path = Components; sourceTree = "<group>"; };
@@ -1169,6 +1176,7 @@
 				D1E000000000000000000722 /* DimeTemplates */,
 				D1E000000000000000000822 /* DimeBudget */,
 				D1E000000000000000000921 /* DimeInsights */,
+				D1E000000000000000001021 /* DimeSettings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1379,6 +1387,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E000000000000000001011 /* DimeSettingsRow.swift in Sources */,
+				D1E000000000000000001012 /* DimeSettingsView.swift in Sources */,
 				D1E000000000000000000911 /* DimeInsightsDataAdapter.swift in Sources */,
 				D1E000000000000000000912 /* DimeInsightsCharts.swift in Sources */,
 				D1E000000000000000000913 /* DimeInsightsView.swift in Sources */,

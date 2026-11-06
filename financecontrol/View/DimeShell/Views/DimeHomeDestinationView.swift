@@ -24,11 +24,7 @@ struct DimeHomeDestinationView: View {
             } else if destination == .budget {
                 DimeBudgetView()
             } else {
-                SettingsView(
-                    showDarkModeToggle: true,
-                    presentOnboarding: $presentOnboarding,
-                    scrollToTop: $settingsScrollToTop
-                )
+                DimeSettingsView()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
