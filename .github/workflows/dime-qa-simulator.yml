@@ -42,6 +42,7 @@ jobs:
           rm -f Squirrel.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
           xcodebuild build \
             -project Squirrel.xcodeproj \
+            -scheme Squirrel_Debug \
             -target Squirrel \
             -configuration Debug \
             -sdk iphonesimulator \
