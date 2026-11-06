@@ -10,21 +10,21 @@ import SwiftUI
 
 struct DimeHomeView: View {
     @EnvironmentObject private var coreDataModel: CoreDataModel
+    @Environment(\.scenePhase) private var scenePhase
     @StateObject private var navigation = DimeHomeNavigationState()
     @Binding var presentOnboarding: Bool
     @Binding var statsScrollToTop: Int?
     @Binding var settingsScrollToTop: Int?
     let topEdge: CGFloat
     let bottomEdge: CGFloat
-    let addTransaction: () -> Void
+    @State private var showTransactionEditor = false
 
     init(
         presentOnboarding: Binding<Bool>,
         statsScrollToTop: Binding<Int?>,
         settingsScrollToTop: Binding<Int?>,
         topEdge: CGFloat,
-        bottomEdge: CGFloat,
-        addTransaction: @escaping () -> Void
+        bottomEdge: CGFloat
     ) {
         UITabBar.appearance().isHidden = true
         _presentOnboarding = presentOnboarding
@@ -32,7 +32,6 @@ struct DimeHomeView: View {
         _settingsScrollToTop = settingsScrollToTop
         self.topEdge = topEdge
         self.bottomEdge = bottomEdge
-        self.addTransaction = addTransaction
     }
 
     var body: some View {
@@ -81,8 +80,18 @@ struct DimeHomeView: View {
                 bottomEdge: bottomEdge,
                 shouldPulseAddButton: coreDataModel.savedSpendings.isEmpty,
                 availableDestinations: navigation.availableDestinations,
-                addTransaction: addTransaction
+                addTransaction: { showTransactionEditor = true }
             )
+        }
+        .sheet(isPresented: $showTransactionEditor) {
+            DimeTransactionView()
+                .environmentObject(coreDataModel)
+        }
+        .onAppear { coreDataModel.generateDueScheduledTransactions() }
+        .onChange(of: scenePhase) { phase in
+            if phase == .active {
+                coreDataModel.generateDueScheduledTransactions()
+            }
         }
     }
 }
