@@ -2,11 +2,6 @@ name: Build final Dime QA unsigned device IPA
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - dime-full-migration
-    paths:
-      - .github/workflows/dime-qa-device-ipa.yml
 
 permissions:
   contents: read
@@ -44,29 +39,69 @@ jobs:
           xcodebuild -version | grep -Eq '^Xcode 26[.]'
           xcrun --sdk iphoneos --show-sdk-path | tee "$RUNNER_TEMP/dime-device-logs/iphoneos-sdk.log"
           xcrun --sdk iphoneos --find clang | tee "$RUNNER_TEMP/dime-device-logs/iphoneos-clang.log"
-      - name: Preflight QA project, assets, configuration and source
+      - name: Preflight Xcode, iPhoneOS SDK, project, and signing configuration
         run: |
           set -euo pipefail
-          git merge-base --is-ancestor f6c888d7244f4760cb9df48ae301b3bc3b1d3fe6 HEAD
-          test -f Squirrel.xcodeproj/project.pbxproj
-          plutil -lint Squirrel.xcodeproj/project.pbxproj
-          test -f financecontrol/financecontrol.qa.entitlements
-          plutil -lint financecontrol/financecontrol.qa.entitlements
-          test -f financecontrol/Localizable.xcstrings
-          python3 -m json.tool financecontrol/Localizable.xcstrings >/dev/null
-          test -f financecontrol/View/ContentView.swift
-          test -f financecontrol/View/DimeShell/Views/DimeHomeView.swift
-          test -f financecontrol/View/DimeSettings/Views/DimeSettingsView.swift
-          test -f financecontrol/View/Home/Views/DimeLog/DimeLogFilters.swift
+          xcodebuild -showsdks | tee "$RUNNER_TEMP/dime-device-logs/sdks.log"
+          xcrun --sdk iphoneos --show-sdk-version | tee "$RUNNER_TEMP/dime-device-logs/iphoneos-sdk-version.log"
+          xcodebuild -list -project Squirrel.xcodeproj | tee "$RUNNER_TEMP/dime-device-logs/project-schemes.log"
+          xcodebuild -showBuildSettings \
+            -project Squirrel.xcodeproj \
+            -scheme Squirrel_Release \
+            -configuration Release \
+            -sdk iphoneos \
+            | tee "$RUNNER_TEMP/dime-device-logs/release-build-settings.log"
+          grep -q 'Squirrel_Release' "$RUNNER_TEMP/dime-device-logs/project-schemes.log"
+          grep -q 'iphoneos' "$RUNNER_TEMP/dime-device-logs/sdks.log"
+          grep -q 'IPHONEOS_DEPLOYMENT_TARGET = 15.0' "$RUNNER_TEMP/dime-device-logs/release-build-settings.log"
+          grep -q 'group.dev.squirrelapp.squirrel.dimeqa' financecontrol/financecontrol.qa.entitlements
           grep -q '#if DIME_QA' financecontrol/View/ContentView.swift
           grep -q 'DimeQARoot' financecontrol/View/ContentView.swift
-          grep -q 'group.dev.squirrelapp.squirrel.dimeqa' financecontrol/financecontrol.qa.entitlements
-          xcodebuild -list -project Squirrel.xcodeproj | tee "$RUNNER_TEMP/dime-device-logs/project-schemes.log"
-          grep -q 'Squirrel_Release' "$RUNNER_TEMP/dime-device-logs/project-schemes.log"
+      - name: Preflight project resources and Dime QA integration
+        run: |
+          set -euo pipefail
+          required_paths=(
+            Squirrel.xcodeproj/project.pbxproj
+            Squirrel.xcodeproj/xcshareddata/xcschemes/Squirrel_Release.xcscheme
+            financecontrol/Assets.xcassets
+            financecontrol/Localizable.xcstrings
+            financecontrol/Data/CoreData/DataContainer.xcdatamodeld/SpendingsModel.xcdatamodel/contents
+            financecontrol/Data/CoreData/DataContainer.xcdatamodeld/ScheduledTransactionsModel.xcdatamodel/contents
+            financecontrol/View/DimeShell/Views/DimeHomeView.swift
+            financecontrol/View/DimeTransaction/Views/TransactionView.swift
+            financecontrol/View/Home/Views/DimeLog/DimeLogFilters.swift
+            financecontrol/View/DimeSettings/Views/DimeSettingsView.swift
+          )
+          for path in "${required_paths[@]}"; do test -e "$path"; done
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          project = Path("Squirrel.xcodeproj/project.pbxproj").read_text()
+          strings = json.loads(Path("financecontrol/Localizable.xcstrings").read_text())
+          editor = Path("financecontrol/View/DimeTransaction/Views/TransactionView.swift").read_text()
+          log_filters = Path("financecontrol/View/Home/Views/DimeLog/DimeLogFilters.swift").read_text()
+          settings = Path("financecontrol/View/DimeSettings/Views/DimeSettingsView.swift").read_text()
+
+          for reference in ("DataContainer.xcdatamodeld", "Assets.xcassets", "Localizable.xcstrings"):
+              assert reference in project, reference
+          assert strings["strings"]["Dime Transaction Spent On"]["localizations"]["ar"]["stringUnit"]["value"] == "صُرف على"
+          assert "transactionToEdit?.kind ?? .expense" in editor
+          assert "saveScheduled" not in editor
+          assert "DimeTemplatesView" not in editor
+          assert "DimeRecurringPicker" not in editor
+          assert ".focused($isEditingNote)" in editor
+          assert "Menu {" in log_filters and ".popover(isPresented:" not in log_filters
+          assert "Dime Settings About" not in settings
+          PY
+          git merge-base --is-ancestor f6c888d7244f4760cb9df48ae301b3bc3b1d3fe6 HEAD
+          plutil -lint Squirrel.xcodeproj/project.pbxproj
+          plutil -lint financecontrol/financecontrol.qa.entitlements
+          python3 -m json.tool financecontrol/Localizable.xcstrings >/dev/null
           echo "All preflight checks passed."
       - name: Resolve dependencies
         run: |
-          set -o pipefail
+          set -euo pipefail
           rm -f Squirrel.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
           xcodebuild -resolvePackageDependencies \
             -project Squirrel.xcodeproj \
@@ -75,7 +110,7 @@ jobs:
             | tee "$RUNNER_TEMP/dime-device-logs/spm-resolve.log"
       - name: Build Dime QA for iPhoneOS
         run: |
-          set -o pipefail
+          set -euo pipefail
           xcodebuild build \
             -project Squirrel.xcodeproj \
             -scheme Squirrel_Release \
@@ -86,6 +121,7 @@ jobs:
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY='' \
             CODE_SIGN_ENTITLEMENTS=financecontrol/financecontrol.qa.entitlements \
+            ARCHS=arm64 \
             'SWIFT_ACTIVE_COMPILATION_CONDITIONS=$(inherited) DIME_QA' \
             | tee "$RUNNER_TEMP/dime-device-logs/xcodebuild-iphoneos.log"
       - name: Assign Dime QA package identities
@@ -100,7 +136,6 @@ jobs:
       - name: Verify device build and Dime QA contents
         run: |
           set -euo pipefail
-          git merge-base --is-ancestor f6c888d7244f4760cb9df48ae301b3bc3b1d3fe6 HEAD
           app_path="$RUNNER_TEMP/DimeQADeviceDerivedData/Build/Products/Release-iphoneos/Squirrel.app"
           binary="$app_path/Squirrel"
           test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app_path/Info.plist")" = "$QA_BUNDLE_ID"
@@ -117,9 +152,12 @@ jobs:
           grep -q 'DimeHomeView' financecontrol/View/ContentView.swift
           grep -q 'DimeCustomTabBar' financecontrol/View/DimeShell/Views/DimeHomeView.swift
           grep -q 'DimeTransactionView' financecontrol/View/DimeShell/Views/DimeHomeView.swift
+          grep -q 'DeliveryEarningsView' financecontrol/View/DimeShell/Views/DimeHomeView.swift
+          grep -q 'TextEditor(text: $note)' financecontrol/View/DimeTransaction/Views/TransactionView.swift
+          grep -q 'Menu {' financecontrol/View/Home/Views/DimeLog/DimeLogFilters.swift
+          ! grep -q 'Dime Settings About' financecontrol/View/DimeSettings/Views/DimeSettingsView.swift
           grep -q 'CategoriesEditView' financecontrol/View/DimeSettings/Views/DimeSettingsView.swift
           grep -q 'self.savedSpendings = spendings' financecontrol/Data/CoreData/Entities/SpendingEntity/SpendingsModel.swift
-          grep -q 'Restore Dime settings navigation' <(git log -1 --format=%B ec70dcd)
           grep -q 'group.dev.squirrelapp.squirrel.dimeqa' financecontrol/financecontrol.qa.entitlements
           if codesign -dvv "$app_path" >"$RUNNER_TEMP/dime-device-logs/codesign.log" 2>&1; then
             echo 'Expected an unsigned QA app, but a signature was found.' >&2
