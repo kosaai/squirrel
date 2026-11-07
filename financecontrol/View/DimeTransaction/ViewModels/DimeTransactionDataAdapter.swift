@@ -165,7 +165,8 @@ final class DimeTransactionDataAdapter: ObservableObject {
         coreDataModel: CoreDataModel
     ) {
         guard amount > 0 else { return }
-        guard kind == .expense || category?.id != nil else { return }
+        let categoryID = category?.id
+        guard kind == .expense || categoryID != nil else { return }
         coreDataModel.addScheduledTransaction(.init(amount: amount, comment: note, categoryID: categoryID, date: date, isIncome: kind == .income, frequency: frequency, interval: interval))
         coreDataModel.generateDueScheduledTransactions()
     }
