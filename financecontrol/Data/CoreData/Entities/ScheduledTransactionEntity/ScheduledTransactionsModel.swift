@@ -14,9 +14,11 @@ extension CoreDataModel {
     func addScheduledTransaction(_ local: ScheduledTransactionLocal) {
         context.performAndWait {
             guard local.amount > 0, local.interval > 0,
-                  let category = findCategory(local.categoryID, in: context),
                   let entity = NSEntityDescription.entity(forEntityName: "ScheduledTransactionEntity", in: context)
             else { return }
+            let category = local.categoryID.flatMap { findCategory($0, in: context) }
+            guard local.categoryID == nil || category != nil else { return }
+            guard !local.isIncome || category != nil else { return }
             let schedule = ScheduledTransactionEntity(entity: entity, insertInto: context)
             schedule.id = UUID()
             schedule.amount = local.amount
@@ -36,7 +38,10 @@ extension CoreDataModel {
 
     func editScheduledTransaction(_ schedule: ScheduledTransactionEntity, with local: ScheduledTransactionLocal) {
         context.performAndWait {
-            guard local.amount > 0, local.interval > 0, let category = findCategory(local.categoryID, in: context) else { return }
+            guard local.amount > 0, local.interval > 0 else { return }
+            let category = local.categoryID.flatMap { findCategory($0, in: context) }
+            guard local.categoryID == nil || category != nil else { return }
+            guard !local.isIncome || category != nil else { return }
             schedule.amount = local.amount
             schedule.comment = local.comment
             schedule.currency = "EUR"
@@ -72,7 +77,9 @@ extension CoreDataModel {
     }
 
     private func generateDueOccurrences(for schedule: ScheduledTransactionEntity, asOf date: Date, calendar: Calendar) {
-        guard let scheduleID = schedule.id, let category = schedule.category else { return }
+        guard let scheduleID = schedule.id else { return }
+        guard !schedule.isIncome || schedule.category != nil else { return }
+        let category = schedule.category
         var due = schedule.wrappedNextDueDate
         while schedule.isActive && due <= date {
             let occurrenceRequest = ScheduledOccurrenceEntity.fetchRequest()
@@ -89,6 +96,7 @@ extension CoreDataModel {
                 if schedule.isIncome {
                     guard let incomeDescription = NSEntityDescription.entity(forEntityName: "IncomeEntity", in: context) else { continue }
                     let income = IncomeEntity(entity: incomeDescription, insertInto: context)
+                    guard let category else { continue }
                     income.id = UUID(); income.amount = schedule.amount; income.currency = "EUR"; income.comment = schedule.comment; income.date = due; income.place = schedule.place; income.category = category
                     occurrence.income = income
                 } else {

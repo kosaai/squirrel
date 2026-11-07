@@ -11,8 +11,6 @@ import SwiftUI
 struct DimeTransactionView: View {
     @EnvironmentObject private var coreDataModel: CoreDataModel
     @Environment(\.dismiss) private var dismiss
-    @FetchRequest(sortDescriptors: [SortDescriptor(\CategoryEntity.name)], predicate: NSPredicate(format: "isShadowed == false"))
-    private var categories: FetchedResults<CategoryEntity>
 
     let transactionToEdit: DimeTransactionDataAdapter.Record?
     @StateObject private var adapter = DimeTransactionDataAdapter()
@@ -62,7 +60,7 @@ struct DimeTransactionView: View {
                         .foregroundColor(Color.PrimaryText)
                         .minimumScaleFactor(0.5)
                         .lineLimit(1)
-                    DimeSuggestedTransactions(note: $note, amount: $amount, category: $category, suggestions: suggestions)
+                    DimeSuggestedTransactions(note: $note, amount: $amount, category: $category, allowsCategoryAssignment: kind == .income, suggestions: suggestions)
                     HStack(spacing: 10) {
                         Button { showTemplates = true } label: { Label("Dime Templates Saved", systemImage: "rectangle.stack") }
                         Button { showSaveTemplate = true } label: { Label("Dime Templates Save As", systemImage: "plus.rectangle.on.rectangle") }
@@ -73,17 +71,19 @@ struct DimeTransactionView: View {
                         HStack { Text(recurrence == .none ? String(localized: "Dime Recurring None") : "\(String(localized: "Dime Recurring Every")) \(recurrenceInterval) \(recurrence.unit)"); Spacer(); Image(systemName: "repeat") }
                             .font(.system(.body, design: .rounded).weight(.medium)).padding(14).foregroundColor(recurrence == .none ? Color.PrimaryText : Color.IncomeGreen).background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                     }
-                    Button { showCategoryPicker = true } label: {
-                        HStack {
-                            Text(category?.name ?? String(localized: "Dime Transaction Category"))
-                                .font(.system(.title3, design: .rounded).weight(.medium))
-                            Spacer()
-                            Image(systemName: "chevron.down")
+                    if kind == .income {
+                        Button { showCategoryPicker = true } label: {
+                            HStack {
+                                Text(category?.name ?? String(localized: "Dime Transaction Category"))
+                                    .font(.system(.title3, design: .rounded).weight(.medium))
+                                Spacer()
+                                Image(systemName: "chevron.down")
+                            }
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 12)
+                            .foregroundColor(Color.PrimaryText)
+                            .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                         }
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 12)
-                        .foregroundColor(Color.PrimaryText)
-                        .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                     }
                     TextField("Dime Transaction Note", text: $note)
                         .font(.system(.body, design: .rounded))
@@ -98,6 +98,7 @@ struct DimeTransactionView: View {
             DimeNumberPad(
                 price: $amount,
                 category: $category,
+                requiresCategory: kind == .income,
                 isEditingDecimal: $isEditingDecimal,
                 decimalValuesAssigned: $decimalValuesAssigned,
                 submit: save
@@ -108,7 +109,7 @@ struct DimeTransactionView: View {
         }
         .background(Color.PrimaryBackground)
         .sheet(isPresented: $showCategoryPicker) {
-            DimeTransactionCategoryPicker(category: $category, showPicker: $showCategoryPicker, categories: Array(categories))
+            DimeTransactionCategoryPicker(category: $category, showPicker: $showCategoryPicker, categories: coreDataModel.savedCategories)
         }
         .popover(isPresented: $showRecurrencePicker) {
             DimeRecurringPicker(frequency: $recurrence, interval: $recurrenceInterval, showMenu: $showRecurrencePicker, showCustom: $showCustomRecurrence)
@@ -120,8 +121,9 @@ struct DimeTransactionView: View {
             DimeTemplatesView { template in
                 amount = template.amount
                 note = template.note ?? ""
-                category = template.category
-                kind = template.isIncome ? .income : .expense
+                let templateKind: DimeTransactionDataAdapter.Kind = template.isIncome ? .income : .expense
+                kind = templateKind
+                category = templateKind == .income ? template.category : nil
                 recurrence = .none
                 recurrenceInterval = 1
             }
@@ -130,6 +132,12 @@ struct DimeTransactionView: View {
         .sheet(isPresented: $showSaveTemplate) {
             DimeSaveTemplateView(amount: amount, kind: kind, category: category, note: note)
                 .environmentObject(coreDataModel)
+        }
+        .onChange(of: kind) { newKind in
+            if newKind == .expense {
+                category = nil
+                showCategoryPicker = false
+            }
         }
         .alert("Dime Transaction Save Failed", isPresented: $showSaveError) {
             Button("Dime Transaction Error OK", role: .cancel) {}

@@ -203,11 +203,17 @@ extension CoreDataModel {
                 return
             }
             
-            guard let category = findCategory(spending.categoryId, in: context) else {
-                let error = CoreDataError.failedToFindCategory
-                ErrorType(error).publish()
-                completion(.failure(error))
-                return
+            let category: CategoryEntity?
+            if let categoryID = spending.categoryId {
+                guard let resolvedCategory = findCategory(categoryID, in: context) else {
+                    let error = CoreDataError.failedToFindCategory
+                    ErrorType(error).publish()
+                    completion(.failure(error))
+                    return
+                }
+                category = resolvedCategory
+            } else {
+                category = nil
             }
             
             let newSpending = SpendingEntity(entity: description, insertInto: context)
@@ -222,7 +228,9 @@ extension CoreDataModel {
             newSpending.place = spending.place
             newSpending.comment = spending.comment
             
-            addToCategory(newSpending, category)
+            if let category {
+                addToCategory(newSpending, category)
+            }
             
             if addToFetchQueue {
                 UserDefaults.standard.addToFetchQueue(spendingID)
@@ -303,11 +311,17 @@ extension CoreDataModel {
                 return
             }
 
-            guard let category = self.findCategory(newSpending.categoryId, in: self.context) else {
-                let error = CoreDataError.failedToFindCategory
-                ErrorType(error).publish()
-                completion(.failure(error))
-                return
+            let category: CategoryEntity?
+            if let categoryID = newSpending.categoryId {
+                guard let resolvedCategory = self.findCategory(categoryID, in: self.context) else {
+                    let error = CoreDataError.failedToFindCategory
+                    ErrorType(error).publish()
+                    completion(.failure(error))
+                    return
+                }
+                category = resolvedCategory
+            } else {
+                category = nil
             }
             
             spending.amount = newSpending.amount
@@ -380,13 +394,12 @@ extension CoreDataModel {
             return
         }
         
-        guard let catId = spending.category?.id else {
-            ErrorType(CoreDataError.failedToFindCategory).publish(file: #fileID, function: #function)
-            return
-        }
-        
-        guard let category = findCategory(catId) else {
-            return
+        let category: CategoryEntity?
+        if let categoryID = spending.category?.id {
+            guard let resolvedCategory = findCategory(categoryID) else { return }
+            category = resolvedCategory
+        } else {
+            category = nil
         }
                 
         let newSpending = SpendingEntity(entity: description, insertInto: context)
@@ -406,7 +419,9 @@ extension CoreDataModel {
         let privateContext = spending.managedObjectContext
         privateContext?.delete(spending)
         
-        addToCategory(newSpending, category)
+        if let category {
+            addToCategory(newSpending, category)
+        }
     }
     
     // MARK: Operations for chart
@@ -545,7 +560,7 @@ extension CoreDataModel {
                             currency: safeSpending.currency ?? "",
                             date: safeSpending.wrappedDate,
                             place: safeSpending.place ?? "",
-                            categoryId: safeSpending.categoryID ?? UUID(),
+                            categoryId: safeSpending.categoryID,
                             comment: safeSpending.comment ?? ""
                         )
                         

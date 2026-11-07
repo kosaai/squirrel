@@ -14,6 +14,7 @@ struct DimeNumberPad: View {
     @AppStorage("dimeNumberEntryType") private var numberEntryType = 1
     @Binding var price: Double
     @Binding var category: CategoryEntity?
+    let requiresCategory: Bool
     @Binding var isEditingDecimal: Bool
     @Binding var decimalValuesAssigned: DimeAssignedDecimal
     let submit: () -> Void
@@ -47,7 +48,7 @@ struct DimeNumberPad: View {
                             .background(Color.DarkBackground, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                     }
                     .buttonStyle(DimeNumberPadButtonStyle())
-                    .disabled(price == 0 || category == nil)
+                    .disabled(price == 0 || (requiresCategory && category == nil))
                 }
             }
             .frame(width: proxy.size.width, height: proxy.size.height)

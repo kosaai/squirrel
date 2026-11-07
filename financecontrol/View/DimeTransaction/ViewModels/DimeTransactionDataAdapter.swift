@@ -103,10 +103,11 @@ final class DimeTransactionDataAdapter: ObservableObject {
             completion(.failure(.invalidAmount))
             return
         }
-        guard let categoryID = category?.id else {
+        if kind == .income, category?.id == nil {
             completion(.failure(.missingCategory))
             return
         }
+        let categoryID = category?.id
 
         isSaving = true
         let finish: (Result<Void, Error>) -> Void = { [weak self] result in
@@ -132,12 +133,20 @@ final class DimeTransactionDataAdapter: ObservableObject {
                 completion: finish
             )
         case (.income, .some(.income(let existing))):
+            guard let categoryID else {
+                completion(.failure(.missingCategory))
+                return
+            }
             coreDataModel.editIncome(
                 existing,
                 with: income(from: amount, note: note, categoryID: categoryID, date: date),
                 completion: finish
             )
         case (.income, _):
+            guard let categoryID else {
+                completion(.failure(.missingCategory))
+                return
+            }
             coreDataModel.addIncome(
                 income(from: amount, note: note, categoryID: categoryID, date: date),
                 completion: finish
@@ -155,7 +164,8 @@ final class DimeTransactionDataAdapter: ObservableObject {
         interval: Int,
         coreDataModel: CoreDataModel
     ) {
-        guard amount > 0, let categoryID = category?.id else { return }
+        guard amount > 0 else { return }
+        guard kind == .expense || category?.id != nil else { return }
         coreDataModel.addScheduledTransaction(.init(amount: amount, comment: note, categoryID: categoryID, date: date, isIncome: kind == .income, frequency: frequency, interval: interval))
         coreDataModel.generateDueScheduledTransactions()
     }
@@ -173,7 +183,7 @@ final class DimeTransactionDataAdapter: ObservableObject {
         .map { $0 }
     }
 
-    private func spending(from amount: Double, note: String, categoryID: UUID, date: Date) -> SpendingEntityLocal {
+    private func spending(from amount: Double, note: String, categoryID: UUID?, date: Date) -> SpendingEntityLocal {
         SpendingEntityLocal(amount: amount, amountUSD: amount, currency: "EUR", date: date, place: "", categoryId: categoryID, comment: note)
     }
 

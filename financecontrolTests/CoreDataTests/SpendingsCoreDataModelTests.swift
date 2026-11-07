@@ -108,6 +108,63 @@ final class SpendingsCoreDataModelTests: XCTestCase {
         XCTAssertEqual(persisted?.category?.id, categoryID)
         XCTAssertEqual(saved?.objectID, persisted?.objectID)
     }
+
+    @MainActor
+    func testUncategorizedEuroExpenseCanPersistEditDeleteAndAppearInDimeLog() throws {
+        let saveExpectation = expectation(description: "Save uncategorized €20 expense")
+        let initialDate = Date.now
+        let transactionAdapter = DimeTransactionDataAdapter()
+        transactionAdapter.save(
+            existing: nil,
+            kind: .expense,
+            amount: 20,
+            note: "Uncategorized Dime expense",
+            category: nil,
+            date: initialDate,
+            coreDataModel: try XCTUnwrap(cdm)
+        ) { result in
+            if case .failure(let error) = result {
+                XCTFail("Saving uncategorized expense failed: \(error)")
+            }
+            saveExpectation.fulfill()
+        }
+        wait(for: [saveExpectation], timeout: 5)
+
+        let persisted = try XCTUnwrap(cdm?.getSpendings().first { $0.comment == "Uncategorized Dime expense" })
+        XCTAssertNil(persisted.category)
+        XCTAssertEqual(persisted.amount, 20)
+        XCTAssertTrue(
+            DimeLogDataAdapter()
+                .filteredTransactions(from: try XCTUnwrap(cdm), incomes: [])
+                .contains { $0.id == "expense-\(persisted.objectID.uriRepresentation().absoluteString)" }
+        )
+        XCTAssertEqual(ChartData(id: 0, date: initialDate, spendings: [persisted.safeObject()]).sum, 20)
+
+        let editExpectation = expectation(description: "Edit uncategorized expense")
+        transactionAdapter.save(
+            existing: .expense(persisted),
+            kind: .expense,
+            amount: 25,
+            note: "Edited uncategorized Dime expense",
+            category: nil,
+            date: initialDate,
+            coreDataModel: try XCTUnwrap(cdm)
+        ) { result in
+                if case .failure(let error) = result {
+                    XCTFail("Editing uncategorized expense failed: \(error)")
+                }
+                editExpectation.fulfill()
+        }
+        wait(for: [editExpectation], timeout: 5)
+
+        XCTAssertNil(persisted.category)
+        XCTAssertEqual(persisted.amount, 25)
+        XCTAssertEqual(persisted.comment, "Edited uncategorized Dime expense")
+
+        cdm?.deleteSpending(persisted)
+        let remaining = try XCTUnwrap(cdm).getSpendings()
+        XCTAssertFalse(remaining.contains { $0.objectID == persisted.objectID })
+    }
     
     func testEditSpendingEditsSpendings() {
         let expectation = XCTestExpectation(description: "Edit spending")

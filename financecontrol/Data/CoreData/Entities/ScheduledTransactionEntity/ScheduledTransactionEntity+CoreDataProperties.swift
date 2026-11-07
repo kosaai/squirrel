@@ -43,7 +43,7 @@ enum DimeRecurrenceFrequency: Int16, CaseIterable, Identifiable, Hashable {
 struct ScheduledTransactionLocal {
     let amount: Double
     let comment: String
-    let categoryID: UUID
+    let categoryID: UUID?
     let date: Date
     let isIncome: Bool
     let frequency: DimeRecurrenceFrequency

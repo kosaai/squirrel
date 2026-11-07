@@ -49,7 +49,7 @@ struct DimeTemplateTransactionEditor: View {
             TextField("Dime Transaction Note", text: $note).font(.system(.body, design: .rounded)).padding(14).background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
             Button { showCategoryPicker = true } label: { HStack { Text(category?.name ?? String(localized: "Dime Transaction Category")); Spacer(); Image(systemName: "chevron.down") }.font(.system(.body, design: .rounded).weight(.medium)).padding(14).foregroundColor(Color.PrimaryText).background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous)) }.padding(.horizontal, 20)
             Spacer()
-            DimeNumberPad(price: $amount, category: $category, isEditingDecimal: .constant(false), decimalValuesAssigned: .constant(.none), submit: save).frame(height: 290).padding(.horizontal, 20)
+            DimeNumberPad(price: $amount, category: $category, requiresCategory: true, isEditingDecimal: .constant(false), decimalValuesAssigned: .constant(.none), submit: save).frame(height: 290).padding(.horizontal, 20)
         }
         .background(Color.PrimaryBackground)
         .sheet(isPresented: $showCategoryPicker) { DimeTransactionCategoryPicker(category: $category, showPicker: $showCategoryPicker, categories: Array(categories)) }

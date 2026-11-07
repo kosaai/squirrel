@@ -84,7 +84,7 @@ extension SpendingEntity {
     }
     
     public var categoryName: String {
-        category?.name ?? "Error"
+        category?.name ?? NSLocalizedString("Dime Insights Uncategorized", comment: "Uncategorized spending")
     }
     
     @objc
@@ -144,7 +144,7 @@ struct SpendingEntityLocal {
     var currency: String
     var date: Date
     var place: String
-    var categoryId: UUID
+    var categoryId: UUID?
 }
 
 extension SpendingEntityLocal {
@@ -154,7 +154,7 @@ extension SpendingEntityLocal {
         currency: String = "USD",
         date: Date = .init(),
         place: String = "",
-        categoryId: UUID = .init(),
+        categoryId: UUID? = nil,
         comment: String = ""
     ) {
         self.amount = amount
@@ -176,7 +176,7 @@ extension SpendingEntityLocal {
         currency: String = "USD",
         date: Date = .init(),
         place: String = "",
-        categoryId: UUID = .init(),
+        categoryId: UUID? = nil,
         comment: String = ""
     ) {
         self.amount = amount

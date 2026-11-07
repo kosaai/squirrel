@@ -21,18 +21,15 @@ struct ChartData: Equatable {
     init(id: Int, date: Date, spendings: [TSSpendingEntity]) {
         var categoriesDict = [UUID:ChartCategory]()
         var sum: Double = 0
+        let uncategorizedID = UUID(uuidString: "00000000-0000-0000-0000-000000000001")!
         let defaultCurrency = UserDefaults.defaultCurrency()
         let defaultRate = UserDefaults.standard.getUnwrapedRates()[defaultCurrency] ?? 1
         let colors: [String] = Array(CustomColor.nordAurora.keys).sorted(by: <)
         var colorIndex: Int = 0
         
         for spending in spendings {
-            guard
-                let categoryID = spending.categoryID,
-                let categoryColor = spending.categoryColor
-            else {
-                continue
-            }
+            let categoryID = spending.categoryID ?? uncategorizedID
+            let categoryColor = spending.categoryColor ?? "secondary"
             
             let amount = {
                 if spending.wrappedCurrency == defaultCurrency {

@@ -48,16 +48,18 @@ private struct DimeLogTransactionRow: View {
     @State private var showDeleteConfirmation = false
 
     private var amount: Double { transaction.amount }
-    private var categoryColor: String { transaction.category?.color ?? "#FFFFFF" }
     private var categoryName: String { transaction.category?.name ?? "" }
     private var isIncome: Bool { transaction.kind == .income }
+    private var title: String { transaction.note.isEmpty ? (isIncome ? categoryName : String(localized: "Dime Transaction Expense")) : transaction.note }
     private var gestureEdge: HorizontalEdge { layoutDirection == .rightToLeft ? .leading : .trailing }
 
     var body: some View {
         HStack(spacing: 12) {
-            DimeLogCategoryBadge(name: categoryName, color: categoryColor)
+            if isIncome, let category = transaction.category {
+                DimeLogCategoryBadge(name: category.name ?? "", color: category.color ?? "#FFFFFF")
+            }
             VStack(alignment: .leading, spacing: 2) {
-                Text(transaction.note.isEmpty ? categoryName : transaction.note)
+                Text(title)
                     .font(.system(.body, design: .rounded).weight(.medium))
                     .foregroundColor(Color.PrimaryText)
                     .lineLimit(1)
@@ -97,7 +99,7 @@ private struct DimeLogTransactionRow: View {
             }
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(transaction.note.isEmpty ? categoryName : transaction.note), \(amount.formatted(.currency(code: "EUR"))), \(categoryName)")
+        .accessibilityLabel("\(title), \(amount.formatted(.currency(code: "EUR")))")
     }
 }
 

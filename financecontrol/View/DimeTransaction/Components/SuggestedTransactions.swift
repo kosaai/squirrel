@@ -11,6 +11,7 @@ struct DimeSuggestedTransactions: View {
     @Binding var note: String
     @Binding var amount: Double
     @Binding var category: CategoryEntity?
+    let allowsCategoryAssignment: Bool
     let suggestions: [DimeTransactionDataAdapter.Record]
 
     var body: some View {
@@ -21,7 +22,7 @@ struct DimeSuggestedTransactions: View {
                         withAnimation {
                             note = transaction.note
                             amount = transaction.amount
-                            if category == nil { category = transaction.category }
+                            if allowsCategoryAssignment, category == nil { category = transaction.category }
                         }
                         hideKeyboard()
                     } label: {
