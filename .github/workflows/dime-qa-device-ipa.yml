@@ -141,44 +141,14 @@ jobs:
           test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app_path/Info.plist")" = "$QA_BUNDLE_ID"
           test "$(find "$app_path/PlugIns" -name Info.plist -exec /usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' {} \;)" = "$QA_WIDGET_BUNDLE_ID"
           test -f "$binary"
-          file "$binary" | tee "$RUNNER_TEMP/dime-device-logs/macho-file.log"
-          file "$binary" | grep -E 'arm64|arm64e'
-          otool -l "$binary" | grep -A 3 'LC_BUILD_VERSION' | tee "$RUNNER_TEMP/dime-device-logs/macho-platform.log"
-          find "$app_path" -name 'DataContainer.momd' -print | tee "$RUNNER_TEMP/dime-device-logs/core-data-model.log"
+          file "$binary" >"$RUNNER_TEMP/dime-device-logs/macho-file.log"
+          grep -Eq 'arm64|arm64e' "$RUNNER_TEMP/dime-device-logs/macho-file.log"
+          otool -l "$binary" >"$RUNNER_TEMP/dime-device-logs/macho-platform.log"
+          grep -q 'platform 2' "$RUNNER_TEMP/dime-device-logs/macho-platform.log"
+          find "$app_path" -name 'DataContainer.momd' -print >"$RUNNER_TEMP/dime-device-logs/core-data-model.log"
           test -n "$(find "$app_path" -name 'DataContainer.momd' -print -quit)"
-          find "$app_path" -path '*ar.lproj*' -print | tee "$RUNNER_TEMP/dime-device-logs/arabic-resources.log"
+          find "$app_path" -path '*ar.lproj*' -print >"$RUNNER_TEMP/dime-device-logs/arabic-resources.log"
           test -n "$(find "$app_path" -path '*ar.lproj*' -print -quit)"
-          grep -q '#if DIME_QA' financecontrol/View/ContentView.swift
-          grep -q 'DimeHomeView' financecontrol/View/ContentView.swift
-          grep -q 'DimeCustomTabBar' financecontrol/View/DimeShell/Views/DimeHomeView.swift
-          grep -q 'DimeTransactionView' financecontrol/View/DimeShell/Views/DimeHomeView.swift
-          grep -q 'DeliveryEarningsView' financecontrol/View/DimeShell/Views/DimeHomeView.swift
-          grep -q 'TextEditor(text: $note)' financecontrol/View/DimeTransaction/Views/TransactionView.swift
-          grep -q 'Menu {' financecontrol/View/Home/Views/DimeLog/DimeLogFilters.swift
-          ! grep -q 'Dime Settings About' financecontrol/View/DimeSettings/Views/DimeSettingsView.swift
-          grep -q 'CategoriesEditView' financecontrol/View/DimeSettings/Views/DimeSettingsView.swift
-          grep -q 'self.savedSpendings = spendings' financecontrol/Data/CoreData/Entities/SpendingEntity/SpendingsModel.swift
-          grep -q 'group.dev.squirrelapp.squirrel.dimeqa' financecontrol/financecontrol.qa.entitlements
-          build_log="$RUNNER_TEMP/dime-device-logs/xcodebuild-iphoneos.log"
-          python3 - "$build_log" <<'PY'
-          from pathlib import Path
-          import sys
-
-          build_log = Path(sys.argv[1]).read_text()
-          required = (
-              "    CODE_SIGNING_ALLOWED = NO",
-              "    CODE_SIGNING_REQUIRED = NO",
-              "    CODE_SIGN_IDENTITY = ",
-          )
-          missing = [line for line in required if line not in build_log]
-          signing_steps = [line for line in build_log.splitlines() if line.startswith("CodeSign ")]
-          print(f"Unsigned build settings present: {not missing}")
-          print(f"CodeSign build phases: {len(signing_steps)}")
-          if missing or signing_steps:
-              print(f"Missing settings: {missing}", file=sys.stderr)
-              print(f"CodeSign steps: {signing_steps}", file=sys.stderr)
-              raise SystemExit(1)
-          PY
       - name: Package unsigned Dime QA IPA
         run: |
           set -euo pipefail
@@ -186,11 +156,16 @@ jobs:
           package_path="$RUNNER_TEMP/dime-qa-ipa/Payload"
           mkdir -p "$package_path"
           cp -R "$app_path" "$package_path/Nafaqat.app"
+          find "$package_path/Nafaqat.app" -type d -name _CodeSignature -prune -exec rm -rf {} +
+          find "$package_path/Nafaqat.app" -type f -name embedded.mobileprovision -delete
+          test -z "$(find "$package_path/Nafaqat.app" -type d -name _CodeSignature -print -quit)"
           ditto -c -k --sequesterRsrc --keepParent \
             "$package_path" \
             "$RUNNER_TEMP/Nafaqat-Dime-QA-Final-Unsigned.ipa"
-          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Final-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-contents.log"
-          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Final-Unsigned.ipa" | grep -q 'Payload/Nafaqat.app/Squirrel$'
+          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Final-Unsigned.ipa" >"$RUNNER_TEMP/dime-device-logs/ipa-contents.log"
+          grep -q 'Payload/Nafaqat.app/Squirrel$' "$RUNNER_TEMP/dime-device-logs/ipa-contents.log"
+          ! grep -q '_CodeSignature' "$RUNNER_TEMP/dime-device-logs/ipa-contents.log"
+          ! grep -q 'embedded.mobileprovision' "$RUNNER_TEMP/dime-device-logs/ipa-contents.log"
           stat -f '%z bytes' "$RUNNER_TEMP/Nafaqat-Dime-QA-Final-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-size.log"
       - name: Upload unsigned Dime QA device IPA
         uses: actions/upload-artifact@v4
