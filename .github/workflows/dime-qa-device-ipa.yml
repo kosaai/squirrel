@@ -159,8 +159,12 @@ jobs:
           grep -q 'CategoriesEditView' financecontrol/View/DimeSettings/Views/DimeSettingsView.swift
           grep -q 'self.savedSpendings = spendings' financecontrol/Data/CoreData/Entities/SpendingEntity/SpendingsModel.swift
           grep -q 'group.dev.squirrelapp.squirrel.dimeqa' financecontrol/financecontrol.qa.entitlements
-          if codesign -dvv "$app_path" >"$RUNNER_TEMP/dime-device-logs/codesign.log" 2>&1; then
-            echo 'Expected an unsigned QA app, but a signature was found.' >&2
+          build_log="$RUNNER_TEMP/dime-device-logs/xcodebuild-iphoneos.log"
+          grep -q '^    CODE_SIGNING_ALLOWED = NO$' "$build_log"
+          grep -q '^    CODE_SIGNING_REQUIRED = NO$' "$build_log"
+          grep -q '^    CODE_SIGN_IDENTITY = $' "$build_log"
+          if grep -qE '^CodeSign ' "$build_log"; then
+            echo 'Expected no CodeSign build phase for the unsigned QA app.' >&2
             exit 1
           fi
       - name: Package unsigned Dime QA IPA
