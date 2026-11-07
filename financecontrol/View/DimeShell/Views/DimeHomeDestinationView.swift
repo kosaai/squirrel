@@ -22,7 +22,7 @@ struct DimeHomeDestinationView: View {
             } else if destination == .insights {
                 DimeInsightsView()
             } else if destination == .budget {
-                DimeBudgetView()
+                DeliveryEarningsView(bottomEdge: bottomEdge)
             } else {
                 DimeSettingsView()
             }

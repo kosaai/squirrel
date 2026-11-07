@@ -228,6 +228,11 @@
 		D1E000000000000000000913 /* DimeInsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000903 /* DimeInsightsView.swift */; };
 		D1E000000000000000001011 /* DimeSettingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001001 /* DimeSettingsRow.swift */; };
 		D1E000000000000000001012 /* DimeSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001002 /* DimeSettingsView.swift */; };
+		D1E000000000000000001111 /* DeliveryEarningsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001101 /* DeliveryEarningsViewModel.swift */; };
+		D1E000000000000000001112 /* DeliveryEarningsInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001102 /* DeliveryEarningsInput.swift */; };
+		D1E000000000000000001113 /* DeliveryEarningsStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001103 /* DeliveryEarningsStyle.swift */; };
+		D1E000000000000000001114 /* DeliveryEarningsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001104 /* DeliveryEarningsView.swift */; };
+		D1E000000000000000001211 /* DeliveryEarningsCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E000000000000000001201 /* DeliveryEarningsCalculatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -481,6 +486,11 @@
 		D1E000000000000000000903 /* DimeInsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeInsightsView.swift; sourceTree = "<group>"; };
 		D1E000000000000000001001 /* DimeSettingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeSettingsRow.swift; sourceTree = "<group>"; };
 		D1E000000000000000001002 /* DimeSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeSettingsView.swift; sourceTree = "<group>"; };
+		D1E000000000000000001101 /* DeliveryEarningsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryEarningsViewModel.swift; sourceTree = "<group>"; };
+		D1E000000000000000001102 /* DeliveryEarningsInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryEarningsInput.swift; sourceTree = "<group>"; };
+		D1E000000000000000001103 /* DeliveryEarningsStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryEarningsStyle.swift; sourceTree = "<group>"; };
+		D1E000000000000000001104 /* DeliveryEarningsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryEarningsView.swift; sourceTree = "<group>"; };
+		D1E000000000000000001201 /* DeliveryEarningsCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeliveryEarningsCalculatorTests.swift; path = financecontrolTests/DeliveryEarningsCalculatorTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1078,6 +1088,7 @@
 				D1E000000000000000000822 /* DimeBudget */,
 				D1E000000000000000000921 /* DimeInsights */,
 				D1E000000000000000001021 /* DimeSettings */,
+				D1E000000000000000001121 /* DeliveryEarnings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1334,6 +1345,49 @@
 			path = DimeSettings;
 			sourceTree = "<group>";
 		};
+		D1E000000000000000001121 /* DeliveryEarnings */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000001122 /* ViewModels */,
+				D1E000000000000000001123 /* Components */,
+				D1E000000000000000001124 /* Style */,
+				D1E000000000000000001125 /* Views */,
+			);
+			path = DeliveryEarnings;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000001122 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000001101 /* DeliveryEarningsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000001123 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000001102 /* DeliveryEarningsInput.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000001124 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000001103 /* DeliveryEarningsStyle.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		D1E000000000000000001125 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D1E000000000000000001104 /* DeliveryEarningsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D1E000000000000000001022 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -1497,6 +1551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E000000000000000001211 /* DeliveryEarningsCalculatorTests.swift in Sources */,
 				8D65652F2B3EE981007819D3 /* CategoriesCoreDataModelTests.swift in Sources */,
 				8D3BC53C2B3DB6AD001C7EDD /* CoreDataModelTests.swift in Sources */,
 				8D885B052B43F2D700CCA260 /* SpendingsCoreDataModelTests.swift in Sources */,
@@ -1540,6 +1595,10 @@
 			files = (
 				D1E000000000000000001011 /* DimeSettingsRow.swift in Sources */,
 				D1E000000000000000001012 /* DimeSettingsView.swift in Sources */,
+				D1E000000000000000001111 /* DeliveryEarningsViewModel.swift in Sources */,
+				D1E000000000000000001112 /* DeliveryEarningsInput.swift in Sources */,
+				D1E000000000000000001113 /* DeliveryEarningsStyle.swift in Sources */,
+				D1E000000000000000001114 /* DeliveryEarningsView.swift in Sources */,
 				D1E000000000000000000911 /* DimeInsightsDataAdapter.swift in Sources */,
 				D1E000000000000000000912 /* DimeInsightsCharts.swift in Sources */,
 				D1E000000000000000000913 /* DimeInsightsView.swift in Sources */,

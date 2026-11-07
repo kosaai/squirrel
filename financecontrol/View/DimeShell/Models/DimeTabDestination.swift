@@ -20,7 +20,7 @@ enum DimeTabDestination: String, CaseIterable, Identifiable {
         switch self {
         case .log: return "Dime Tab Log"
         case .insights: return "Dime Tab Insights"
-        case .budget: return "Dime Tab Budget"
+        case .budget: return "أرباح التوصيل"
         case .settings: return "Dime Tab Settings"
         }
     }
