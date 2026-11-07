@@ -9,7 +9,6 @@ struct DimeSettingsView: View {
     @AppStorage(UDKey.privacyScreen.rawValue) private var privacyScreen = false
     @AppStorage("dimeShowNotifications") private var notificationsEnabled = false
     @State private var destination: DimeSettingsDestination?
-    @State private var presentOnboarding = false
     @StateObject private var privacyMonitor = PrivacyMonitor(privacyScreenIsEnabled: false, hideExpenseSum: false)
 
     var body: some View {
@@ -39,10 +38,6 @@ struct DimeSettingsView: View {
                 DimeSettingsSection(title: "Dime Settings Data") {
                     destinationRow(.categories, icon: "rectangle.grid.2x2.fill", title: "Dime Settings Categories", color: Color(hex: "#EB7068"))
                     destinationRow(.data, icon: "externaldrive.fill", title: "Dime Settings Local Data", color: Color(hex: "#84B4EB"), detail: String(localized: "Dime Settings Local Only"))
-                }
-
-                DimeSettingsSection(title: "Dime Settings Other") {
-                    destinationRow(.about, icon: "info.circle.fill", title: "Dime Settings About", color: Color(hex: "#F1AF8A"))
                 }
 
                 Text("Dime Settings EUR Local Footer")
@@ -98,16 +93,12 @@ struct DimeSettingsView: View {
                 ExportAndBackupView()
                     .environmentObject(privacyMonitor)
             }
-        case .about:
-            DimeSettingsNavigationContainer(title: "Dime Settings About") {
-                AboutView(presentOnboarding: $presentOnboarding)
-            }
         }
     }
 }
 
 private enum DimeSettingsDestination: Hashable, Identifiable {
-    case categories, appearance, notifications, numberEntry, formatting, data, about
+    case categories, appearance, notifications, numberEntry, formatting, data
     var id: Self { self }
 }
 

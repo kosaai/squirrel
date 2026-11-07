@@ -5466,12 +5466,6 @@
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "المظهر" } }
       }
     },
-    "Dime Settings About" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "About" } },
-        "ar" : { "stringUnit" : { "state" : "translated", "value" : "حول" } }
-      }
-    },
     "Dime Settings Categories" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Categories" } },
@@ -5514,12 +5508,6 @@
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "المظهر" } }
       }
     },
-    "Dime Settings Other" : {
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Other" } },
-        "ar" : { "stringUnit" : { "state" : "translated", "value" : "أخرى" } }
-      }
-    },
     "Dime Settings Local Data" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Local Data" } },
@@ -5528,8 +5516,8 @@
     },
     "Dime Settings EUR Local Footer" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dime uses EUR and stores your data locally on this device." } },
-        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يستخدم Dime اليورو ويحفظ بياناتك محليًا على هذا الجهاز." } }
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "نفقات uses EUR and stores your data locally on this device." } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "يستخدم تطبيق «نفقات» اليورو ويحفظ بياناتك محليًا على هذا الجهاز." } }
       }
     },
     "Dime Settings System" : {
