@@ -21,12 +21,6 @@ struct DimeTransactionView: View {
     @State private var showCategoryPicker = false
     @State private var isEditingDecimal = false
     @State private var decimalValuesAssigned: DimeAssignedDecimal = .none
-    @State private var recurrence: DimeRecurrenceFrequency = .none
-    @State private var recurrenceInterval = 1
-    @State private var showRecurrencePicker = false
-    @State private var showCustomRecurrence = false
-    @State private var showTemplates = false
-    @State private var showSaveTemplate = false
     @State private var saveErrorMessage = ""
     @State private var showSaveError = false
     @FocusState private var isEditingNote: Bool
@@ -64,16 +58,6 @@ struct DimeTransactionView: View {
                             .minimumScaleFactor(0.5)
                             .lineLimit(1)
                         DimeSuggestedTransactions(note: $note, amount: $amount, category: $category, allowsCategoryAssignment: kind == .income, suggestions: suggestions)
-                        HStack(spacing: 10) {
-                            Button { showTemplates = true } label: { Label("Dime Templates Saved", systemImage: "rectangle.stack") }
-                            Button { showSaveTemplate = true } label: { Label("Dime Templates Save As", systemImage: "plus.rectangle.on.rectangle") }
-                        }
-                        .font(.system(.body, design: .rounded).weight(.medium))
-                        .foregroundColor(Color.DarkIcon)
-                        Button { showRecurrencePicker = true } label: {
-                            HStack { Text(recurrence == .none ? String(localized: "Dime Recurring None") : "\(String(localized: "Dime Recurring Every")) \(recurrenceInterval) \(recurrence.unit)"); Spacer(); Image(systemName: "repeat") }
-                                .font(.system(.body, design: .rounded).weight(.medium)).padding(14).foregroundColor(recurrence == .none ? Color.PrimaryText : Color.IncomeGreen).background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                        }
                         if kind == .income {
                             Button { showCategoryPicker = true } label: {
                                 HStack {
@@ -135,26 +119,6 @@ struct DimeTransactionView: View {
         .sheet(isPresented: $showCategoryPicker) {
             DimeTransactionCategoryPicker(category: $category, showPicker: $showCategoryPicker, categories: coreDataModel.savedCategories)
         }
-        .popover(isPresented: $showRecurrencePicker) {
-            DimeRecurringPicker(frequency: $recurrence, interval: $recurrenceInterval, showMenu: $showRecurrencePicker, showCustom: $showCustomRecurrence)
-        }
-        .sheet(isPresented: $showCustomRecurrence) {
-            DimeCustomRecurringView(frequency: $recurrence, interval: $recurrenceInterval)
-        }
-        .sheet(isPresented: $showTemplates) {
-            DimeTemplatesView { template in
-                amount = template.amount
-                note = template.note ?? ""
-                category = kind == .income ? template.category : nil
-                recurrence = .none
-                recurrenceInterval = 1
-            }
-            .environmentObject(coreDataModel)
-        }
-        .sheet(isPresented: $showSaveTemplate) {
-            DimeSaveTemplateView(amount: amount, kind: kind, category: category, note: note)
-                .environmentObject(coreDataModel)
-        }
         .alert("Dime Transaction Save Failed", isPresented: $showSaveError) {
             Button("Dime Transaction Error OK", role: .cancel) {}
         } message: {
@@ -163,28 +127,22 @@ struct DimeTransactionView: View {
     }
 
     private func save() {
-        if transactionToEdit == nil && (recurrence != .none || date > .now) {
-            adapter.saveScheduled(amount: amount, note: note, category: category, date: date, kind: kind, frequency: recurrence, interval: recurrenceInterval, coreDataModel: coreDataModel)
-            dismiss()
-        } else {
-            adapter.save(
-                existing: transactionToEdit,
-                kind: kind,
-                amount: amount,
-                note: note,
-                category: category,
-                date: date,
-                coreDataModel: coreDataModel
-            ) { result in
-                switch result {
-                case .success:
-                    dismiss()
-                case .failure(let error):
-                    saveErrorMessage = NSLocalizedString(error.localizationKey, comment: "")
-                    showSaveError = true
-                }
+        adapter.save(
+            existing: transactionToEdit,
+            kind: kind,
+            amount: amount,
+            note: note,
+            category: category,
+            date: date,
+            coreDataModel: coreDataModel
+        ) { result in
+            switch result {
+            case .success:
+                dismiss()
+            case .failure(let error):
+                saveErrorMessage = NSLocalizedString(error.localizationKey, comment: "")
+                showSaveError = true
             }
-            return
         }
     }
 }
