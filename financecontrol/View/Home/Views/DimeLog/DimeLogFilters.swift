@@ -24,7 +24,6 @@ enum DimeLogFilter: String, CaseIterable, Identifiable {
 
 struct DimeLogHeader: View {
     @Binding var searchMode: Bool
-    @Binding var showFilter: Bool
     @Binding var filter: DimeLogFilter
     @Binding var category: CategoryEntity?
     @Binding var date: Date
@@ -59,7 +58,23 @@ struct DimeLogHeader: View {
                     .foregroundColor(Color.PrimaryText)
                 }
                 Spacer()
-                Button { showFilter = true } label: {
+                Menu {
+                    ForEach(DimeLogFilter.allCases) { item in
+                        Button {
+                            withAnimation(.easeIn(duration: 0.15)) { filter = item }
+                        } label: {
+                            if filter == item {
+                                Label {
+                                    Text(item.title)
+                                } icon: {
+                                    Image(systemName: "checkmark")
+                                }
+                            } else {
+                                Text(item.title)
+                            }
+                        }
+                    }
+                } label: {
                     Image(systemName: filter == .all ? "triangle" : "triangle.tophalf.filled")
                         .font(.system(.title2, design: .rounded).weight(.regular))
                         .foregroundColor(Color.DarkIcon)
@@ -67,9 +82,6 @@ struct DimeLogHeader: View {
                         .padding(5)
                 }
                 .accessibilityLabel("Dime Log Filter")
-                .popover(isPresented: $showFilter) {
-                    DimeLogFilterPicker(filter: $filter, showMenu: $showFilter)
-                }
             }
 
             switch filter {
@@ -108,43 +120,6 @@ private struct DimeLogTypePicker: View {
         }
         .padding(3)
         .overlay(Capsule().stroke(Color.Outline.opacity(0.4), lineWidth: 1.3))
-    }
-}
-
-private struct DimeLogFilterPicker: View {
-    @Binding var filter: DimeLogFilter
-    @Binding var showMenu: Bool
-    @Namespace private var animation
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 1) {
-            ForEach(DimeLogFilter.allCases) { item in
-                HStack {
-                    Text(item.title)
-                        .font(.system(.body, design: .rounded).weight(.medium))
-                    Spacer()
-                    if filter == item { Image(systemName: "checkmark") }
-                }
-                .padding(5)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background {
-                    if filter == item {
-                        RoundedRectangle(cornerRadius: 6)
-                            .fill(Color("AlwaysLightSecondaryBackground"))
-                            .matchedGeometryEffect(id: "TAB", in: animation)
-                    }
-                }
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    withAnimation(.easeIn(duration: 0.15)) { filter = item }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { showMenu = false }
-                }
-            }
-        }
-        .foregroundColor(Color("AlwaysDarkBackground"))
-        .padding(4)
-        .frame(width: 190)
-        .background(RoundedRectangle(cornerRadius: 9).fill(Color("AlwaysLightBackground")).shadow(color: .gray.opacity(0.25), radius: 6))
     }
 }
 

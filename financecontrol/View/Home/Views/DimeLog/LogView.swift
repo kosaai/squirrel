@@ -15,7 +15,6 @@ struct DimeLogView: View {
     @StateObject private var adapter = DimeLogDataAdapter()
     @State private var searchMode = false
     @State private var searchQuery = ""
-    @State private var showFilter = false
     @State private var filter = DimeLogFilter.all
     @State private var category: CategoryEntity?
     @State private var filterDate = Date.now
@@ -65,7 +64,6 @@ struct DimeLogView: View {
                 VStack(spacing: 0) {
                     DimeLogHeader(
                         searchMode: $searchMode,
-                        showFilter: $showFilter,
                         filter: $filter,
                         category: $category,
                         date: $filterDate,
