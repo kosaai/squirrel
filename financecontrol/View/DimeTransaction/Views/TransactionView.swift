@@ -21,7 +21,6 @@ struct DimeTransactionView: View {
     @State private var showCategoryPicker = false
     @State private var isEditingDecimal = false
     @State private var decimalValuesAssigned: DimeAssignedDecimal = .none
-    @State private var kind: DimeTransactionDataAdapter.Kind
     @State private var recurrence: DimeRecurrenceFrequency = .none
     @State private var recurrenceInterval = 1
     @State private var showRecurrencePicker = false
@@ -42,7 +41,11 @@ struct DimeTransactionView: View {
         _amount = State(initialValue: transactionToEdit?.amount ?? 0)
         _category = State(initialValue: transactionToEdit?.category)
         _date = State(initialValue: transactionToEdit?.date ?? .now)
-        _kind = State(initialValue: transactionToEdit?.kind ?? .expense)
+    }
+
+    /// New editor presentations are always expenses. Historical Log records retain their persisted type.
+    private var kind: DimeTransactionDataAdapter.Kind {
+        transactionToEdit?.kind ?? .expense
     }
 
     private var suggestions: [DimeTransactionDataAdapter.Record] {
@@ -55,8 +58,6 @@ struct DimeTransactionView: View {
             ScrollViewReader { proxy in
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 18) {
-                        DimeTransactionKindPicker(kind: $kind)
-                            .disabled(transactionToEdit != nil)
                         Text(amount, format: .currency(code: "EUR"))
                             .font(.system(size: 50, weight: .regular, design: .rounded))
                             .foregroundColor(Color.PrimaryText)
@@ -144,9 +145,7 @@ struct DimeTransactionView: View {
             DimeTemplatesView { template in
                 amount = template.amount
                 note = template.note ?? ""
-                let templateKind: DimeTransactionDataAdapter.Kind = template.isIncome ? .income : .expense
-                kind = templateKind
-                category = templateKind == .income ? template.category : nil
+                category = kind == .income ? template.category : nil
                 recurrence = .none
                 recurrenceInterval = 1
             }
@@ -155,12 +154,6 @@ struct DimeTransactionView: View {
         .sheet(isPresented: $showSaveTemplate) {
             DimeSaveTemplateView(amount: amount, kind: kind, category: category, note: note)
                 .environmentObject(coreDataModel)
-        }
-        .onChange(of: kind) { newKind in
-            if newKind == .expense {
-                category = nil
-                showCategoryPicker = false
-            }
         }
         .alert("Dime Transaction Save Failed", isPresented: $showSaveError) {
             Button("Dime Transaction Error OK", role: .cancel) {}
@@ -193,32 +186,6 @@ struct DimeTransactionView: View {
             }
             return
         }
-    }
-}
-
-private struct DimeTransactionKindPicker: View {
-    @Binding var kind: DimeTransactionDataAdapter.Kind
-    @Namespace private var animation
-
-    var body: some View {
-        HStack(spacing: 0) {
-            ForEach(DimeTransactionDataAdapter.Kind.allCases) { item in
-                Text(item == .expense ? "Dime Transaction Expense" : "Dime Transaction Income")
-                    .font(.system(.body, design: .rounded).weight(.semibold))
-                    .foregroundColor(kind == item ? Color.PrimaryText : Color.SubtitleText)
-                    .padding(6)
-                    .frame(width: 100)
-                    .contentShape(Rectangle())
-                    .background {
-                        if kind == item {
-                            Capsule().fill(Color.SecondaryBackground).matchedGeometryEffect(id: "transaction-kind", in: animation)
-                        }
-                    }
-                    .onTapGesture { withAnimation(.easeIn(duration: 0.15)) { kind = item } }
-            }
-        }
-        .padding(3)
-        .overlay(Capsule().stroke(Color.Outline.opacity(0.4), lineWidth: 1.3))
     }
 }
 
