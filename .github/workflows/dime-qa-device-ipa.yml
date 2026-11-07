@@ -36,7 +36,7 @@ jobs:
           test -d "$DEVELOPER_DIR"
           sudo xcode-select --switch "$DEVELOPER_DIR"
           xcodebuild -version | tee "$RUNNER_TEMP/dime-device-logs/xcode-version.log"
-          xcodebuild -version | grep -Eq '^Xcode 26[.]'
+          grep -Eq '^Xcode 26[.]' "$RUNNER_TEMP/dime-device-logs/xcode-version.log"
           xcrun --sdk iphoneos --show-sdk-path | tee "$RUNNER_TEMP/dime-device-logs/iphoneos-sdk.log"
           xcrun --sdk iphoneos --find clang | tee "$RUNNER_TEMP/dime-device-logs/iphoneos-clang.log"
       - name: Preflight Xcode, iPhoneOS SDK, project, and signing configuration
