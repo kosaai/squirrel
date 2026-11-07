@@ -72,14 +72,33 @@ struct DimeTransactionView: View {
                                 .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                             }
                         }
-                        TextField("Dime Transaction Note", text: $note)
-                            .font(.system(.body, design: .rounded))
-                            .padding(14)
+                        VStack(alignment: .trailing, spacing: 6) {
+                            Text("Dime Transaction Spent On")
+                                .font(.system(.subheadline, design: .rounded).weight(.medium))
+                                .foregroundColor(Color.SubtitleText)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                            ZStack(alignment: .topTrailing) {
+                                TextEditor(text: $note)
+                                    .font(.system(.body, design: .rounded))
+                                    .multilineTextAlignment(.trailing)
+                                    .environment(\.layoutDirection, .rightToLeft)
+                                    .focused($isEditingNote)
+                                    .frame(minHeight: 74, maxHeight: 104)
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 6)
+                                    .accessibilityLabel(Text("Dime Transaction Spent On"))
+                                if note.isEmpty {
+                                    Text("Dime Transaction Spent On")
+                                        .font(.system(.body, design: .rounded))
+                                        .foregroundColor(Color.SubtitleText)
+                                        .padding(.horizontal, 14)
+                                        .padding(.vertical, 14)
+                                        .allowsHitTesting(false)
+                                }
+                            }
                             .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                            .focused($isEditingNote)
-                            .submitLabel(.done)
-                            .onSubmit { isEditingNote = false }
-                            .id("dime-transaction-note")
+                        }
+                        .id("dime-transaction-note")
                         DatePicker("Dime Transaction Date", selection: $date)
                             .font(.system(.body, design: .rounded))
                             .tint(Color.DarkIcon)

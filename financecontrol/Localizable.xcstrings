@@ -5070,6 +5070,12 @@
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "ملاحظة" } }
       }
     },
+    "Dime Transaction Spent On" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Spent on" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "صُرف على" } }
+      }
+    },
     "Dime Transaction Date" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Date" } },
