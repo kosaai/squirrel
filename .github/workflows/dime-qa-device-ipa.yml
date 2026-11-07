@@ -160,13 +160,25 @@ jobs:
           grep -q 'self.savedSpendings = spendings' financecontrol/Data/CoreData/Entities/SpendingEntity/SpendingsModel.swift
           grep -q 'group.dev.squirrelapp.squirrel.dimeqa' financecontrol/financecontrol.qa.entitlements
           build_log="$RUNNER_TEMP/dime-device-logs/xcodebuild-iphoneos.log"
-          grep -q '^    CODE_SIGNING_ALLOWED = NO$' "$build_log"
-          grep -q '^    CODE_SIGNING_REQUIRED = NO$' "$build_log"
-          grep -q '^    CODE_SIGN_IDENTITY = $' "$build_log"
-          if grep -qE '^CodeSign ' "$build_log"; then
-            echo 'Expected no CodeSign build phase for the unsigned QA app.' >&2
-            exit 1
-          fi
+          python3 - "$build_log" <<'PY'
+          from pathlib import Path
+          import sys
+
+          build_log = Path(sys.argv[1]).read_text()
+          required = (
+              "    CODE_SIGNING_ALLOWED = NO",
+              "    CODE_SIGNING_REQUIRED = NO",
+              "    CODE_SIGN_IDENTITY = ",
+          )
+          missing = [line for line in required if line not in build_log]
+          signing_steps = [line for line in build_log.splitlines() if line.startswith("CodeSign ")]
+          print(f"Unsigned build settings present: {not missing}")
+          print(f"CodeSign build phases: {len(signing_steps)}")
+          if missing or signing_steps:
+              print(f"Missing settings: {missing}", file=sys.stderr)
+              print(f"CodeSign steps: {signing_steps}", file=sys.stderr)
+              raise SystemExit(1)
+          PY
       - name: Package unsigned Dime QA IPA
         run: |
           set -euo pipefail
