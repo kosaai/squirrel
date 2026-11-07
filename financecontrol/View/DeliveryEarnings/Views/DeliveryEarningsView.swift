@@ -7,6 +7,7 @@ import SwiftUI
 
 struct DeliveryEarningsView: View {
     let bottomEdge: CGFloat
+    @Binding var isInputFocused: Bool
     @StateObject private var viewModel = DeliveryEarningsViewModel()
     @FocusState private var focusedField: DeliveryEarningsField?
 
@@ -22,10 +23,11 @@ struct DeliveryEarningsView: View {
                 }
                 .padding(.horizontal, 14)
                 .padding(.top, 18)
-                .padding(.bottom, max(bottomEdge + 82, 104))
+                .padding(.bottom, focusedField == nil ? max(bottomEdge + 82, 104) : 0)
             }
             .scrollDismissesKeyboardCompat()
             .onChange(of: focusedField) { field in
+                isInputFocused = field != nil
                 guard let field else { return }
                 withAnimation(.easeInOut(duration: 0.2)) {
                     proxy.scrollTo(field, anchor: .center)
@@ -42,6 +44,10 @@ struct DeliveryEarningsView: View {
         }
         .environment(\.layoutDirection, .rightToLeft)
         .background(Color(uiColor: .systemGroupedBackground).ignoresSafeArea())
+        .onDisappear { isInputFocused = false }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+            focusedField = nil
+        }
     }
 
     private var header: some View {

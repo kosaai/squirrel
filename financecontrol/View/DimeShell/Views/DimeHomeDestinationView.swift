@@ -14,6 +14,7 @@ struct DimeHomeDestinationView: View {
     @Binding var presentOnboarding: Bool
     @Binding var statsScrollToTop: Int?
     @Binding var settingsScrollToTop: Int?
+    @Binding var isDeliveryEarningsInputFocused: Bool
 
     var body: some View {
         Group {
@@ -22,7 +23,10 @@ struct DimeHomeDestinationView: View {
             } else if destination == .insights {
                 DimeInsightsView()
             } else if destination == .budget {
-                DeliveryEarningsView(bottomEdge: bottomEdge)
+                DeliveryEarningsView(
+                    bottomEdge: bottomEdge,
+                    isInputFocused: $isDeliveryEarningsInputFocused
+                )
             } else {
                 DimeSettingsView()
             }

@@ -18,6 +18,7 @@ struct DimeHomeView: View {
     let topEdge: CGFloat
     let bottomEdge: CGFloat
     @State private var showTransactionEditor = false
+    @State private var isDeliveryEarningsInputFocused = false
 
     init(
         presentOnboarding: Binding<Bool>,
@@ -43,7 +44,8 @@ struct DimeHomeView: View {
                     bottomEdge: bottomEdge,
                     presentOnboarding: $presentOnboarding,
                     statsScrollToTop: $statsScrollToTop,
-                    settingsScrollToTop: $settingsScrollToTop
+                    settingsScrollToTop: $settingsScrollToTop,
+                    isDeliveryEarningsInputFocused: $isDeliveryEarningsInputFocused
                 )
                 .ignoresSafeArea(.all)
                 .tag(DimeTabDestination.log)
@@ -54,11 +56,12 @@ struct DimeHomeView: View {
                     bottomEdge: bottomEdge,
                     presentOnboarding: $presentOnboarding,
                     statsScrollToTop: $statsScrollToTop,
-                    settingsScrollToTop: $settingsScrollToTop
+                    settingsScrollToTop: $settingsScrollToTop,
+                    isDeliveryEarningsInputFocused: $isDeliveryEarningsInputFocused
                 )
                 .tag(DimeTabDestination.insights)
 
-                DimeHomeDestinationView(destination: .budget, topEdge: topEdge, bottomEdge: bottomEdge, presentOnboarding: $presentOnboarding, statsScrollToTop: $statsScrollToTop, settingsScrollToTop: $settingsScrollToTop)
+                DimeHomeDestinationView(destination: .budget, topEdge: topEdge, bottomEdge: bottomEdge, presentOnboarding: $presentOnboarding, statsScrollToTop: $statsScrollToTop, settingsScrollToTop: $settingsScrollToTop, isDeliveryEarningsInputFocused: $isDeliveryEarningsInputFocused)
                 .tag(DimeTabDestination.budget)
 
                 DimeHomeDestinationView(
@@ -67,21 +70,24 @@ struct DimeHomeView: View {
                     bottomEdge: bottomEdge,
                     presentOnboarding: $presentOnboarding,
                     statsScrollToTop: $statsScrollToTop,
-                    settingsScrollToTop: $settingsScrollToTop
+                    settingsScrollToTop: $settingsScrollToTop,
+                    isDeliveryEarningsInputFocused: $isDeliveryEarningsInputFocused
                 )
                 .tag(DimeTabDestination.settings)
             }
 
-            DimeCustomTabBar(
-                selection: Binding(
-                    get: { navigation.selectedDestination },
-                    set: { navigation.select($0) }
-                ),
-                bottomEdge: bottomEdge,
-                shouldPulseAddButton: coreDataModel.savedSpendings.isEmpty,
-                availableDestinations: navigation.availableDestinations,
-                addTransaction: { showTransactionEditor = true }
-            )
+            if navigation.selectedDestination != .budget || !isDeliveryEarningsInputFocused {
+                DimeCustomTabBar(
+                    selection: Binding(
+                        get: { navigation.selectedDestination },
+                        set: { navigation.select($0) }
+                    ),
+                    bottomEdge: bottomEdge,
+                    shouldPulseAddButton: coreDataModel.savedSpendings.isEmpty,
+                    availableDestinations: navigation.availableDestinations,
+                    addTransaction: { showTransactionEditor = true }
+                )
+            }
         }
         .sheet(isPresented: $showTransactionEditor) {
             DimeTransactionView()
@@ -91,6 +97,11 @@ struct DimeHomeView: View {
         .onChange(of: scenePhase) { phase in
             if phase == .active {
                 coreDataModel.generateDueScheduledTransactions()
+            }
+        }
+        .onChange(of: navigation.selectedDestination) { destination in
+            if destination != .budget {
+                isDeliveryEarningsInputFocused = false
             }
         }
     }
