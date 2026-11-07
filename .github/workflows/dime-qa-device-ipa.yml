@@ -1,4 +1,4 @@
-name: Build Dime QA unsigned device IPA
+name: Build final Dime QA unsigned device IPA
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   device-ipa:
-    name: Build verified Dime QA iPhone IPA
+    name: Preflight and build final Dime QA iPhone IPA
     runs-on: macos-26
     timeout-minutes: 60
     env:
@@ -25,12 +25,45 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Select Xcode 26.6
+      - name: Verify macOS 26 and select compatible Xcode
         run: |
           set -euo pipefail
           mkdir -p "$RUNNER_TEMP/dime-device-logs"
+          sw_vers | tee "$RUNNER_TEMP/dime-device-logs/macos-version.log"
+          sw_vers -productVersion | grep -Eq '^26([.]|$)'
+          if [[ ! -d "$DEVELOPER_DIR" ]]; then
+            echo "Xcode 26.6 not found; checking for another installed Xcode 26.x." >&2
+            candidate="$(find /Applications -maxdepth 1 -type d -name 'Xcode_26*.app' -print | sort | tail -n 1)"
+            test -n "$candidate" || { echo "No compatible Xcode 26 installation available." >&2; exit 1; }
+            export DEVELOPER_DIR="$candidate/Contents/Developer"
+            echo "DEVELOPER_DIR=$DEVELOPER_DIR" >> "$GITHUB_ENV"
+          fi
+          test -d "$DEVELOPER_DIR"
           sudo xcode-select --switch "$DEVELOPER_DIR"
           xcodebuild -version | tee "$RUNNER_TEMP/dime-device-logs/xcode-version.log"
+          xcodebuild -version | grep -Eq '^Xcode 26[.]'
+          xcrun --sdk iphoneos --show-sdk-path | tee "$RUNNER_TEMP/dime-device-logs/iphoneos-sdk.log"
+          xcrun --sdk iphoneos --find clang | tee "$RUNNER_TEMP/dime-device-logs/iphoneos-clang.log"
+      - name: Preflight QA project, assets, configuration and source
+        run: |
+          set -euo pipefail
+          git merge-base --is-ancestor f6c888d7244f4760cb9df48ae301b3bc3b1d3fe6 HEAD
+          test -f Squirrel.xcodeproj/project.pbxproj
+          plutil -lint Squirrel.xcodeproj/project.pbxproj
+          test -f financecontrol/financecontrol.qa.entitlements
+          plutil -lint financecontrol/financecontrol.qa.entitlements
+          test -f financecontrol/Localizable.xcstrings
+          python3 -m json.tool financecontrol/Localizable.xcstrings >/dev/null
+          test -f financecontrol/View/ContentView.swift
+          test -f financecontrol/View/DimeShell/Views/DimeHomeView.swift
+          test -f financecontrol/View/DimeSettings/Views/DimeSettingsView.swift
+          test -f financecontrol/View/Home/Views/DimeLog/DimeLogFilters.swift
+          grep -q '#if DIME_QA' financecontrol/View/ContentView.swift
+          grep -q 'DimeQARoot' financecontrol/View/ContentView.swift
+          grep -q 'group.dev.squirrelapp.squirrel.dimeqa' financecontrol/financecontrol.qa.entitlements
+          xcodebuild -list -project Squirrel.xcodeproj | tee "$RUNNER_TEMP/dime-device-logs/project-schemes.log"
+          grep -q 'Squirrel_Release' "$RUNNER_TEMP/dime-device-logs/project-schemes.log"
+          echo "All preflight checks passed."
       - name: Resolve dependencies
         run: |
           set -o pipefail
@@ -67,7 +100,7 @@ jobs:
       - name: Verify device build and Dime QA contents
         run: |
           set -euo pipefail
-          git merge-base --is-ancestor ec70dcd HEAD
+          git merge-base --is-ancestor f6c888d7244f4760cb9df48ae301b3bc3b1d3fe6 HEAD
           app_path="$RUNNER_TEMP/DimeQADeviceDerivedData/Build/Products/Release-iphoneos/Squirrel.app"
           binary="$app_path/Squirrel"
           test "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleIdentifier' "$app_path/Info.plist")" = "$QA_BUNDLE_ID"
@@ -98,18 +131,18 @@ jobs:
           app_path="$RUNNER_TEMP/DimeQADeviceDerivedData/Build/Products/Release-iphoneos/Squirrel.app"
           package_path="$RUNNER_TEMP/dime-qa-ipa/Payload"
           mkdir -p "$package_path"
-          cp -R "$app_path" "$package_path/Nafaqat-Dime-QA.app"
+          cp -R "$app_path" "$package_path/Nafaqat.app"
           ditto -c -k --sequesterRsrc --keepParent \
             "$package_path" \
-            "$RUNNER_TEMP/Nafaqat-Dime-QA-Updated-Unsigned.ipa"
-          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Updated-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-contents.log"
-          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Updated-Unsigned.ipa" | grep -q 'Payload/Nafaqat-Dime-QA.app/Squirrel$'
-          stat -f '%z bytes' "$RUNNER_TEMP/Nafaqat-Dime-QA-Updated-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-size.log"
+            "$RUNNER_TEMP/Nafaqat-Dime-QA-Final-Unsigned.ipa"
+          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Final-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-contents.log"
+          unzip -l "$RUNNER_TEMP/Nafaqat-Dime-QA-Final-Unsigned.ipa" | grep -q 'Payload/Nafaqat.app/Squirrel$'
+          stat -f '%z bytes' "$RUNNER_TEMP/Nafaqat-Dime-QA-Final-Unsigned.ipa" | tee "$RUNNER_TEMP/dime-device-logs/ipa-size.log"
       - name: Upload unsigned Dime QA device IPA
         uses: actions/upload-artifact@v4
         with:
-          name: Nafaqat-Dime-QA-Updated-Unsigned-IPA
-          path: ${{ runner.temp }}/Nafaqat-Dime-QA-Updated-Unsigned.ipa
+          name: Nafaqat-Dime-QA-Final-Unsigned-IPA
+          path: ${{ runner.temp }}/Nafaqat-Dime-QA-Final-Unsigned.ipa
           if-no-files-found: error
       - name: Upload device IPA verification
         if: always()
