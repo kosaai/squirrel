@@ -30,6 +30,7 @@ struct DimeTransactionView: View {
     @State private var showSaveTemplate = false
     @State private var saveErrorMessage = ""
     @State private var showSaveError = false
+    @FocusState private var isEditingNote: Bool
 
     init(spendingToEdit: SpendingEntity?) {
         self.init(transactionToEdit: spendingToEdit.map(DimeTransactionDataAdapter.Record.expense))
@@ -51,63 +52,85 @@ struct DimeTransactionView: View {
     var body: some View {
         VStack(spacing: 0) {
             DimeTransactionHeader(isEditing: transactionToEdit != nil, dismiss: dismiss, save: save, isSaving: adapter.isSaving)
-            ScrollView(showsIndicators: false) {
-                VStack(spacing: 18) {
-                    DimeTransactionKindPicker(kind: $kind)
-                        .disabled(transactionToEdit != nil)
-                    Text(amount, format: .currency(code: "EUR"))
-                        .font(.system(size: 50, weight: .regular, design: .rounded))
-                        .foregroundColor(Color.PrimaryText)
-                        .minimumScaleFactor(0.5)
-                        .lineLimit(1)
-                    DimeSuggestedTransactions(note: $note, amount: $amount, category: $category, allowsCategoryAssignment: kind == .income, suggestions: suggestions)
-                    HStack(spacing: 10) {
-                        Button { showTemplates = true } label: { Label("Dime Templates Saved", systemImage: "rectangle.stack") }
-                        Button { showSaveTemplate = true } label: { Label("Dime Templates Save As", systemImage: "plus.rectangle.on.rectangle") }
-                    }
-                    .font(.system(.body, design: .rounded).weight(.medium))
-                    .foregroundColor(Color.DarkIcon)
-                    Button { showRecurrencePicker = true } label: {
-                        HStack { Text(recurrence == .none ? String(localized: "Dime Recurring None") : "\(String(localized: "Dime Recurring Every")) \(recurrenceInterval) \(recurrence.unit)"); Spacer(); Image(systemName: "repeat") }
-                            .font(.system(.body, design: .rounded).weight(.medium)).padding(14).foregroundColor(recurrence == .none ? Color.PrimaryText : Color.IncomeGreen).background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    }
-                    if kind == .income {
-                        Button { showCategoryPicker = true } label: {
-                            HStack {
-                                Text(category?.name ?? String(localized: "Dime Transaction Category"))
-                                    .font(.system(.title3, design: .rounded).weight(.medium))
-                                Spacer()
-                                Image(systemName: "chevron.down")
-                            }
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 12)
+            ScrollViewReader { proxy in
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 18) {
+                        DimeTransactionKindPicker(kind: $kind)
+                            .disabled(transactionToEdit != nil)
+                        Text(amount, format: .currency(code: "EUR"))
+                            .font(.system(size: 50, weight: .regular, design: .rounded))
                             .foregroundColor(Color.PrimaryText)
-                            .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
+                        DimeSuggestedTransactions(note: $note, amount: $amount, category: $category, allowsCategoryAssignment: kind == .income, suggestions: suggestions)
+                        HStack(spacing: 10) {
+                            Button { showTemplates = true } label: { Label("Dime Templates Saved", systemImage: "rectangle.stack") }
+                            Button { showSaveTemplate = true } label: { Label("Dime Templates Save As", systemImage: "plus.rectangle.on.rectangle") }
                         }
+                        .font(.system(.body, design: .rounded).weight(.medium))
+                        .foregroundColor(Color.DarkIcon)
+                        Button { showRecurrencePicker = true } label: {
+                            HStack { Text(recurrence == .none ? String(localized: "Dime Recurring None") : "\(String(localized: "Dime Recurring Every")) \(recurrenceInterval) \(recurrence.unit)"); Spacer(); Image(systemName: "repeat") }
+                                .font(.system(.body, design: .rounded).weight(.medium)).padding(14).foregroundColor(recurrence == .none ? Color.PrimaryText : Color.IncomeGreen).background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        }
+                        if kind == .income {
+                            Button { showCategoryPicker = true } label: {
+                                HStack {
+                                    Text(category?.name ?? String(localized: "Dime Transaction Category"))
+                                        .font(.system(.title3, design: .rounded).weight(.medium))
+                                    Spacer()
+                                    Image(systemName: "chevron.down")
+                                }
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 12)
+                                .foregroundColor(Color.PrimaryText)
+                                .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            }
+                        }
+                        TextField("Dime Transaction Note", text: $note)
+                            .font(.system(.body, design: .rounded))
+                            .padding(14)
+                            .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .focused($isEditingNote)
+                            .submitLabel(.done)
+                            .onSubmit { isEditingNote = false }
+                            .id("dime-transaction-note")
+                        DatePicker("Dime Transaction Date", selection: $date)
+                            .font(.system(.body, design: .rounded))
+                            .tint(Color.DarkIcon)
                     }
-                    TextField("Dime Transaction Note", text: $note)
-                        .font(.system(.body, design: .rounded))
-                        .padding(14)
-                        .background(Color.SecondaryBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    DatePicker("Dime Transaction Date", selection: $date)
-                        .font(.system(.body, design: .rounded))
-                        .tint(Color.DarkIcon)
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
+                .onChange(of: isEditingNote) { isEditing in
+                    guard isEditing else { return }
+                    withAnimation(.easeInOut(duration: 0.2)) {
+                        proxy.scrollTo("dime-transaction-note", anchor: .center)
+                    }
+                }
             }
-            DimeNumberPad(
-                price: $amount,
-                category: $category,
-                requiresCategory: kind == .income,
-                isEditingDecimal: $isEditingDecimal,
-                decimalValuesAssigned: $decimalValuesAssigned,
-                submit: save
-            )
-            .frame(height: 290)
-            .padding(.horizontal, 20)
-            .disabled(adapter.isSaving)
+            if !isEditingNote {
+                DimeNumberPad(
+                    price: $amount,
+                    category: $category,
+                    requiresCategory: kind == .income,
+                    isEditingDecimal: $isEditingDecimal,
+                    decimalValuesAssigned: $decimalValuesAssigned,
+                    submit: save
+                )
+                .frame(height: 290)
+                .padding(.horizontal, 20)
+                .disabled(adapter.isSaving)
+            }
         }
         .background(Color.PrimaryBackground)
+        .toolbar {
+            ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Dime Transaction Dismiss Keyboard", systemImage: "keyboard.chevron.compact.down") {
+                    isEditingNote = false
+                }
+            }
+        }
         .sheet(isPresented: $showCategoryPicker) {
             DimeTransactionCategoryPicker(category: $category, showPicker: $showCategoryPicker, categories: coreDataModel.savedCategories)
         }

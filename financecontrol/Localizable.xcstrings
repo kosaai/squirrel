@@ -5100,6 +5100,12 @@
         "ar" : { "stringUnit" : { "state" : "translated", "value" : "حفظ" } }
       }
     },
+    "Dime Transaction Dismiss Keyboard" : {
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dismiss Keyboard" } },
+        "ar" : { "stringUnit" : { "state" : "translated", "value" : "إخفاء لوحة المفاتيح" } }
+      }
+    },
     "Dime Transaction Save Failed" : {
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Couldn’t save transaction" } },
