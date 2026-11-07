@@ -115,8 +115,25 @@ enum DeliveryEarningsCalculator {
             normalized = normalized.replacingOccurrences(of: ",", with: ".")
         }
 
-        guard normalized.range(of: "^[+-]?\\d+(\\.\\d+)?$", options: .regularExpression) != nil,
-              let decimal = Decimal(string: normalized, locale: Locale(identifier: "en_US_POSIX")) else {
+        if [".", "+", "-", "+.", "-."].contains(normalized) {
+            return .empty
+        }
+
+        if normalized.hasSuffix(".") {
+            normalized.append("0")
+        }
+
+        guard normalized.range(of: "^[+-]?(?:\\d+(?:\\.\\d+)?|\\.\\d+)$", options: .regularExpression) != nil else {
+            return .invalid
+        }
+
+        if normalized.hasPrefix(".") {
+            normalized.insert("0", at: normalized.startIndex)
+        } else if normalized.hasPrefix("+.") || normalized.hasPrefix("-.") {
+            normalized.insert("0", at: normalized.index(after: normalized.startIndex))
+        }
+
+        guard let decimal = Decimal(string: normalized, locale: Locale(identifier: "en_US_POSIX")) else {
             return .invalid
         }
 
